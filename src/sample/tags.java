@@ -2,7 +2,7 @@
 package sample;
 
 // Primary object to load data to table view
-public class Vehicle {
+public class tags {
 
     public int id;
     public int year;
@@ -10,7 +10,7 @@ public class Vehicle {
     public String model;
 
     // constructor
-    public Vehicle(int id, int year, String make, String model) {
+    public tags(int id, int year, String make, String model) {
 
         this.id = id;
         this.year = year;

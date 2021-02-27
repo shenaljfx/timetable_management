@@ -54,55 +54,55 @@ public class tagsController implements Initializable {
 
     }
     // implementing update from remote DB to Desktop GUI application
-    public ObservableList<Vehicle> getVehicles(){
+    public ObservableList<tags> getVehicles(){
 
 
-        ObservableList<Vehicle> vehicles = FXCollections.observableArrayList();
+        ObservableList<tags> tags = FXCollections.observableArrayList();
         Connection connect = getConnection();
         String sql_query = "SELECT * FROM vehicles";
 
         try(Statement statement = connect.createStatement()){
             ResultSet result_set = statement.executeQuery(sql_query);
-            // iterating through resultant Vehicle objects from remote DB
+            // iterating through resultant tags objects from remote DB
             while(result_set.next()){
-                Vehicle vehicles_queried = new Vehicle(result_set.getInt("id"), result_set.getInt("year"), result_set.getString("make"), result_set.getString("model"));
-                vehicles.add(vehicles_queried);
+                tags vehicles_queried = new tags(result_set.getInt("id"), result_set.getInt("year"), result_set.getString("make"), result_set.getString("model"));
+                tags.add(vehicles_queried);
             }
         }
         catch(Exception e){
             System.out.println("Error:" + e.getMessage());
         }
-        return vehicles;
+        return tags;
     }
 
 
-    public ObservableList<Vehicle> getVehiclesForGetButton(){
+    public ObservableList<tags> getVehiclesForGetButton(){
 
         // Oracle documentation to process SQL statements with JDBC: https://docs.oracle.com/javase/tutorial/jdbc/basics/processingsqlstatements.html
-        ObservableList<Vehicle> vehicles = FXCollections.observableArrayList();
+        ObservableList<tags> tags = FXCollections.observableArrayList();
         Connection connect = getConnection();
         String sql_query = "SELECT * FROM vehicles WHERE id = " + get_text.getText() + "";
 
 
         try(Statement statement = connect.createStatement()){
             ResultSet result_set = statement.executeQuery(sql_query);
-            // iterating through resultant Vehicle objects from remote DB
+            // iterating through resultant tags objects from remote DB
             while(result_set.next()){
-                Vehicle vehicles_queried = new Vehicle(result_set.getInt("id"), result_set.getInt("year"), result_set.getString("make"), result_set.getString("model"));
-                vehicles.add(vehicles_queried);
+                tags vehicles_queried = new tags(result_set.getInt("id"), result_set.getInt("year"), result_set.getString("make"), result_set.getString("model"));
+                tags.add(vehicles_queried);
             }
         }
         catch(Exception e){
             System.out.println("Error:" + e.getMessage());
         }
-        return vehicles;
+        return tags;
     }
 
     // updating data from MySQL DataBase into Desktop GUI application
     public void pushVehiclesOntoTableForGetButton(){
 
         // retrieving data from remote DB
-        ObservableList<Vehicle> vehicles = getVehiclesForGetButton();
+        ObservableList<tags> tags = getVehiclesForGetButton();
 
         // updating DB into GUI application
         id_column.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -110,14 +110,14 @@ public class tagsController implements Initializable {
         make_column.setCellValueFactory(new PropertyValueFactory<>("make"));
         model_column.setCellValueFactory(new PropertyValueFactory<>("model"));
 
-        main_table.setItems(vehicles);
+        main_table.setItems(tags);
     }
 
     // updating data from MySQL DataBase into Desktop GUI application
     public void pushVehiclesOntoTable(){
 
         // retrieving data from remote DB
-        ObservableList<Vehicle> vehicles = getVehicles();
+        ObservableList<tags> tags = getVehicles();
 
         // updating DB into GUI application
         id_column.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -125,10 +125,10 @@ public class tagsController implements Initializable {
         make_column.setCellValueFactory(new PropertyValueFactory<>("make"));
         model_column.setCellValueFactory(new PropertyValueFactory<>("model"));
 
-        main_table.setItems(vehicles);
+        main_table.setItems(tags);
     }
 
-    // creating Vehicle object based on user input
+    // creating tags object based on user input
     public void createVehicle() throws SQLException {
 
         if(id_text.getText().equals("") || year_text.getText().equals("") || make_text.getText().equals("") || model_text.getText().equals("")) {
@@ -138,14 +138,14 @@ public class tagsController implements Initializable {
             alert.show();
         }
         else{
-            // Creating Vehicle object based on user input
+            // Creating tags object based on user input
             String sql_query = "INSERT INTO vehicles VALUES(" + id_text.getText() + "," + year_text.getText() + ",'" + make_text.getText() + "','" + model_text.getText() + "')";
             establishSQLConnection(sql_query);
             pushVehiclesOntoTable();
         }
     }
 
-    // updating Vehicle object based on ID
+    // updating tags object based on ID
     public void updateVehicle() throws SQLException {
 
         if(id_text.getText().equals("") || year_text.getText().equals("") || make_text.getText().equals("") || model_text.getText().equals("")) {
@@ -156,14 +156,14 @@ public class tagsController implements Initializable {
 
         }
         else {
-            // updating Vehicle object based on id
+            // updating tags object based on id
             String sql_query = "UPDATE vehicles SET year = " + year_text.getText() + ",make = '" + make_text.getText() + "', model = '" + model_text.getText() + "' WHERE id = " + id_text.getText() + "";
             establishSQLConnection(sql_query);
             pushVehiclesOntoTable();
         }
     }
 
-    // deleting Vehicle object based on ID
+    // deleting tags object based on ID
     private void deleteVehicle() throws SQLException {
 
         // testing for invalid user input by means of Dialog
@@ -181,12 +181,12 @@ public class tagsController implements Initializable {
         }
     }
 
-    // getting Vehicle objects based on ID
+    // getting tags objects based on ID
     public void getVehiclesByID() throws SQLException{
         // testing for invalid user input by means of Dialog
         if(get_text.getText().equals("")){
 
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Please enter an ID to retrieve corresponding Vehicle entity!", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please enter an ID to retrieve corresponding tags entity!", ButtonType.OK);
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
             alert.show();
         }
@@ -241,13 +241,13 @@ public class tagsController implements Initializable {
     // param: mouseEvent: MouseEvent
     public void mouseClicked(MouseEvent mouseEvent) {
 
-        Vehicle vehicle = (Vehicle) main_table.getSelectionModel().getSelectedItem();
+        tags tags = (tags) main_table.getSelectionModel().getSelectedItem();
 
         // extracting data from selected row to be displayed into text fields
-        id_text.setText(String.valueOf(vehicle.getId()));
-        year_text.setText(String.valueOf(vehicle.getYear()));
-        make_text.setText(vehicle.getMake());
-        model_text.setText(vehicle.getModel());
+        id_text.setText(String.valueOf(tags.getId()));
+        year_text.setText(String.valueOf(tags.getYear()));
+        make_text.setText(tags.getMake());
+        model_text.setText(tags.getModel());
     }
 
     // delegate function for Initializable class
