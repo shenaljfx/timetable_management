@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" prefHeight="754.0" prefWidth="716.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.tagsController">
+   <rowConstraints>
+      <RowConstraints fillHeight="false" />
+   </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="755.0" prefWidth="793.0" style="-fx-background-color: #9DE6E8;">
+      <VBox layoutX="459.0" layoutY="39.0" prefHeight="164.0" prefWidth="58.0" spacing="25.0" />
+      <VBox layoutX="525.0" layoutY="39.0" prefHeight="164.0" prefWidth="147.0" spacing="13.0" />
+      <Button fx:id="create_btn" layoutX="46.0" layoutY="394.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="27.0" prefWidth="83.0" style="-fx-background-color: #0A9FF6;" text="SAVE" textFill="WHITE" AnchorPane.bottomAnchor="334.00000000000006" AnchorPane.leftAnchor="46.00000000000004" AnchorPane.rightAnchor="664.4" AnchorPane.topAnchor="394.0" />
+      <Button fx:id="update_btn" layoutX="282.0" layoutY="394.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="27.0" prefWidth="83.0" style="-fx-background-color: #FFFF;" text="Update" AnchorPane.bottomAnchor="334.00000000000006" AnchorPane.leftAnchor="282.0" AnchorPane.rightAnchor="428.40000000000003" AnchorPane.topAnchor="394.0" />
+      <Button fx:id="delete_btn" layoutX="167.0" layoutY="394.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="27.0" prefWidth="83.0" style="-fx-background-color: #EE7373;" text="Delete" textFill="WHITE" AnchorPane.bottomAnchor="334.00000000000006" AnchorPane.leftAnchor="167.0" AnchorPane.rightAnchor="543.4" AnchorPane.topAnchor="394.0" />
+      <TextField fx:id="get_text" layoutX="51.0" layoutY="451.0" prefHeight="27.0" prefWidth="128.0" promptText="Enter ID to GET data" AnchorPane.bottomAnchor="277.00000000000006" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="614.6" AnchorPane.topAnchor="451.0" />
+      <Button fx:id="get_button" layoutX="191.0" layoutY="452.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="26.0" prefWidth="58.0" text="Get" AnchorPane.bottomAnchor="277.0" AnchorPane.leftAnchor="191.0" AnchorPane.rightAnchor="545.0" AnchorPane.topAnchor="452.0" />
+      <Button fx:id="revert_button" layoutX="263.0" layoutY="451.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="26.0" prefWidth="69.0" text="Revert" AnchorPane.bottomAnchor="278.0" AnchorPane.leftAnchor="263.0" AnchorPane.rightAnchor="462.0" AnchorPane.topAnchor="451.0" />
+      <Label layoutX="56.0" layoutY="182.0" prefHeight="17.0" prefWidth="42.0" text="ID" AnchorPane.bottomAnchor="555.6" AnchorPane.leftAnchor="55.99999999999998" AnchorPane.rightAnchor="695.2" AnchorPane.topAnchor="182.0" />
+      <TextField fx:id="id_text" layoutX="169.0" layoutY="178.0" prefHeight="26.0" prefWidth="192.0" AnchorPane.bottomAnchor="550.8000000000001" AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="432.6" AnchorPane.topAnchor="178.0" />
+      <TextField fx:id="year_text" layoutX="169.0" layoutY="216.0" prefHeight="26.0" prefWidth="192.0" AnchorPane.bottomAnchor="512.8000000000001" AnchorPane.leftAnchor="169.0" AnchorPane.rightAnchor="432.6" AnchorPane.topAnchor="216.0" />
+      <Label layoutX="56.0" layoutY="220.0" prefHeight="18.0" prefWidth="111.0" text="Tag Name" AnchorPane.bottomAnchor="517.0" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="627.0" AnchorPane.topAnchor="220.0" />
+      <TextField fx:id="make_text" layoutX="167.0" layoutY="256.0" prefHeight="26.0" prefWidth="192.0" AnchorPane.bottomAnchor="472.80000000000007" AnchorPane.leftAnchor="167.0" AnchorPane.rightAnchor="434.6" AnchorPane.topAnchor="256.0" />
+      <Label layoutX="56.0" layoutY="258.0" prefHeight="21.0" prefWidth="94.0" text="Related Tag" AnchorPane.bottomAnchor="475.6" AnchorPane.leftAnchor="55.99999999999997" AnchorPane.rightAnchor="643.2" AnchorPane.topAnchor="258.0" />
+      <TextField fx:id="model_text" layoutX="167.0" layoutY="294.0" prefHeight="26.0" prefWidth="192.0" AnchorPane.bottomAnchor="434.80000000000007" AnchorPane.leftAnchor="167.0" AnchorPane.rightAnchor="434.6" AnchorPane.topAnchor="294.0" />
+      <Label layoutX="56.0" layoutY="296.0" prefHeight="21.0" prefWidth="83.0" text="Tag Code" AnchorPane.bottomAnchor="437.6" AnchorPane.leftAnchor="56.0" AnchorPane.rightAnchor="643.2" AnchorPane.topAnchor="296.0" />
+      <TableView fx:id="main_table" layoutX="378.0" onMouseClicked="#mouseClicked" prefHeight="755.0" prefWidth="416.0" style="-fx-background-size: 100%;">
+         <columns>
+            <TableColumn fx:id="id_column" prefWidth="100.0" text="ID" />
+            <TableColumn fx:id="model_column" prefWidth="100.0" text="Tag Name" />
+            <TableColumn fx:id="year_column" prefWidth="100.0" text="Related Tag" />
+            <TableColumn fx:id="make_column" prefWidth="117.5999755859375" text="Tag Code" />
+         </columns>
+      </TableView>
+      <ChoiceBox layoutX="167.0" layoutY="335.0" prefHeight="26.0" prefWidth="192.0" />
+      <Label layoutX="129.0" layoutY="14.0" prefHeight="85.0" prefWidth="171.0" text="TAGS" AnchorPane.bottomAnchor="655.6" AnchorPane.leftAnchor="129.0" AnchorPane.rightAnchor="493.40000000000003" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Bookman Old Style" size="35.0" />
+         </font>
+      </Label>
+   </AnchorPane>
+</GridPane>
