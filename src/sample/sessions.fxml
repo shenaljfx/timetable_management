@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" prefHeight="755.0" prefWidth="638.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Sessions">
+    <rowConstraints>
+        <RowConstraints fillHeight="false" />
+    </rowConstraints>
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="674.0" style="-fx-background-color: #eee9d9;">
+        <Button fx:id="create_btn" layoutX="45.0" layoutY="476.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: #c8c483;" text="consecutive" />
+        <Button fx:id="update_btn" layoutX="350.0" layoutY="476.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: #c8c483;" text="none overlapping " />
+        <Button fx:id="delete_btn" layoutX="197.0" layoutY="476.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: #c8c483;" text="parallel" />
+        <TextField fx:id="get_text" layoutX="204.0" layoutY="413.0" prefHeight="27.0" prefWidth="115.0" promptText="Enter ID to GET data" />
+        <Button fx:id="get_button" layoutX="346.0" layoutY="414.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #c8c483;" text="Get" />
+        <Button fx:id="revert_button" layoutX="425.0" layoutY="414.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #c8c483;" text="Revert" />
+        <TableView fx:id="main_table" layoutX="6.0" layoutY="51.0" onMouseClicked="#mouseClicked" prefHeight="338.0" prefWidth="656.0" style="-fx-background-size: 100%;">
+            <columns>
+                <TableColumn fx:id="sid_column" prefWidth="100.0" style="-fx-background-color: #c8c483;" text="ID" />
+                <TableColumn fx:id="syear_column" prefWidth="100.0" style="-fx-background-color: #c8c483;" text="Acadamin year" />
+                <TableColumn fx:id="program_column" prefWidth="100.0" style="-fx-background-color: #c8c483;" text="Program" />
+                <TableColumn fx:id="groupNo_column" prefWidth="117.5999755859375" style="-fx-background-color: #c8c483;" text="Group No" />
+                <TableColumn fx:id="sgroupNo_column" prefWidth="117.5999755859375" style="-fx-background-color: #c8c483;" text="SubGroup No" />
+                <TableColumn fx:id="SGID_column" prefWidth="117.5999755859375" style="-fx-background-color: #c8c483;" text="SudGroup ID" />
+            </columns>
+        </TableView>
+        <Label fx:id="syear_coloum" layoutX="29.0" layoutY="-16.0" prefHeight="86.0" prefWidth="323.0" text="Session allocation" textFill="#616161">
+            <font>
+                <Font name="Bookman Old Style" size="30.0" />
+            </font>
+        </Label>
+        <Button layoutX="505.0" layoutY="476.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="130.0" style="-fx-background-color: #c8c483;" text="Not Available times" />
+      <CheckBox layoutX="9.0" layoutY="97.0" mnemonicParsing="false" />
+      <CheckBox layoutX="9.0" layoutY="140.0" mnemonicParsing="false" />
+      <CheckBox layoutX="9.0" layoutY="182.0" mnemonicParsing="false" />
+      <CheckBox layoutX="10.0" layoutY="230.0" mnemonicParsing="false" />
+    </AnchorPane>
+</GridPane>

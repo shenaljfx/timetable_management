@@ -930,7 +930,7 @@
     </user>
     <table id="295" parent="13" name="books"/>
     <table id="296" parent="13" name="studentgroup"/>
-    <table id="297" parent="13" name="vehicles"/>
+    <table id="297" parent="13" name="tags"/>
     <column id="298" parent="295" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
@@ -968,7 +968,7 @@
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="305" parent="296" name="year">
+    <column id="305" parent="296" name="syear">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
@@ -1005,17 +1005,17 @@
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="312" parent="297" name="year">
+    <column id="312" parent="297" name="Tname">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="297" name="make">
+    <column id="313" parent="297" name="Rtag">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="297" name="model">
+    <column id="314" parent="297" name="Tcode">
       <Position>4</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>

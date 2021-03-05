@@ -1,43 +1,37 @@
-// Created by David Kumar
+
 package sample;
 
 // Primary object to load data to table view
 public class tags {
 
     public int id;
-    public int year;
-    public String make;
-    public String model;
+    public String Tname;
+    public String Rtag;
+    public String Tcode;
 
     // constructor
-    public tags(int id, int year, String make, String model) {
+    public tags(int id, String Tname, String Rtag, String Tcode) {
 
         this.id = id;
-        this.year = year;
-        this.make = make;
-        this.model = model;
+        this.Tname = Tname;
+        this.Rtag = Rtag;
+        this.Tcode = Tcode;
     }
-
     // defining accessors and mutators
     public int getId() {
         return id;
     }
-
-    public void setId(Integer id) {this.id = id;}
-
-    public int getYear() {return year;}
-
-    public void setYear(Integer year) {this.year = year;}
-
-    public String getMake() {
-        return make;
+    public String getTname() {
+        return Tname;
     }
 
-    public void setMake(String make) {this.make = make;}
-
-    public String getModel() {
-        return model;
+    public String getRtag() {
+        return Rtag;
     }
 
-    public void setModel(String model) {this.model = model;}
+    public String getTcode() {
+        return Tcode;
+    }
+
+
 }

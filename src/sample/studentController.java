@@ -21,7 +21,7 @@ public class studentController  implements Initializable {
     public TextField program_text;
     public TextField groupNo;
     public TextField sgroupNo;
-    public TextField sgroupID;
+    public TextField SGID;
 
     public TableView main_table;
     public TableColumn sid_column;
@@ -30,7 +30,7 @@ public class studentController  implements Initializable {
     public TableColumn groupNo_column;
     public TableColumn sgroupNo_column;
     public TableColumn SGID_column;
-    public Button create_btn;
+    public Button Screate_btn;
     public Button update_btn;
     public Button delete_btn;
     public TextField get_text;
@@ -107,7 +107,7 @@ public class studentController  implements Initializable {
 
         // updating DB into GUI application
         sid_column.setCellValueFactory(new PropertyValueFactory<>("sid"));
-        syear_column.setCellValueFactory(new PropertyValueFactory<>("year"));
+        syear_column.setCellValueFactory(new PropertyValueFactory<>("syear"));
         program_column.setCellValueFactory(new PropertyValueFactory<>("program"));
         groupNo_column.setCellValueFactory(new PropertyValueFactory<>(" groupNo"));
         sgroupNo_column.setCellValueFactory(new PropertyValueFactory<>("sgroupNo"));
@@ -118,7 +118,7 @@ public class studentController  implements Initializable {
 
     // updating data from MySQL DataBase into Desktop GUI application
     public void pushStudentOntoTable(){
-
+try{
         // retrieving data from remote DB
         ObservableList<student> student = getStudent();
 
@@ -128,10 +128,15 @@ public class studentController  implements Initializable {
         program_column.setCellValueFactory(new PropertyValueFactory<>("program"));
         groupNo_column.setCellValueFactory(new PropertyValueFactory<>("groupNo"));
         sgroupNo_column.setCellValueFactory(new PropertyValueFactory<>("sgroupNo"));
+        SGID_column.setCellValueFactory(new PropertyValueFactory<>("SGID"));
+
 
 
         main_table.setItems(student);
-    }
+    }catch(Exception e1){
+
+        System.out.println("error");
+    }}
 
     // creating student object based on user input
     public void createStudent() throws SQLException {
@@ -143,18 +148,17 @@ public class studentController  implements Initializable {
             alert.show();
         }
         else{
-            // Creating student object based on user input
-            String sql_query = "INSERT INTO studentgroup VALUES(" + sid_text.getText() + "," + syear_text.getText() + ",'" + program_text.getText() + "','" + groupNo.getText()+ ",'"+ sgroupNo.getText() + "','"  + "')";
-            establishSQLConnection(sql_query);
-            pushStudentOntoTable();
-        }
+                // Creating student object based on user input
+                String sql_query = "INSERT INTO studentgroup VALUES(" + sid_text.getText() + "," + syear_text.getText() + ",'" + program_text.getText() + "','" + groupNo.getText() + ",'" + sgroupNo.getText() + "','" + SGID.getText()  + "')";
+                establishSQLConnection(sql_query);
+                pushStudentOntoTable();
+            }
 
 }
-
     // updating student object based on ID
     public void updateStudent() throws SQLException {
 
-        if(sid_text.getText().equals("") || syear_text.getText().equals("") || program_text.getText().equals("") || groupNo.getText().equals("")) {
+        if(sid_text.getText().equals("") || syear_text.getText().equals("") || program_text.getText().equals("") || groupNo.getText().equals("")|| sgroupNo.getText().equals("")) {
             // testing for invalid user input by means of Dialog
             Alert alert = new Alert(Alert.AlertType.ERROR, "Please fill all text fields!", ButtonType.OK);
             alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
@@ -163,7 +167,7 @@ public class studentController  implements Initializable {
         }
         else {
             // updating student object based on id
-            String sql_query = "UPDATE studentgroup SET syear = " + syear_text.getText() + ",program = '" + program_text.getText() + "', groupNo = '" + groupNo.getText() + "', groupNo = '" + groupNo.getText() + "' WHERE id = " + sid_text.getText() + "";
+            String sql_query = "UPDATE studentgroup SET syear = " + syear_text.getText() + ",program = '" + program_text.getText() + "', groupNo = '" + groupNo.getText() + "', sgroupNo = '" + sgroupNo.getText() + "', groupNo = '" + SGID.getText() + "' WHERE id = " + sid_text.getText() + "";
             establishSQLConnection(sql_query);
            pushStudentOntoTable();
         }
@@ -197,7 +201,7 @@ public class studentController  implements Initializable {
             alert.show();
         }
         else{
-            String sql_query = "SELECT * FROM vehicles WHERE id = " + get_text.getText() + "";
+            String sql_query = "SELECT * FROM studentgroup WHERE sid = " + get_text.getText() + "";
             establishSQLConnection(sql_query);
             pushStudentOntoTableForGetButton();
         }
@@ -222,7 +226,7 @@ public class studentController  implements Initializable {
     public void buttonPressed(javafx.event.ActionEvent actionEvent) throws SQLException {
 
         // calling relevant methods based on event source
-        if (actionEvent.getSource() == create_btn ){
+        if (actionEvent.getSource() == Screate_btn ){
             createStudent();
         }
         else if(actionEvent.getSource() == update_btn){
@@ -255,9 +259,10 @@ public class studentController  implements Initializable {
         program_text.setText(student.getProgram());
         groupNo.setText(student.getGroupNo());
         sgroupNo.setText(student.getSgroupNo());
+        SGID.setText(student.getSGID());
     }
 
-    // delegate function for Initializable class
+    // delegate function for Initialisable class
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         pushStudentOntoTable();
