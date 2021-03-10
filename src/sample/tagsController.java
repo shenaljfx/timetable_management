@@ -157,7 +157,7 @@ public class tagsController implements Initializable {
         }
         else {
             // updating tags object based on id
-            String sql_query = "UPDATE tags SET Tname = " + Tname_text.getText() + ", Rtag = '" + Rtag_text.getText() + "', Tcode = '" + Tcode_text.getText() + "' WHERE id = " + id_text.getText() + "";
+            String sql_query = "UPDATE tags SET Tcode = " + Tcode_text.getText() + ", Rtag = '" + Rtag_text.getText() + "', Tname = '" + Tname_text.getText() + "' WHERE id = " + id_text.getText() + "";
             establishSQLConnection(sql_query);
             pushTagsOntoTable();
         }

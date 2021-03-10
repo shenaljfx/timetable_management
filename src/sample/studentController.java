@@ -149,7 +149,7 @@ try{
         }
         else{
                 // Creating student object based on user input
-                String sql_query = "INSERT INTO studentgroup VALUES(" + sid_text.getText() + "," + syear_text.getText() + ",'" + program_text.getText() + "','" + groupNo.getText() + ",'" + sgroupNo.getText() + "','" + SGID.getText()  + "')";
+                String sql_query = "INSERT INTO studentgroup VALUES(" + sid_text.getText() + "," + SGID.getText() + ",'" + sgroupNo.getText() + "','" + groupNo.getText() + ",'" + program_text.getText() + "','" + syear_text.getText()  + "')";
                 establishSQLConnection(sql_query);
                 pushStudentOntoTable();
             }
