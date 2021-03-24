@@ -268,6 +268,8 @@ public class studentController  implements Initializable {
         SGID.setText(student.getSGID());
     }
 
+    //Generate group ID
+
     private void genSgroupID() {
         String x = syear_text.getText();
         String y = program_text.getText();
