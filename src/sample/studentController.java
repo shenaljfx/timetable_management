@@ -19,6 +19,8 @@ import java.util.ResourceBundle;
 public class studentController  implements Initializable {
     // declaring javafx components as defined in .fxml\
     @FXML
+    private Label SUBID;
+    @FXML
     private TextField sid_text;
     @FXML
     private TextField syear_text;
@@ -165,9 +167,14 @@ public class studentController  implements Initializable {
 
     @FXML
     private void createStudent() {
-        String query = "insert into studentgroup values(" + sid_text.getText() + ",'" + syear_text.getText() + "','" + program_text.getText() + "'," + groupNo.getText() + "," + sgroupNo.getText() + "," + SGID.getText() + ")";
-        executeQuery(query);
-        showStudent();
+        try {
+            String query = "insert into studentgroup values(" + sid_text.getText() + ",'" + syear_text.getText() + "','" + program_text.getText() + "'," + groupNo.getText() + "," + sgroupNo.getText() + "," + SGID.getText() + ")";
+            executeQuery(query);
+            showStudent();
+        }catch (Exception e){
+            System.out.println(e);
+        }
+
     }
 
     @FXML
@@ -177,11 +184,17 @@ public class studentController  implements Initializable {
         showStudent();
     }
 
+
+
     @FXML
     private void deleteStudent() {
         String query = "DELETE FROM studentgroup WHERE sid=" + sid_text.getText() + "";
         executeQuery(query);
         showStudent();
+    }
+    @FXML
+    private void GenerateIDS() {
+        genSgroupID();
     }
 
     public void executeQuery(String query) {
@@ -191,7 +204,8 @@ public class studentController  implements Initializable {
             st = conn.createStatement();
             st.executeUpdate(query);
         } catch (Exception e) {
-            e.printStackTrace();
+
+            System.out.println(e);
         }
     }
 
@@ -254,6 +268,17 @@ public class studentController  implements Initializable {
         groupNo.setText(student.getGroupNo());
         sgroupNo.setText(student.getSgroupNo());
         SGID.setText(student.getSGID());
+    }
+
+    private void genSgroupID() {
+        String x = syear_text.getText();
+        String y = program_text.getText();
+        String z = groupNo.getText();
+        String z2= sgroupNo.getText();
+
+        String genID = x+y+z+z2;
+        System.out.println(genID);
+        SGID.setText(genID);
     }
 }
 

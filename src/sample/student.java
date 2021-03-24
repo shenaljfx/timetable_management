@@ -1,7 +1,7 @@
 package sample;
 
 public class student {
-    public int sid;
+
 
     public student(int sid, String syear, String program, String groupNo, String sgroupNo, String SGID) {
         this.sid = sid;
@@ -35,7 +35,7 @@ public class student {
     public String getSGID() {
         return SGID;
     }
-
+    public int sid;
     public String syear;
     public String program;
     public String groupNo;
