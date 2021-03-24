@@ -157,8 +157,6 @@ public class studentController  implements Initializable {
             sgroupNo_column.setCellValueFactory(new PropertyValueFactory<>("sgroupNo"));
             SGID_column.setCellValueFactory(new PropertyValueFactory<>("SGID"));
 
-
-
             main_table.setItems(student);
         }catch(Exception e1){
 
@@ -168,7 +166,7 @@ public class studentController  implements Initializable {
     @FXML
     private void createStudent() {
         try {
-            String query = "insert into studentgroup values(" + sid_text.getText() + ",'" + syear_text.getText() + "','" + program_text.getText() + "'," + groupNo.getText() + "," + sgroupNo.getText() + "," + SGID.getText() + ")";
+            String query = "insert into studentgroup values(" + sid_text.getText() + ",'" + syear_text.getText() + "','" + SGID.getText() + "','" + groupNo.getText() + "','" + sgroupNo.getText() + "','" + program_text.getText() + "')";
             executeQuery(query);
             showStudent();
         }catch (Exception e){
@@ -179,7 +177,7 @@ public class studentController  implements Initializable {
 
     @FXML
     private void updateStudent() {
-        String query = "UPDATE studentgroup SET syear='" + syear_text.getText() + "',program='" + program_text.getText() + "',groupNo=" + groupNo.getText() + ",sgroupNo=" + sgroupNo.getText() +",SGID="+ SGID.getText() + " WHERE sid=" + sid_text.getText() + "";
+        String query = "UPDATE studentgroup SET syear='" + syear_text.getText() + "',SGID='" + SGID.getText() + "',groupNo=" + groupNo.getText() + ",sgroupNo=" + sgroupNo.getText() +",program= '"+ program_text.getText() + "' WHERE sid=" + sid_text.getText() + "";
         executeQuery(query);
         showStudent();
     }
