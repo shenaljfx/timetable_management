@@ -1,7 +1,9 @@
 package sample;
 // javafx libraries
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -15,46 +17,60 @@ import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class studentController  implements Initializable {
-    // declaring javafx components as defined in .fxml
-    public TextField sid_text;
-    public TextField syear_text;
-    public TextField program_text;
-    public TextField groupNo;
-    public TextField sgroupNo;
-    public TextField SGID;
+    // declaring javafx components as defined in .fxml\
+    @FXML
+    private TextField sid_text;
+    @FXML
+    private TextField syear_text;
+    @FXML
+    private TextField program_text;
+    @FXML
+    private TextField groupNo;
+    @FXML
+    private TextField sgroupNo;
+    @FXML
+    private TextField SGID;
+    @FXML
+    private TableView <student> main_table;
+    @FXML
+    private TableColumn<student, Integer> sid_column;
+    @FXML
+    private TableColumn<student, String> syear_column;
+    @FXML
+    private TableColumn <student, String>program_column;
+    @FXML
+    private TableColumn <student, String>groupNo_column;
+    @FXML
+    private TableColumn<student, String> sgroupNo_column;
+    @FXML
+    private TableColumn <student, String>SGID_column;
+    @FXML
+    private Button Screate_btn;
+    @FXML
+    private Button update_btn;
+    @FXML
+    private Button delete_btn;
+    @FXML
+    private TextField get_text;
+    @FXML
+    private Button get_button;
+    @FXML
+    private Button revert_button;
+    // getting student objects based on ID
+    public void getStudentByID() throws SQLException{
+        // testing for invalid user input by means of Dialog
+        if(get_text.getText().equals("")){
 
-    public TableView main_table;
-    public TableColumn sid_column;
-    public TableColumn syear_column;
-    public TableColumn program_column;
-    public TableColumn groupNo_column;
-    public TableColumn sgroupNo_column;
-    public TableColumn SGID_column;
-    public Button Screate_btn;
-    public Button update_btn;
-    public Button delete_btn;
-    public TextField get_text;
-    public Button get_button;
-    public Button revert_button;
-    private Properties user;
-    private Properties password;
-
-    // establishing initial connection with MySQL server
-    public Connection getConnection(){
-
-        Connection connect_object;
-        try{
-            Class.forName("org.sqlite.JDBC");
-            connect_object = DriverManager.getConnection("jdbc:mysql://localhost:3306/student","root","shenaljfx" );
-            return connect_object;
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Please enter an ID to retrieve corresponding student entity!", ButtonType.OK);
+            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+            alert.show();
         }
-        catch(Exception e){
-            System.out.println("Error:" + e.getMessage());
-            return null;
+        else{
+            String sql_query = "SELECT * FROM studentgroup WHERE sid = " + get_text.getText() + "";
+            executeQuery(sql_query);
+            pushStudentOntoTableForGetButton();
         }
-
     }
-    // implementing update from remote DB to Desktop GUI application
     public ObservableList<student> getStudent(){
 
 
@@ -98,7 +114,16 @@ public class studentController  implements Initializable {
         }
         return student;
     }
+    public void buttonPressed(javafx.event.ActionEvent actionEvent) throws SQLException {
+       if (actionEvent.getSource() == get_button){
+            getStudentByID();
+        }
 
+        else if(actionEvent.getSource() == revert_button){
+            pushStudentOntoTable();
+            get_text.clear();
+        }
+    }
     // updating data from MySQL DataBase into Desktop GUI application
     public void pushStudentOntoTableForGetButton(){
 
@@ -115,140 +140,109 @@ public class studentController  implements Initializable {
 
         main_table.setItems(student);
     }
-
     // updating data from MySQL DataBase into Desktop GUI application
+
     public void pushStudentOntoTable(){
-try{
-        // retrieving data from remote DB
-        ObservableList<student> student = getStudent();
+        try{
+            // retrieving data from remote DB
+            ObservableList<student> student = getStudent();
 
-        // updating DB into GUI application
-        sid_column.setCellValueFactory(new PropertyValueFactory<>("sid"));
-        syear_column.setCellValueFactory(new PropertyValueFactory<>("syear"));
-        program_column.setCellValueFactory(new PropertyValueFactory<>("program"));
-        groupNo_column.setCellValueFactory(new PropertyValueFactory<>("groupNo"));
-        sgroupNo_column.setCellValueFactory(new PropertyValueFactory<>("sgroupNo"));
-        SGID_column.setCellValueFactory(new PropertyValueFactory<>("SGID"));
+            // updating DB into GUI application
+            sid_column.setCellValueFactory(new PropertyValueFactory<>("sid"));
+            syear_column.setCellValueFactory(new PropertyValueFactory<>("syear"));
+            program_column.setCellValueFactory(new PropertyValueFactory<>("program"));
+            groupNo_column.setCellValueFactory(new PropertyValueFactory<>("groupNo"));
+            sgroupNo_column.setCellValueFactory(new PropertyValueFactory<>("sgroupNo"));
+            SGID_column.setCellValueFactory(new PropertyValueFactory<>("SGID"));
 
 
 
-        main_table.setItems(student);
-    }catch(Exception e1){
+            main_table.setItems(student);
+        }catch(Exception e1){
 
-        System.out.println("error");
-    }}
+            System.out.println("error");
+        }}
 
-    // creating student object based on user input
-    public void createStudent() throws SQLException {
+    @FXML
+    private void createStudent() {
+        String query = "insert into studentgroup values(" + sid_text.getText() + ",'" + syear_text.getText() + "','" + program_text.getText() + "'," + groupNo.getText() + "," + sgroupNo.getText() + "," + SGID.getText() + ")";
+        executeQuery(query);
+        showStudent();
+    }
 
-        if(sid_text.getText().equals("") || syear_text.getText().equals("") || program_text.getText().equals("") || groupNo.getText().equals("")|| sgroupNo.getText().equals("")) {
-            // testing for invalid user input by means of Dialog
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Please fill all text fields!", ButtonType.OK);
-            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-            alert.show();
+    @FXML
+    private void updateStudent() {
+        String query = "UPDATE studentgroup SET syear='" + syear_text.getText() + "',program='" + program_text.getText() + "',groupNo=" + groupNo.getText() + ",sgroupNo=" + sgroupNo.getText() +",SGID="+ SGID.getText() + " WHERE sid=" + sid_text.getText() + "";
+        executeQuery(query);
+        showStudent();
+    }
+
+    @FXML
+    private void deleteStudent() {
+        String query = "DELETE FROM studentgroup WHERE sid=" + sid_text.getText() + "";
+        executeQuery(query);
+        showStudent();
+    }
+
+    public void executeQuery(String query) {
+        Connection conn = getConnection();
+        Statement st;
+        try {
+            st = conn.createStatement();
+            st.executeUpdate(query);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        else{
-                // Creating student object based on user input
-                String sql_query = "INSERT INTO studentgroup VALUES(" + sid_text.getText() + "," + SGID.getText() + ",'" + sgroupNo.getText() + "','" + groupNo.getText() + ",'" + program_text.getText() + "','" + syear_text.getText()  + "')";
-                establishSQLConnection(sql_query);
-                pushStudentOntoTable();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        showStudent();
+    }
+
+    public Connection getConnection() {
+        Connection conn;
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root", "shenaljfx");
+            return conn;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public ObservableList<student> getStudentList(){
+        ObservableList<student> studentList = FXCollections.observableArrayList();
+        Connection connection = getConnection();
+        String query = "SELECT * FROM studentgroup ";
+        Statement st;
+        ResultSet rs;
+
+        try {
+            st = connection.createStatement();
+            rs = st.executeQuery(query);
+            student student;
+            while(rs.next()) {
+                student = new student(rs.getInt("sid"),rs.getString("syear"),rs.getString("program"),rs.getString("groupNo"),rs.getString("sgroupNo"),rs.getString("SGID"));
+                studentList.add(student);
             }
-
-}
-    // updating student object based on ID
-    public void updateStudent() throws SQLException {
-
-        if(sid_text.getText().equals("") || syear_text.getText().equals("") || program_text.getText().equals("") || groupNo.getText().equals("")|| sgroupNo.getText().equals("")) {
-            // testing for invalid user input by means of Dialog
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Please fill all text fields!", ButtonType.OK);
-            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-            alert.show();
-
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        else {
-            // updating student object based on id
-            String sql_query = "UPDATE studentgroup SET syear = " + syear_text.getText() + ",program = '" + program_text.getText() + "', groupNo = '" + groupNo.getText() + "', sgroupNo = '" + sgroupNo.getText() + "', groupNo = '" + SGID.getText() + "' WHERE id = " + sid_text.getText() + "";
-            establishSQLConnection(sql_query);
-           pushStudentOntoTable();
-        }
+        return studentList;
     }
 
-    // deleting student object based on ID
-    private void deleteStudent() throws SQLException {
+  public void showStudent(){
+      ObservableList<student> list = getStudentList();
+      sid_column.setCellValueFactory(new PropertyValueFactory<student,Integer>("sid"));
+      syear_column.setCellValueFactory(new PropertyValueFactory<student,String>("syear"));
+      program_column.setCellValueFactory(new PropertyValueFactory<student,String>("program"));
+      groupNo_column.setCellValueFactory(new PropertyValueFactory<student,String>("groupNo"));
+      sgroupNo_column.setCellValueFactory(new PropertyValueFactory<student,String>("sgroupNo"));
+      SGID_column.setCellValueFactory(new PropertyValueFactory<student,String>("SGID"));
 
-        // testing for invalid user input by means of Dialog
-        if(sid_text.getText().equals("") || syear_text.getText().equals("") || program_text.getText().equals("") || groupNo.getText().equals("")){
+      main_table.setItems(list);
 
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Please select a row in the table or add an ID in the text field to delete!", ButtonType.OK);
-            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-            alert.show();
-        }
-        else{
-            // deleting row based on ID since it is the primary key
-            String sql_query = "DELETE FROM studentgroup WHERE sid = " + sid_text.getText() + "";
-            establishSQLConnection(sql_query);
-            pushStudentOntoTable();
-        }
-    }
-
-    // getting student objects based on ID
-    public void getStudentByID() throws SQLException{
-        // testing for invalid user input by means of Dialog
-        if(get_text.getText().equals("")){
-
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Please enter an ID to retrieve corresponding student entity!", ButtonType.OK);
-            alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
-            alert.show();
-        }
-        else{
-            String sql_query = "SELECT * FROM studentgroup WHERE sid = " + get_text.getText() + "";
-            establishSQLConnection(sql_query);
-            pushStudentOntoTableForGetButton();
-        }
-    }
-
-    // using SQL statement to make relevant query to update table accordingly
-    // param: sql_query:String
-    private void establishSQLConnection(String sql_query) throws SQLException {
-
-        Connection connect_object = getConnection();
-
-        try(Statement statement = connect_object.createStatement()){
-            statement.executeUpdate(sql_query);
-        }
-        catch (Exception e){
-
-        }
-    }
-
-    // event handler for button press
-    // param: actionEvent: ActionEvent
-    public void buttonPressed(javafx.event.ActionEvent actionEvent) throws SQLException {
-
-        // calling relevant methods based on event source
-        if (actionEvent.getSource() == Screate_btn ){
-            createStudent();
-        }
-        else if(actionEvent.getSource() == update_btn){
-            updateStudent();
-        }
-
-        else if(actionEvent.getSource() == delete_btn){
-            deleteStudent();
-        }
-
-        else if (actionEvent.getSource() == get_button){
-            getStudentByID();
-        }
-
-        else if(actionEvent.getSource() == revert_button){
-            pushStudentOntoTable();
-            get_text.clear();
-        }
-    }
-
-    // event handler for mouse click on table cell
-    // param: mouseEvent: MouseEvent
+  }
     public void mouseClicked(MouseEvent mouseEvent) {
 
         student student = (student) main_table.getSelectionModel().getSelectedItem();
@@ -261,12 +255,5 @@ try{
         sgroupNo.setText(student.getSgroupNo());
         SGID.setText(student.getSGID());
     }
-
-    // delegate function for Initialisable class
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        pushStudentOntoTable();
-    }
-
-
 }
+

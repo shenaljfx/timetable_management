@@ -99,7 +99,7 @@ public class tagsController implements Initializable {
     }
 
     // updating data from MySQL DataBase into Desktop GUI application
-    public void pushVehiclesOntoTableForGetButton(){
+    public void pushTagsOntoTableForGetButton(){
 
         // retrieving data from remote DB
         ObservableList<tags> tags = getTagsForGetButton();
@@ -193,7 +193,7 @@ public class tagsController implements Initializable {
         else{
             String sql_query = "SELECT * FROM tags WHERE id = " + get_text.getText() + "";
             establishSQLConnection(sql_query);
-            pushVehiclesOntoTableForGetButton();
+            pushTagsOntoTableForGetButton();
         }
     }
 
@@ -240,6 +240,8 @@ public class tagsController implements Initializable {
     // event handler for mouse click on table cell
     // param: mouseEvent: MouseEvent
     public void mouseClicked(MouseEvent mouseEvent) {
+try {
+
 
         tags tags = (tags) main_table.getSelectionModel().getSelectedItem();
 
@@ -248,6 +250,9 @@ public class tagsController implements Initializable {
         Tname_text.setText(String.valueOf(tags.getTname()));
         Rtag_text.setText(tags.getRtag());
         Tcode_text.setText(tags.getTcode());
+}catch (NullPointerException E){
+    System.out.println("error");
+}
     }
 
     // delegate function for Initializable class
