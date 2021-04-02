@@ -136,7 +136,7 @@ public class studentController  implements Initializable {
         sid_column.setCellValueFactory(new PropertyValueFactory<>("sid"));
         syear_column.setCellValueFactory(new PropertyValueFactory<>("syear"));
         program_column.setCellValueFactory(new PropertyValueFactory<>("program"));
-        groupNo_column.setCellValueFactory(new PropertyValueFactory<>(" groupNo"));
+        groupNo_column.setCellValueFactory(new PropertyValueFactory<>("groupNo"));
         sgroupNo_column.setCellValueFactory(new PropertyValueFactory<>("sgroupNo"));
         SGID_column.setCellValueFactory(new PropertyValueFactory<>("SGID"));
 
