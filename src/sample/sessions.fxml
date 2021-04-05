@@ -21,14 +21,14 @@
         <TableView fx:id="main_table" layoutX="6.0" layoutY="51.0" onMouseClicked="#mouseClicked" prefHeight="338.0" prefWidth="656.0" style="-fx-background-size: 100%;">
             <columns>
                 <TableColumn fx:id="sid_column" prefWidth="100.0" style="-fx-background-color: #c8c483;" text="ID" />
-                <TableColumn fx:id="syear_column" prefWidth="100.0" style="-fx-background-color: #c8c483;" text="Acadamin year" />
-                <TableColumn fx:id="program_column" prefWidth="100.0" style="-fx-background-color: #c8c483;" text="Program" />
-                <TableColumn fx:id="groupNo_column" prefWidth="117.5999755859375" style="-fx-background-color: #c8c483;" text="Group No" />
-                <TableColumn fx:id="sgroupNo_column" prefWidth="117.5999755859375" style="-fx-background-color: #c8c483;" text="SubGroup No" />
-                <TableColumn fx:id="SGID_column" prefWidth="117.5999755859375" style="-fx-background-color: #c8c483;" text="SudGroup ID" />
+                <TableColumn fx:id="syear_column" prefWidth="100.0" style="-fx-background-color: #c8c483;" text="Lecture 1" />
+                <TableColumn fx:id="program_column" prefWidth="100.0" style="-fx-background-color: #c8c483;" text="Lecture 2" />
+                <TableColumn fx:id="groupNo_column" prefWidth="117.5999755859375" style="-fx-background-color: #c8c483;" text="Subject code" />
+                <TableColumn fx:id="sgroupNo_column" prefWidth="117.5999755859375" style="-fx-background-color: #c8c483;" text="Group ID" />
+                <TableColumn fx:id="SGID_column" prefWidth="117.5999755859375" style="-fx-background-color: #c8c483;" text="Tag" />
             </columns>
         </TableView>
-        <Label fx:id="syear_coloum" layoutX="29.0" layoutY="-16.0" prefHeight="86.0" prefWidth="323.0" text="Session allocation" textFill="#616161">
+        <Label fx:id="syear_coloum" layoutX="29.0" layoutY="-16.0" prefHeight="69.0" prefWidth="323.0" text="Session allocation" textFill="#616161">
             <font>
                 <Font name="Bookman Old Style" size="30.0" />
             </font>

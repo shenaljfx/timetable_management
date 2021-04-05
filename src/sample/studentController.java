@@ -1,19 +1,25 @@
 package sample;
 // javafx libraries
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 
 // java libraries
 import java.net.URL;
 import java.sql.*;
-import java.util.Properties;
 import java.util.ResourceBundle;
 
 public class studentController  implements Initializable {
@@ -279,6 +285,19 @@ public class studentController  implements Initializable {
         String genID = x+y+z+z2;
         System.out.println(genID);
         SGID.setText(genID);
+    }
+    //change screen method
+
+    public void changeScreen(javafx.event.ActionEvent event) {
+        try{
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("../mainPage.fxml"));
+            Scene tableViewScene = new Scene(tableViewParent);
+            Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(tableViewScene);
+            window.show();
+        }catch(Exception E){
+            System.out.println(E);
+        }
     }
 }
 

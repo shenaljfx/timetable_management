@@ -4,11 +4,16 @@ package sample;
 // javafx libraries
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
+import javafx.stage.Stage;
 
 // java libraries
 import java.net.URL;
@@ -261,5 +266,17 @@ try {
         pushTagsOntoTable();
     }
 
+    //change screen method
 
+    public void changeScreen(javafx.event.ActionEvent event) {
+        try{
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("../mainPage.fxml"));
+            Scene tableViewScene = new Scene(tableViewParent);
+            Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(tableViewScene);
+            window.show();
+        }catch(Exception E){
+            System.out.println(E);
+        }
+    }
 }

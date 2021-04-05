@@ -48,5 +48,6 @@
       <Button fx:id="genID" layoutX="102.0" layoutY="472.0" mnemonicParsing="false" onAction="#GenerateIDS" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="GENARATE IDS" AnchorPane.bottomAnchor="257.0" AnchorPane.leftAnchor="102.0" AnchorPane.rightAnchor="830.0" AnchorPane.topAnchor="472.0" />
       <Label layoutX="14.0" layoutY="382.0" prefHeight="18.0" prefWidth="116.0" text="SubGroup ID" />
       <TextField fx:id="SGID" layoutX="131.0" layoutY="378.0" prefHeight="26.0" prefWidth="202.0" />
+      <Button layoutX="14.0" layoutY="714.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="Back to main page" />
    </AnchorPane>
 </GridPane>

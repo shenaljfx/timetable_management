@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="583.0" style="-fx-background-color: #eee9d9;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPage">
+   <children>
+      <Button layoutX="25.0" layoutY="125.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #c8c483;" text="Manage students" />
+      <Button layoutX="25.0" layoutY="173.0" mnemonicParsing="false" onAction="#manageTags" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #c8c483;" text="Manage Tags" />
+      <Button layoutX="25.0" layoutY="221.0" mnemonicParsing="false" onAction="#manageTags" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #c8c483;" text="Manage sessions" />
+      <Label layoutX="25.0" layoutY="14.0" prefHeight="78.0" prefWidth="324.0" text="Timetable mangement system">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="203.0" layoutY="125.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="153.0" style="-fx-background-color: #c8c483;" text="Add working days" />
+      <Button layoutX="203.0" layoutY="173.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="153.0" style="-fx-background-color: #c8c483;" text="Add lecturer" />
+      <Button layoutX="203.0" layoutY="221.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="153.0" style="-fx-background-color: #c8c483;" text="Add subject" />
+      <Button layoutX="380.0" layoutY="125.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="186.0" style="-fx-background-color: #c8c483;" text="Add location" />
+      <Button layoutX="380.0" layoutY="173.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="186.0" style="-fx-background-color: #c8c483;" text="Add Sessions" />
+      <Button layoutX="380.0" layoutY="221.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="185.0" style="-fx-background-color: #c8c483;" text="Manage Session Rooms" />
+      <Button layoutX="156.0" layoutY="283.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="248.0" style="-fx-background-color: #c8c483;" text="View Timetables" />
+   </children>
+</AnchorPane>

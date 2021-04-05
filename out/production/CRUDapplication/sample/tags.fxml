@@ -41,5 +41,6 @@
             <Font name="Bookman Old Style" size="35.0" />
          </font>
       </Label>
+      <Button layoutX="18.0" layoutY="705.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="27.0" prefWidth="192.0" style="-fx-background-color: #c8c483;" text="Back to main page" />
    </AnchorPane>
 </GridPane>

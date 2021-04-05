@@ -12,9 +12,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("tags.fxml"));
-        primaryStage.setTitle("Student GROUPS");
-        primaryStage.setScene(new Scene(root, 800, 755));
+        Parent root = FXMLLoader.load(getClass().getResource("../mainPage.fxml"));
+        primaryStage.setTitle("TIMETABLE MANAGEMENT SYSTEM");
+        primaryStage.setScene(new Scene(root, 600, 500));
         primaryStage.show();
     }
 
