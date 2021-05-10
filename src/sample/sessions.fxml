@@ -4,14 +4,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="center" hgap="10" prefHeight="755.0" prefWidth="638.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Sessions">
+<GridPane alignment="center" hgap="10" prefHeight="570.0" prefWidth="674.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Sessions">
     <rowConstraints>
         <RowConstraints fillHeight="false" />
     </rowConstraints>
     <columnConstraints>
         <ColumnConstraints />
     </columnConstraints>
-    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="756.0" prefWidth="674.0" style="-fx-background-color: #eee9d9;">
+    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="674.0" style="-fx-background-color: #eee9d9;">
         <Button fx:id="create_btn" layoutX="45.0" layoutY="476.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: #c8c483;" text="consecutive" />
         <Button fx:id="update_btn" layoutX="350.0" layoutY="476.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: #c8c483;" text="none overlapping " />
         <Button fx:id="delete_btn" layoutX="197.0" layoutY="476.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: #c8c483;" text="parallel" />
@@ -34,9 +34,5 @@
             </font>
         </Label>
         <Button layoutX="505.0" layoutY="476.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="130.0" style="-fx-background-color: #c8c483;" text="Not Available times" />
-      <CheckBox layoutX="9.0" layoutY="97.0" mnemonicParsing="false" />
-      <CheckBox layoutX="9.0" layoutY="140.0" mnemonicParsing="false" />
-      <CheckBox layoutX="9.0" layoutY="182.0" mnemonicParsing="false" />
-      <CheckBox layoutX="10.0" layoutY="230.0" mnemonicParsing="false" />
     </AnchorPane>
 </GridPane>

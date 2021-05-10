@@ -48,7 +48,7 @@ public class tagsController implements Initializable {
 
         Connection connect_object;
         try{
-            Class.forName("org.sqlite.JDBC");
+
             connect_object = DriverManager.getConnection("jdbc:mysql://localhost:3306/student","root","shenaljfx" );
             return connect_object;
         }

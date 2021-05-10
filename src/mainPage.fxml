@@ -14,12 +14,14 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="203.0" layoutY="125.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="153.0" style="-fx-background-color: #c8c483;" text="Add working days" />
-      <Button layoutX="203.0" layoutY="173.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="153.0" style="-fx-background-color: #c8c483;" text="Add lecturer" />
-      <Button layoutX="203.0" layoutY="221.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="153.0" style="-fx-background-color: #c8c483;" text="Add subject" />
-      <Button layoutX="380.0" layoutY="125.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="186.0" style="-fx-background-color: #c8c483;" text="Add location" />
+      <Button layoutX="203.0" layoutY="125.0" mnemonicParsing="false" onAction="#add_working_days" prefHeight="26.0" prefWidth="153.0" style="-fx-background-color: #c8c483;" text="Add working days" />
+      <Button layoutX="203.0" layoutY="173.0" mnemonicParsing="false" onAction="#addLecturer" prefHeight="26.0" prefWidth="153.0" style="-fx-background-color: #c8c483;" text="Add lecturer" />
+      <Button layoutX="203.0" layoutY="221.0" mnemonicParsing="false" onAction="#addSubject" prefHeight="26.0" prefWidth="153.0" style="-fx-background-color: #c8c483;" text="Add subject" />
+      <Button layoutX="380.0" layoutY="125.0" mnemonicParsing="false" onAction="#add_location" prefHeight="26.0" prefWidth="186.0" style="-fx-background-color: #c8c483;" text="Add location" />
       <Button layoutX="380.0" layoutY="173.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="186.0" style="-fx-background-color: #c8c483;" text="Add Sessions" />
       <Button layoutX="380.0" layoutY="221.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="185.0" style="-fx-background-color: #c8c483;" text="Manage Session Rooms" />
-      <Button layoutX="156.0" layoutY="283.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="248.0" style="-fx-background-color: #c8c483;" text="View Timetables" />
+      <Button layoutX="203.0" layoutY="274.0" mnemonicParsing="false" onAction="#TimeTable" prefHeight="26.0" prefWidth="154.0" style="-fx-background-color: #c8c483;" text="View Timetables" />
+      <Button layoutX="25.0" layoutY="274.0" mnemonicParsing="false" onAction="#stat" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #c8c483;" text="Dashboard" />
+      <Button layoutX="380.0" layoutY="274.0" mnemonicParsing="false" onAction="#TimeSlots" prefHeight="26.0" prefWidth="186.0" style="-fx-background-color: #c8c483;" text="Manage Time Slotes" />
    </children>
 </AnchorPane>
