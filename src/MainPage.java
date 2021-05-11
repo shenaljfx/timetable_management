@@ -110,5 +110,17 @@ public class MainPage {
             System.out.println(E);
         }
     }
+    @FXML
+    public void managesession(javafx.event.ActionEvent event) {
+        try{
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("sample/sessions.fxml"));
+            Scene tableViewScene = new Scene(tableViewParent);
+            Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(tableViewScene);
+            window.show();
+        }catch(Exception E){
+            System.out.println(E);
+        }
+    }
 
 }

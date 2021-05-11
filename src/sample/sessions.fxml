@@ -4,28 +4,30 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="center" hgap="10" prefHeight="570.0" prefWidth="674.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Sessions">
+<GridPane alignment="center" hgap="10" prefHeight="570.0" prefWidth="674.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.sessionController">
     <rowConstraints>
         <RowConstraints fillHeight="false" />
     </rowConstraints>
     <columnConstraints>
         <ColumnConstraints />
     </columnConstraints>
-    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="571.0" prefWidth="674.0" style="-fx-background-color: #eee9d9;">
-        <Button fx:id="create_btn" layoutX="45.0" layoutY="476.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: #c8c483;" text="consecutive" />
-        <Button fx:id="update_btn" layoutX="350.0" layoutY="476.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: #c8c483;" text="none overlapping " />
-        <Button fx:id="delete_btn" layoutX="197.0" layoutY="476.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="27.0" prefWidth="130.0" style="-fx-background-color: #c8c483;" text="parallel" />
-        <TextField fx:id="get_text" layoutX="204.0" layoutY="413.0" prefHeight="27.0" prefWidth="115.0" promptText="Enter ID to GET data" />
-        <Button fx:id="get_button" layoutX="346.0" layoutY="414.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #c8c483;" text="Get" />
-        <Button fx:id="revert_button" layoutX="425.0" layoutY="414.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #c8c483;" text="Revert" />
-        <TableView fx:id="main_table" layoutX="6.0" layoutY="51.0" onMouseClicked="#mouseClicked" prefHeight="338.0" prefWidth="656.0" style="-fx-background-size: 100%;">
+    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="1179.0" style="-fx-background-color: #eee9d9;">
+        <Button fx:id="add_con" layoutX="351.0" layoutY="539.0" mnemonicParsing="false" onAction="#consecutive" prefHeight="27.0" prefWidth="155.0" style="-fx-background-color: #c8c483;" text="consecutive" />
+        <Button layoutX="705.0" layoutY="539.0" mnemonicParsing="false" onAction="#notOverlap" prefHeight="27.0" prefWidth="155.0" style="-fx-background-color: #c8c483;" text="none overlapping " />
+        <Button fx:id="add_para" layoutX="528.0" layoutY="539.0" mnemonicParsing="false" onAction="#parallel" prefHeight="27.0" prefWidth="155.0" style="-fx-background-color: #c8c483;" text="parallel" />
+        <TextField fx:id="s1_id" layoutX="373.0" layoutY="447.0" prefHeight="27.0" prefWidth="155.0" promptText="Session 1 ID" />
+        <Button fx:id="get_button" layoutX="563.0" layoutY="487.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #c8c483;" text="Get" />
+        <Button fx:id="revert_button" layoutX="563.0" layoutY="447.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #c8c483;" text="Revert" />
+        <TableView fx:id="main_table" layoutX="36.0" layoutY="54.0" prefHeight="338.0" prefWidth="1123.0" style="-fx-background-size: 100%;">
             <columns>
-                <TableColumn fx:id="sid_column" prefWidth="100.0" style="-fx-background-color: #c8c483;" text="ID" />
-                <TableColumn fx:id="syear_column" prefWidth="100.0" style="-fx-background-color: #c8c483;" text="Lecture 1" />
-                <TableColumn fx:id="program_column" prefWidth="100.0" style="-fx-background-color: #c8c483;" text="Lecture 2" />
-                <TableColumn fx:id="groupNo_column" prefWidth="117.5999755859375" style="-fx-background-color: #c8c483;" text="Subject code" />
-                <TableColumn fx:id="sgroupNo_column" prefWidth="117.5999755859375" style="-fx-background-color: #c8c483;" text="Group ID" />
-                <TableColumn fx:id="SGID_column" prefWidth="117.5999755859375" style="-fx-background-color: #c8c483;" text="Tag" />
+                <TableColumn fx:id="sec_id" prefWidth="100.0" style="-fx-background-color: #fff;" text="ID" />
+                <TableColumn fx:id="sec_lec" prefWidth="184.0" style="-fx-background-color: #fff;" text="Lecture" />
+                <TableColumn fx:id="sub_code" prefWidth="160.0" style="-fx-background-color: #fff;" text="Subject code" />
+                <TableColumn fx:id="sub_name" prefWidth="116.00006103515625" style="-fx-background-color: #fff;" text="Subject Name" />
+                <TableColumn fx:id="groupID" prefWidth="126.4000244140625" style="-fx-background-color: #fff;" text="Group ID" />
+            <TableColumn fx:id="tag" prefWidth="101.5999755859375" style="-fx-background-color: #fff;" text="Tag" />
+                <TableColumn fx:id="nostudent" prefWidth="158.4000244140625" style="-fx-background-color: #fff;" text="Number of students" />
+                <TableColumn fx:id="duration" prefWidth="173.4000244140625" style="-fx-background-color: #fff;" text="duration" />
             </columns>
         </TableView>
         <Label fx:id="syear_coloum" layoutX="29.0" layoutY="-16.0" prefHeight="69.0" prefWidth="323.0" text="Session allocation" textFill="#616161">
@@ -33,6 +35,8 @@
                 <Font name="Bookman Old Style" size="30.0" />
             </font>
         </Label>
-        <Button layoutX="505.0" layoutY="476.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="130.0" style="-fx-background-color: #c8c483;" text="Not Available times" />
+        <Button layoutX="209.0" layoutY="604.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: #c8c483;" text="Not Available times" />
+      <Button layoutX="21.0" layoutY="603.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="27.0" prefWidth="155.0" style="-fx-background-color: #c8c483;" text="Back to main page" />
+      <TextField fx:id="s2_id" layoutX="373.0" layoutY="487.0" prefHeight="27.0" prefWidth="155.0" promptText="Session 2 ID" />
     </AnchorPane>
 </GridPane>

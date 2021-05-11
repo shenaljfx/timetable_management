@@ -103,8 +103,8 @@ public class Manage_Time_SlotsController implements Initializable {
      public Connection getConnection(){
         Connection conn;
         try{
-            //conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root","shenaljfx");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root","root");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root","shenaljfx");
+            //conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/student", "root","root");
             return conn;
         }
         catch(Exception ex){

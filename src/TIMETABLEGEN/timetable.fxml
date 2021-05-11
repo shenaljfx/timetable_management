@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="center" hgap="10" prefHeight="754.0" prefWidth="716.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TIMETABLEGEN.Timetable">
+<GridPane alignment="center" hgap="10" prefHeight="754.0" prefWidth="716.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TIMETABLEGEN.TimetableController">
     <rowConstraints>
         <RowConstraints fillHeight="false" />
     </rowConstraints>
@@ -18,9 +19,9 @@
         <Label layoutX="503.0" layoutY="100.0" prefHeight="18.0" prefWidth="116.0" text="Group" AnchorPane.bottomAnchor="637.0" AnchorPane.leftAnchor="503.0" AnchorPane.rightAnchor="503.0" AnchorPane.topAnchor="100.0" />
         <TextField fx:id="location" layoutX="821.0" layoutY="128.0" prefHeight="26.0" prefWidth="202.0" AnchorPane.bottomAnchor="601.0" AnchorPane.leftAnchor="821.0" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="128.0" />
         <Label layoutX="821.0" layoutY="98.0" prefHeight="22.0" prefWidth="116.0" text="Location" AnchorPane.bottomAnchor="635.0" AnchorPane.leftAnchor="821.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="98.0" />
-        <TableView fx:id="timetabe" layoutY="283.0"  prefHeight="471.0" prefWidth="1124.0" style="-fx-background-size: 100%;">
+        <TableView fx:id="timetabe" layoutY="283.0" prefHeight="471.0" prefWidth="1124.0" style="-fx-background-size: 100%;">
             <columns>
-                <TableColumn fx:id="time" prefWidth="158.79999083280563" style="-fx-background-color: #ffff;" text="Time Slots" />
+                <TableColumn fx:id="time" prefWidth="158.79999083280563" sortable="false" style="-fx-background-color: #ffff;" text="Time Slots" />
                 <TableColumn fx:id="monday_column" prefWidth="133.1999969482422" style="-fx-background-color: #ffff;" text="Monday" />
                 <TableColumn fx:id="tusday_column" prefWidth="126.4000244140625" style="-fx-background-color: #ffff;" text="Tuseday" />
                 <TableColumn fx:id="wednesday_column" prefWidth="142.19998168945312" style="-fx-background-color: #ffff;" text="Wednesday" />
@@ -29,13 +30,19 @@
             <TableColumn fx:id="saturday_column" prefWidth="148.7999267578125" style="-fx-background-color: #fff;" text="Saturday" />
             <TableColumn fx:id="sunday_column" prefWidth="119.5999755859375" style="-fx-background-color: #fff;" text="Sunday" />
             </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+         <effect>
+            <Glow />
+         </effect>
         </TableView>
         <Label fx:id="syear_coloum" layoutX="389.0" layoutY="14.0" prefHeight="86.0" prefWidth="323.0" text="Generate Time Tables" textFill="#616161" AnchorPane.bottomAnchor="655.0" AnchorPane.leftAnchor="389.0" AnchorPane.rightAnchor="314.0" AnchorPane.topAnchor="14.0">
             <font>
                 <Font name="Bookman Old Style" size="30.0" />
             </font>
         </Label>
-        <Button fx:id="genID" layoutX="466.0" layoutY="190.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="GENARATE IDS" AnchorPane.bottomAnchor="539.0" AnchorPane.leftAnchor="466.0" AnchorPane.rightAnchor="466.0" AnchorPane.topAnchor="190.0" />
+        <Button fx:id="genID" layoutX="466.0" layoutY="190.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="GENARATE TIMETABLE" AnchorPane.bottomAnchor="539.0" AnchorPane.leftAnchor="466.0" AnchorPane.rightAnchor="466.0" AnchorPane.topAnchor="190.0" />
         <Button layoutX="466.0" layoutY="240.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="Back to main page" />
     </AnchorPane>
 </GridPane>

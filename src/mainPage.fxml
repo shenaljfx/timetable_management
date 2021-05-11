@@ -8,7 +8,7 @@
    <children>
       <Button layoutX="25.0" layoutY="125.0" mnemonicParsing="false" onAction="#manageStudent" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #c8c483;" text="Manage students" />
       <Button layoutX="25.0" layoutY="173.0" mnemonicParsing="false" onAction="#manageTags" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #c8c483;" text="Manage Tags" />
-      <Button layoutX="25.0" layoutY="221.0" mnemonicParsing="false" onAction="#manageTags" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #c8c483;" text="Manage sessions" />
+      <Button layoutX="25.0" layoutY="221.0" mnemonicParsing="false" onAction="#managesession" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #c8c483;" text="Manage sessions" />
       <Label layoutX="25.0" layoutY="14.0" prefHeight="78.0" prefWidth="324.0" text="Timetable mangement system">
          <font>
             <Font size="18.0" />
