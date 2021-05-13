@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -12,37 +11,101 @@
     <columnConstraints>
         <ColumnConstraints />
     </columnConstraints>
-    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="755.0" prefWidth="1124.0" style="-fx-background-color: #eee9d9;">
-        <Label layoutX="140.0" layoutY="100.0" prefHeight="18.0" prefWidth="87.0" text="Lecturer" AnchorPane.bottomAnchor="637.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="799.0" AnchorPane.topAnchor="100.0" />
+    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="1016.0" prefWidth="1227.0" style="-fx-background-color: #eee9d9;">
+        <Label layoutX="140.0" layoutY="100.0" prefHeight="26.0" prefWidth="185.0" text="Lecturer" AnchorPane.bottomAnchor="890.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="799.0" AnchorPane.topAnchor="100.0" />
         <TextField fx:id="lec" layoutX="134.0" layoutY="128.0" prefHeight="26.0" prefWidth="201.0" />
-        <TextField fx:id="group" layoutX="460.0" layoutY="128.0" prefHeight="26.0" prefWidth="202.0" AnchorPane.bottomAnchor="601.0" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="128.0" />
-        <Label layoutX="503.0" layoutY="100.0" prefHeight="18.0" prefWidth="116.0" text="Group" AnchorPane.bottomAnchor="637.0" AnchorPane.leftAnchor="503.0" AnchorPane.rightAnchor="503.0" AnchorPane.topAnchor="100.0" />
-        <TextField fx:id="location" layoutX="821.0" layoutY="128.0" prefHeight="26.0" prefWidth="202.0" AnchorPane.bottomAnchor="601.0" AnchorPane.leftAnchor="821.0" AnchorPane.rightAnchor="99.0" AnchorPane.topAnchor="128.0" />
-        <Label layoutX="821.0" layoutY="98.0" prefHeight="22.0" prefWidth="116.0" text="Location" AnchorPane.bottomAnchor="635.0" AnchorPane.leftAnchor="821.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="98.0" />
-        <TableView fx:id="timetabe" layoutY="283.0" prefHeight="471.0" prefWidth="1124.0" style="-fx-background-size: 100%;">
-            <columns>
-                <TableColumn fx:id="time" prefWidth="158.79999083280563" sortable="false" style="-fx-background-color: #ffff;" text="Time Slots" />
-                <TableColumn fx:id="monday_column" prefWidth="133.1999969482422" style="-fx-background-color: #ffff;" text="Monday" />
-                <TableColumn fx:id="tusday_column" prefWidth="126.4000244140625" style="-fx-background-color: #ffff;" text="Tuseday" />
-                <TableColumn fx:id="wednesday_column" prefWidth="142.19998168945312" style="-fx-background-color: #ffff;" text="Wednesday" />
-                <TableColumn fx:id="thursday_column" prefWidth="141.7999267578125" style="-fx-background-color: #ffff;" text="Thursday" />
-                <TableColumn fx:id="friday_column" prefWidth="152.39996337890625" style="-fx-background-color: #ffff;" text="Friday" />
-            <TableColumn fx:id="saturday_column" prefWidth="148.7999267578125" style="-fx-background-color: #fff;" text="Saturday" />
-            <TableColumn fx:id="sunday_column" prefWidth="119.5999755859375" style="-fx-background-color: #fff;" text="Sunday" />
-            </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-         <effect>
-            <Glow />
-         </effect>
-        </TableView>
-        <Label fx:id="syear_coloum" layoutX="389.0" layoutY="14.0" prefHeight="86.0" prefWidth="323.0" text="Generate Time Tables" textFill="#616161" AnchorPane.bottomAnchor="655.0" AnchorPane.leftAnchor="389.0" AnchorPane.rightAnchor="314.0" AnchorPane.topAnchor="14.0">
+        <TextField fx:id="group" layoutX="467.0" layoutY="128.0" prefHeight="26.0" prefWidth="202.0" AnchorPane.bottomAnchor="862.0" AnchorPane.leftAnchor="467.0" AnchorPane.rightAnchor="558.0" AnchorPane.topAnchor="128.0" />
+        <Label layoutX="466.0" layoutY="100.0" prefHeight="26.0" prefWidth="118.0" text="Group" AnchorPane.bottomAnchor="890.0" AnchorPane.leftAnchor="466.0" AnchorPane.rightAnchor="540.0" AnchorPane.topAnchor="100.0" />
+        <TextField fx:id="location" layoutX="821.0" layoutY="128.0" prefHeight="26.0" prefWidth="202.0" AnchorPane.bottomAnchor="862.0" AnchorPane.leftAnchor="821.0" AnchorPane.rightAnchor="204.0" AnchorPane.topAnchor="128.0" />
+        <Label layoutX="828.0" layoutY="98.0" prefHeight="26.0" prefWidth="118.0" text="Location" AnchorPane.bottomAnchor="892.0" AnchorPane.leftAnchor="828.0" AnchorPane.rightAnchor="178.0" AnchorPane.topAnchor="98.0" />
+        <Label fx:id="syear_coloum" layoutX="407.0" layoutY="14.0" prefHeight="60.0" prefWidth="421.0" text="Generate Time Tables" textFill="#616161" AnchorPane.bottomAnchor="901.0" AnchorPane.leftAnchor="407.0" AnchorPane.rightAnchor="296.0" AnchorPane.topAnchor="14.0">
             <font>
                 <Font name="Bookman Old Style" size="30.0" />
             </font>
         </Label>
-        <Button fx:id="genID" layoutX="466.0" layoutY="190.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="GENARATE TIMETABLE" AnchorPane.bottomAnchor="539.0" AnchorPane.leftAnchor="466.0" AnchorPane.rightAnchor="466.0" AnchorPane.topAnchor="190.0" />
-        <Button layoutX="466.0" layoutY="240.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="Back to main page" />
+        <Button fx:id="genID" layoutX="137.0" layoutY="176.0" mnemonicParsing="false" onAction="#generateStudentGroupTimetable" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="GENARATE TIMETABLE" AnchorPane.bottomAnchor="814.0" AnchorPane.leftAnchor="137.0" AnchorPane.rightAnchor="900.0" AnchorPane.topAnchor="176.0" />
+        <Button layoutX="466.0" layoutY="240.0" mnemonicParsing="false" onAction="#genTimeSlotes" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="Back to main page" />
+      <Button fx:id="genID1" layoutX="467.0" layoutY="176.0" mnemonicParsing="false" onAction="#createParaSlots" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="GENARATE TIMETABLE" />
+      <Button fx:id="genID11" layoutX="827.0" layoutY="176.0" mnemonicParsing="false" onAction="#createCons" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="GENARATE TIMETABLE" />
+      <Label fx:id="time1" layoutX="14.0" layoutY="328.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="time2" layoutX="14.0" layoutY="405.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="time3" layoutX="14.0" layoutY="480.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="time4" layoutX="14.0" layoutY="553.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="time5" layoutX="14.0" layoutY="630.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="time6" layoutX="14.0" layoutY="710.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="time9" layoutX="14.0" layoutY="942.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="time7" layoutX="14.0" layoutY="787.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="time8" layoutX="14.0" layoutY="867.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="m1" layoutX="163.0" layoutY="328.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="tu1" layoutX="317.0" layoutY="328.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="w1" layoutX="466.0" layoutY="328.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="th1" layoutX="616.0" layoutY="328.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="fr1" layoutX="768.0" layoutY="328.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sat1" layoutX="923.0" layoutY="328.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sun1" layoutX="1073.0" layoutY="327.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="m2" layoutX="163.0" layoutY="405.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="m3" layoutX="163.0" layoutY="478.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="m4" layoutX="163.0" layoutY="553.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="m5" layoutX="163.0" layoutY="630.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="m6" layoutX="163.0" layoutY="710.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="m7" layoutX="163.0" layoutY="787.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="m8" layoutX="163.0" layoutY="867.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="m9" layoutX="163.0" layoutY="942.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="tu2" layoutX="317.0" layoutY="405.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="tu3" layoutX="317.0" layoutY="480.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="tu4" layoutX="317.0" layoutY="553.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="tu5" layoutX="317.0" layoutY="630.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="tu6" layoutX="317.0" layoutY="710.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="tu7" layoutX="317.0" layoutY="787.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="tu8" layoutX="317.0" layoutY="867.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="tu9" layoutX="317.0" layoutY="942.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="w2" layoutX="466.0" layoutY="405.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="w3" layoutX="467.0" layoutY="480.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="w4" layoutX="467.0" layoutY="553.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="w5" layoutX="467.0" layoutY="630.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="w6" layoutX="466.0" layoutY="710.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="w7" layoutX="467.0" layoutY="787.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="w8" layoutX="467.0" layoutY="867.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="w9" layoutX="467.0" layoutY="942.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="th2" layoutX="616.0" layoutY="405.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="th3" layoutX="616.0" layoutY="480.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="th4" layoutX="616.0" layoutY="553.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="th5" layoutX="616.0" layoutY="630.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="th6" layoutX="616.0" layoutY="710.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="th7" layoutX="616.0" layoutY="787.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="th8" layoutX="616.0" layoutY="867.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="th9" layoutX="615.0" layoutY="942.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="fr2" layoutX="768.0" layoutY="405.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="fr3" layoutX="768.0" layoutY="478.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="fr4" layoutX="768.0" layoutY="553.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="fr5" layoutX="768.0" layoutY="630.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="fr6" layoutX="768.0" layoutY="710.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="fr7" layoutX="768.0" layoutY="787.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="fr8" layoutX="768.0" layoutY="867.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="fr9" layoutX="768.0" layoutY="942.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sat2" layoutX="923.0" layoutY="405.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sat3" layoutX="923.0" layoutY="478.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sat4" layoutX="923.0" layoutY="553.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sat5" layoutX="923.0" layoutY="630.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sat6" layoutX="923.0" layoutY="710.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sat7" layoutX="923.0" layoutY="787.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sat8" layoutX="923.0" layoutY="867.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sat9" layoutX="923.0" layoutY="942.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sun2" layoutX="1073.0" layoutY="405.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sun3" layoutX="1073.0" layoutY="480.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sun4" layoutX="1073.0" layoutY="553.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sun5" layoutX="1073.0" layoutY="630.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sun6" layoutX="1073.0" layoutY="710.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sun7" layoutX="1073.0" layoutY="787.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sun8" layoutX="1073.0" layoutY="867.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label fx:id="sun9" layoutX="1073.0" layoutY="942.0" prefHeight="60.0" prefWidth="143.0" style="-fx-background-color: #fff;" textAlignment="CENTER" />
+      <Label layoutX="40.0" layoutY="295.0" prefHeight="18.0" prefWidth="92.0" text="Time" />
+      <Label layoutX="189.0" layoutY="295.0" prefHeight="18.0" prefWidth="92.0" text="Monday" textAlignment="CENTER" />
+      <Label layoutX="343.0" layoutY="295.0" prefHeight="18.0" prefWidth="92.0" text="Tusday" />
+      <Label layoutX="493.0" layoutY="295.0" prefHeight="18.0" prefWidth="92.0" text="Wednesday" />
+      <Label layoutX="641.0" layoutY="295.0" prefHeight="18.0" prefWidth="92.0" text="Thursday" />
+      <Label layoutX="794.0" layoutY="295.0" prefHeight="18.0" prefWidth="92.0" text="Friday" />
+      <Label layoutX="949.0" layoutY="295.0" prefHeight="18.0" prefWidth="92.0" text="Saturday" />
+      <Label layoutX="1108.0" layoutY="295.0" prefHeight="18.0" prefWidth="92.0" text="Sunday" />
     </AnchorPane>
 </GridPane>
