@@ -15,7 +15,7 @@ public class timeM extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("timetable.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
         primaryStage.setTitle("Member3 GROUPS");
-        primaryStage.setScene(new Scene(root,1200,985));
+        primaryStage.setScene(new Scene(root,1227,1449));
         primaryStage.show();
     }
 

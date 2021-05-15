@@ -126,67 +126,6 @@ public class sessionController implements Initializable {
         }
 
     }
-/*
-
-    @FXML
-    void getSelected (MouseEvent event){
-        index = table_stat.getSelectionModel().getSelectedIndex();
-        if (index <= -1){
-
-            return;
-        }
-        off_year.setText(off_col.getCellData(index).toString());
-        off_sem.setText(sem_col.getCellData(index).toString());
-        sub_name.setText(sub_col.getCellData(index).toString());
-        sub_code.setText(code_col.getCellData(index).toString());
-        no_lec.setText(lec_col.getCellData(index).toString());
-        no_tute.setText(tute_col.getCellData(index).toString());
-        no_lab.setText(lab_col.getCellData(index).toString());
-        no_evo.setText(evo_col.getCellData(index).toString());
-
-    }
-
-    @FXML
-    public void Edit (){
-        try {
-            conn = getConnection();
-            String value1 = off_year.getText();
-            String value2 = off_sem.getText();
-            String value3 = sub_name.getText();
-            String value4 = sub_code.getText();
-            String value5 = no_lec.getText();
-            String value6 = no_tute.getText();
-            String value7 = no_lab.getText();
-            String value8 = no_evo.getText();
-            String sql = "update subject set OfferedYr= '"+value1+"',OfferedSem= '"+value2+"',SubName= '"+value3+"',LecHrs= '"+value5+"',TuteHrs= '"+value6+"',LabHrs= '"+value7+"',EvalutionHrs= '"+value8+"' where SubCode='"+value4+"' ";
-            pst= conn.prepareStatement(sql);
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Update");
-            UpdateTable();
-
-        } catch (Exception e) {
-            System.out.println("error UPDATE" + e);
-        }
-
-    }
-    @FXML
-    public void Delete(){
-
-        conn = getConnection();
-        String sql = "delete from subject where SubCode = ?";
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, sub_code.getText());
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Delete");
-            UpdateTable();
-
-        } catch (Exception e) {
-            System.out.println("error DLT" + e);
-        }
-
-    }
-    */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         UpdateTable();

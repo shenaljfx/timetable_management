@@ -1213,8 +1213,7 @@ MonthTo</ColNames>
     </key>
     <column id="359" parent="302" name="id">
       <Position>1</Position>
-      <DataType>int|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="360" parent="302" name="lec">
@@ -1252,209 +1251,204 @@ MonthTo</ColNames>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="367" parent="302" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="368" parent="303" name="BuildingName">
+    <column id="367" parent="303" name="BuildingName">
       <Position>1</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="369" parent="303" name="RoomName">
+    <column id="368" parent="303" name="RoomName">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="370" parent="303" name="Capacity">
+    <column id="369" parent="303" name="Capacity">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="371" parent="303" name="RoomType">
+    <column id="370" parent="303" name="RoomType">
       <Position>4</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="372" parent="303" name="roomID">
+    <column id="371" parent="303" name="roomID">
       <Position>5</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="373" parent="303" name="PRIMARY">
+    <key id="372" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>roomID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="374" parent="304" name="id">
+    <column id="373" parent="304" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="375" parent="304" name="lec">
+    <column id="374" parent="304" name="lec">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="376" parent="304" name="sub_code">
+    <column id="375" parent="304" name="sub_code">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="377" parent="304" name="sub_name">
+    <column id="376" parent="304" name="sub_name">
       <Position>4</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="378" parent="304" name="group_id">
+    <column id="377" parent="304" name="group_id">
       <Position>5</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="379" parent="304" name="tag">
+    <column id="378" parent="304" name="tag">
       <Position>6</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="380" parent="304" name="noOfStudents">
+    <column id="379" parent="304" name="noOfStudents">
       <Position>7</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="381" parent="304" name="duration">
+    <column id="380" parent="304" name="duration">
       <Position>8</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="382" parent="304" name="PRIMARY">
+    <key id="381" parent="304" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="383" parent="305" name="sid">
+    <column id="382" parent="305" name="sid">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="384" parent="305" name="syear">
+    <column id="383" parent="305" name="syear">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="385" parent="305" name="SGID">
+    <column id="384" parent="305" name="SGID">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="386" parent="305" name="groupNo">
+    <column id="385" parent="305" name="groupNo">
       <Position>4</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="387" parent="305" name="sgroupNo">
+    <column id="386" parent="305" name="sgroupNo">
       <Position>5</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="388" parent="305" name="program">
+    <column id="387" parent="305" name="program">
       <Position>6</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="389" parent="305" name="PRIMARY">
+    <key id="388" parent="305" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>sid</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="390" parent="306" name="OfferedYr">
+    <column id="389" parent="306" name="OfferedYr">
       <Position>1</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="391" parent="306" name="OfferedSem">
+    <column id="390" parent="306" name="OfferedSem">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="392" parent="306" name="SubName">
+    <column id="391" parent="306" name="SubName">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="393" parent="306" name="SubCode">
+    <column id="392" parent="306" name="SubCode">
       <Position>4</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="394" parent="306" name="LecHrs">
+    <column id="393" parent="306" name="LecHrs">
       <Position>5</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="395" parent="306" name="TuteHrs">
+    <column id="394" parent="306" name="TuteHrs">
       <Position>6</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="396" parent="306" name="LabHrs">
+    <column id="395" parent="306" name="LabHrs">
       <Position>7</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="397" parent="306" name="EvalutionHrs">
+    <column id="396" parent="306" name="EvalutionHrs">
       <Position>8</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="398" parent="306" name="SubCode_UNIQUE">
+    <index id="397" parent="306" name="SubCode_UNIQUE">
       <ColNames>SubCode</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="399" parent="306" name="PRIMARY">
+    <key id="398" parent="306" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>SubCode</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="400" parent="306" name="SubCode_UNIQUE">
+    <key id="399" parent="306" name="SubCode_UNIQUE">
       <ColNames>SubCode</ColNames>
       <UnderlyingIndexName>SubCode_UNIQUE</UnderlyingIndexName>
     </key>
-    <column id="401" parent="307" name="id">
+    <column id="400" parent="307" name="id">
       <Position>1</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="402" parent="307" name="Tcode">
+    <column id="401" parent="307" name="Tcode">
       <Position>2</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="403" parent="307" name="Rtag">
+    <column id="402" parent="307" name="Rtag">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="404" parent="307" name="Tname">
+    <column id="403" parent="307" name="Tname">
       <Position>4</Position>
       <DataType>varchar(45)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="405" parent="307" name="PRIMARY">
+    <key id="404" parent="307" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
