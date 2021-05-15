@@ -70,6 +70,7 @@ public class TimetableController implements Initializable {
     public void generateStudentGroupTimetable() throws SQLException {
         createCons();
         createParaSlots();
+        createNotOverlapSlotes();
         genTimeSlotes();
 
     }
@@ -126,8 +127,11 @@ public class TimetableController implements Initializable {
             break;
         }
     }
-            m5.setText((paraArray[0])+"\n"+(paraArray[1]));
+            m5.setText((paraArray[0]) + "\n" + (paraArray[1]));
             m6.setText((paraArray[2])+"\n"+(paraArray[3]));
+            th1.setText((paraArray[4])+"\n"+(paraArray[5]));
+
+
     }
 
 
@@ -183,19 +187,69 @@ public class TimetableController implements Initializable {
 
             }
         }
-
                 m1.setText(consArray[0]);
                 m2.setText(consArray[1]);
                 m3.setText(consArray[2]);
                 m4.setText(consArray[3]);
 
     }
-    public void createNotOverlapSlotes() {
-        try {
+    public void createNotOverlapSlotes() throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(QUERY3);
+        String [] nonArray = new String[10];
+        for (int z =0; z<10;z++) {
+            while (rs.next()) {
+                //Display values
+                String a = (rs.getString("lec"));
+                String b = (rs.getString("sub_code"));
+                String c = (rs.getString("sub_name"));
+                String d = (rs.getString("group_id"));
+                String e = (rs.getString("tag"));
+                String f = (rs.getString("noOfStudents"));
+                String g = (rs.getString("duration"));
+                String nonSlot = a + "\n" + c + "(" + b + ")" + e + "\n" + d + "," + f + "(" + g + ")";
 
-        }catch (Exception E){
-            System.out.println(E);
+                if (z == 0 && d.equals(group.getText())||z == 0 && a.equals(lec.getText())) {
+                    nonArray[0] = nonSlot;
+                }
+                if (z == 1 && d.equals(group.getText())||z == 1 && a.equals(lec.getText())) {
+                    nonArray[1] = nonSlot;
+                }
+                if (z == 2 && d.equals(group.getText())||z == 2 && a.equals(lec.getText())) {
+                    nonArray[2] = nonSlot;
+                }
+                if (z == 3 && d.equals(group.getText())||z == 3 && a.equals(lec.getText())) {
+                    nonArray[3] = nonSlot;
+                }
+                if (z == 4 && d.equals(group.getText())||z == 4 && a.equals(lec.getText())) {
+                    nonArray[4] = nonSlot;
+                }
+                if (z == 5 && d.equals(group.getText())||z == 5 && a.equals(lec.getText())) {
+                    nonArray[5] = nonSlot;
+                }
+                if (z == 6 && d.equals(group.getText())||z == 6 && a.equals(lec.getText())) {
+                    nonArray[6] = nonSlot;
+                }
+                if (z == 7 && d.equals(group.getText())||z == 7 && a.equals(lec.getText())) {
+                    nonArray[7] = nonSlot;
+                }
+                if (z == 8 && d.equals(group.getText())||z == 8 && a.equals(lec.getText())) {
+                    nonArray[8] = nonSlot;
+                }
+                if (z == 8 && d.equals(group.getText())||z == 9 && a.equals(lec.getText())) {
+                    nonArray[8] = nonSlot;
+                }
+
+                break;
+
+            }
         }
+        m7.setText(nonArray[0]);
+        m8.setText(nonArray[1]);
+        m9.setText(nonArray[2]);
+        tu1.setText(nonArray[3]);
+
     }
     @FXML
     public void changeScreen(javafx.event.ActionEvent event) {
