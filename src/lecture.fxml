@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: eee9d9;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lecturerControll">
+   <children>
+      <Label layoutX="30.0" layoutY="14.0" prefHeight="78.0" prefWidth="399.0" text="Add Lecturer">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="132.0" layoutY="211.0" prefHeight="18.0" prefWidth="104.0" text="Employee ID" />
+      <Label layoutX="132.0" layoutY="255.0" prefHeight="18.0" prefWidth="70.0" text="Faculty" />
+      <Label layoutX="127.0" layoutY="164.0" prefHeight="18.0" prefWidth="115.0" text="Lecturer name" />
+      <Label layoutX="132.0" layoutY="300.0" prefHeight="18.0" prefWidth="98.0" text="Department" />
+      <Label layoutX="553.0" layoutY="165.0" text="Center" />
+      <Label layoutX="553.0" layoutY="211.0" text="Building" />
+      <Label layoutX="553.0" layoutY="255.0" text="Level" />
+      <Label layoutX="553.0" layoutY="300.0" text="Rank" />
+      <TextField fx:id="Lname" layoutX="256.0" layoutY="160.0" />
+      <TextField fx:id="dep" layoutX="256.0" layoutY="295.0" />
+      <TextField fx:id="center" layoutX="708.0" layoutY="160.0" />
+      <TextField fx:id="building" layoutX="708.0" layoutY="206.0" />
+      <TextField fx:id="level" layoutX="708.0" layoutY="250.0" />
+      <TextField fx:id="rank" layoutX="708.0" layoutY="295.0" />
+      <Button layoutX="230.0" layoutY="369.0" mnemonicParsing="false" onAction="#save" style="-fx-background-color: c8c483;" text="Save" />
+      <Button layoutX="377.0" layoutY="369.0" mnemonicParsing="false" onAction="#Edit" style="-fx-background-color: c8c483;" text="Update" />
+      <Button layoutX="540.0" layoutY="369.0" mnemonicParsing="false" onAction="#Delete" style="-fx-background-color: c8c483;" text="Delete" />
+      <Button layoutX="697.0" layoutY="369.0" mnemonicParsing="false" onAction="#genRank" style="-fx-background-color: c8c483;" text="Generate Rank" />
+      <TableView fx:id="table_stat" layoutX="17.0" layoutY="470.0" onMouseClicked="#getSelected" prefHeight="284.0" prefWidth="990.0">
+        <columns>
+          <TableColumn fx:id="lec_col" prefWidth="106.20001602172852" text="Lecturer name" />
+          <TableColumn fx:id="ID_col" prefWidth="119.19998168945312" text="Employee ID" />
+            <TableColumn fx:id="fac_col" prefWidth="123.0" text="Faculty" />
+            <TableColumn fx:id="dep_col" prefWidth="121.60000610351562" text="Department" />
+            <TableColumn fx:id="cen_col" prefWidth="126.39996337890625" text="Center" />
+            <TableColumn fx:id="bul_col" prefWidth="207.20001220703125" text="Building" />
+            <TableColumn fx:id="lev_col" prefWidth="78.39996337890625" text="Level" />
+            <TableColumn fx:id="rank_col" prefWidth="110.0" text="Rank" />
+        </columns>
+      </TableView>
+      <TextField fx:id="EID" layoutX="256.0" layoutY="206.0" />
+      <TextField fx:id="fac" layoutX="256.0" layoutY="250.0" />
+      <Button layoutX="415.0" layoutY="431.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: c8c483;" text="Back to main page" />
+
+   </children>
+</AnchorPane>

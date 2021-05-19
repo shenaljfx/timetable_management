@@ -1,0 +1,221 @@
+-- import to SQLite by running: sqlite3.exe db.sqlite3 -init sqlite.sql
+
+PRAGMA journal_mode = MEMORY;
+PRAGMA synchronous = OFF;
+PRAGMA foreign_keys = OFF;
+PRAGMA ignore_check_constraints = OFF;
+PRAGMA auto_vacuum = NONE;
+PRAGMA secure_delete = OFF;
+BEGIN TRANSACTION;
+
+DROP TABLE IF EXISTS `add_locations_db_connect`;
+
+CREATE TABLE `add_locations_db_connect` (
+`StartTime` TEXT DEFAULT NULL,
+`EndTime` TEXT DEFAULT NULL,
+`days` TEXT DEFAULT NULL,
+`room` TEXT DEFAULT NULL
+);
+LOCK TABLES `add_locations_db_connect` WRITE;
+INSERT INTO `add_locations_db_connect` VALUES ('08:30A.M','09:30A.M','New-CyberSecLab','Weakdays');
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `add_manage_time_slots_db_connect`;
+
+CREATE TABLE `add_manage_time_slots_db_connect` (
+`SessiONID` int NOT NULL,
+`TimeSlots` TEXT DEFAULT NULL
+);
+LOCK TABLES `add_manage_time_slots_db_connect` WRITE;
+INSERT INTO `add_manage_time_slots_db_connect` VALUES (2,'8.30-10.30A.M'),(1,'8.30-9.30A.M /9.30-13.00P.M');
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `add_working_days_hours_db_connect`;
+
+CREATE TABLE `add_working_days_hours_db_connect` (
+`SessionID` int NOT NULL,
+`NoWorkingDays` int DEFAULT NULL,
+`minutes` int DEFAULT NULL,
+`hours` int DEFAULT NULL,
+`WorkingDays` TEXT DEFAULT NULL,
+PRIMARY KEY (`SessionID`)
+);
+LOCK TABLES `add_working_days_hours_db_connect` WRITE;
+INSERT INTO `add_working_days_hours_db_connect` VALUES (1,1,1,1,'Monday'),(2,1,1,1,'Monday'),(3,0,0,0,'Monday,Tuesday,Wednesday,Thrusday'),(4,5,0,8,'Monday,Tuesday,Wednesday,Thrusday,Firday'),(5,5,0,8,'Monday,Tuesday,Wednesday,Thrusday,Firday'),(6,0,0,0,'Monday,Tuesday,Wednesday,Thrusday,Firday'),(7,5,0,8,'Monday,Tuesday,Wednesday,Thrusday,Firday'),(8,5,0,8,'Monday,Tuesday,Wednesday,Thrusday,Firday'),(9,5,0,8,'Monday,Tuesday,Wednesday,Thrusday,Firday');
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `analysisdata`;
+
+CREATE TABLE `analysisdata` (
+`MonthFrom` int NOT NULL,
+`MonthTo` TEXT NOT NULL,
+`GroupID` TEXT DEFAULT NULL,
+`Subject` TEXT DEFAULT NULL,
+`Nooflectures` TEXT DEFAULT NULL,
+`Nooflostlectures` TEXT DEFAULT NULL,
+`Noofpracticals` TEXT DEFAULT NULL,
+`Nooflostpracticals` TEXT DEFAULT NULL,
+PRIMARY KEY (`MonthFrom`,`MonthTo`)
+);
+LOCK TABLES `analysisdata` WRITE;
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `consecutive`;
+
+CREATE TABLE `consecutive` (
+`id` int NOT NULL,
+`lec` TEXT DEFAULT NULL,
+`sub_code` TEXT DEFAULT NULL,
+`sub_name` TEXT DEFAULT NULL,
+`group_id` TEXT DEFAULT NULL,
+`tag` TEXT DEFAULT NULL,
+`noOfStudents` TEXT DEFAULT NULL,
+`duration` TEXT DEFAULT NULL,
+`date` TEXT NOT NULL,
+PRIMARY KEY (`id`)
+);
+LOCK TABLES `consecutive` WRITE;
+INSERT INTO `consecutive` VALUES (1,'shenal','IT1010','IP','Y1S1.IT.1','Lecture','100','2','monday'),(2,'shenal','IT1010','IP','Y1S1.IT.1','Tute','100','1','monday'),(6,'lakna','IT4020','ML','Y4S1.SE.1','Lecture','100','2','wednesday'),(8,'lakshitha','IT4020','ML','Y4S1.SE.1','Tute','100','1','wednesday');
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `lectrer`;
+
+CREATE TABLE `lectrer` (
+`Name` TEXT NOT NULL,
+`EMPID` TEXT NOT NULL,
+`Faculty` TEXT NOT NULL,
+`Department` TEXT NOT NULL,
+`Center` TEXT NOT NULL,
+`buliding` TEXT NOT NULL,
+`Level` TEXT NOT NULL,
+`Rank` TEXT NOT NULL,
+PRIMARY KEY (`EMPID`)
+);
+LOCK TABLES `lectrer` WRITE;
+INSERT INTO `lectrer` VALUES ('shenal','ep001','computing','IT','Malabe','new','1','Professor');
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `nonoverlapping`;
+
+CREATE TABLE `nonoverlapping` (
+`id` int NOT NULL,
+`lec` TEXT DEFAULT NULL,
+`sub_code` TEXT DEFAULT NULL,
+`sub_name` TEXT DEFAULT NULL,
+`group_id` TEXT DEFAULT NULL,
+`tag` TEXT DEFAULT NULL,
+`noOfStudents` TEXT DEFAULT NULL,
+`duration` TEXT DEFAULT NULL,
+`date` TEXT DEFAULT NULL,
+PRIMARY KEY (`id`)
+);
+LOCK TABLES `nonoverlapping` WRITE;
+INSERT INTO `nonoverlapping` VALUES (3,'thimira','IT1010','IP','Y1S1.IT.1','Lab','50','2','tuesday'),(4,'Damika','IT1030','MC','Y1S1.IT.2','Lecture','100','2','tuesday'),(7,'suhan','IT1020','CS','Y1S1.IT.1','Lecture','100','2','friday');
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `parallel`;
+
+CREATE TABLE `parallel` (
+`id` TEXT NOT NULL,
+`lec` TEXT DEFAULT NULL,
+`sub_code` TEXT DEFAULT NULL,
+`sub_name` TEXT DEFAULT NULL,
+`group_id` TEXT DEFAULT NULL,
+`tag` TEXT DEFAULT NULL,
+`noOfStudents` TEXT DEFAULT NULL,
+`duration` TEXT DEFAULT NULL,
+`date` TEXT NOT NULL,
+PRIMARY KEY (`id`)
+);
+LOCK TABLES `parallel` WRITE;
+INSERT INTO `parallel` VALUES ('5','shevon','IT4030','DL','Y4S1.SE.2','Lecture','100','2','wednesday'),('6','lakna','IT4020','ML','Y4S1.SE.1','Lecture','100','2','wednesday');
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `roomlocations`;
+
+CREATE TABLE `roomlocations` (
+`BuildingName` TEXT DEFAULT NULL,
+`RoomName` TEXT DEFAULT NULL,
+`Capacity` int DEFAULT NULL,
+`RoomType` TEXT DEFAULT NULL,
+`roomID` int NOT NULL,
+PRIMARY KEY (`roomID`)
+);
+LOCK TABLES `roomlocations` WRITE;
+INSERT INTO `roomlocations` VALUES ('1','1',1,'Laboratory',1),('computing','405A',50,'Laboratory',2),('2','21',1,'Laboratory',22),('2','21',1,'Laboratory',23);
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `seesion_add`;
+
+CREATE TABLE `seesion_add` (
+`id` int NOT NULL,
+`lec` TEXT DEFAULT NULL,
+`sub_code` TEXT DEFAULT NULL,
+`sub_name` TEXT DEFAULT NULL,
+`group_id` TEXT DEFAULT NULL,
+`tag` TEXT DEFAULT NULL,
+`noOfStudents` TEXT DEFAULT NULL,
+`duration` TEXT DEFAULT NULL,
+`date` TEXT NOT NULL,
+PRIMARY KEY (`id`)
+);
+LOCK TABLES `seesion_add` WRITE;
+INSERT INTO `seesion_add` VALUES (1,'shenal','IT1010','IP','Y1S1.IT.1','Lecture','100','2','monday'),(2,'shenal','IT1010','IP','Y1S1.IT.1','Tute','100','1','monday'),(3,'thimira','IT1010','IP','Y1S1.IT.1','Lab','50','2','tuesday'),(4,'Damika','IT1030','MC','Y1S1.IT.2','Lecture','100','2','tuesday'),(5,'shevon','IT4030','DL','Y4S1.SE.2','Lecture','100','2','wednesday'),(6,'lakna','IT4020','ML','Y4S1.SE.1','Lecture','100','2','wednesday'),(7,'suhan','IT1020','CS','Y1S1.IT.1','Lecture','100','2','friday'),(8,'lakshitha','IT4020','ML','Y4S1.SE.1','Tute','100','1','wednesday');
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `sessions_and_not_available_times_allocations_db_connect`;
+
+CREATE TABLE `sessions_and_not_available_times_allocations_db_connect` (
+`SessionID` int NOT NULL,
+`Lecturer` TEXT DEFAULT NULL,
+`Group` TEXT DEFAULT NULL,
+`SubGroup` TEXT DEFAULT NULL,
+`TimeDuration` TEXT DEFAULT NULL,
+PRIMARY KEY (`SessionID`)
+);
+LOCK TABLES `sessions_and_not_available_times_allocations_db_connect` WRITE;
+INSERT INTO `sessions_and_not_available_times_allocations_db_connect` VALUES (1,'Mr. Prasanna Sumathipala','Y1S1.01(IT)','Y1S1.01.01(IT)','Monday, 08.30-10.30'),(2,'Mr. Prasanna Sumathipala','Y1S1.02(IT)','Y1S1.01.02(IT)','Monday, 08.30-10.30');
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `studentgroup`;
+
+CREATE TABLE `studentgroup` (
+`sid` int NOT NULL,
+`syear` TEXT DEFAULT NULL,
+`SGID` TEXT DEFAULT NULL,
+`groupNo` TEXT DEFAULT NULL,
+`sgroupNo` TEXT DEFAULT NULL,
+`program` TEXT DEFAULT NULL,
+PRIMARY KEY (`sid`)
+);
+LOCK TABLES `studentgroup` WRITE;
+INSERT INTO `studentgroup` VALUES (1,'Y1S2','Y1S2SE2.2','2','2','SE'),(2,'Y1S1','Y1S1IT2.2','2','2','IT'),(3,'Y1S2','Y1S2IT2.3','2','2','IT'),(4,'Y1S2','Y1S2IT122','12','2','IT'),(5,'Y3S2','Y3S2DS91','9','1','DS'),(6,'Y3S2','Y3S2DS91','9','1','DS'),(7,'Y1S2','Y1S2IT12.2','12','2','IT');
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `subject`;
+
+CREATE TABLE `subject` (
+`OfferedYr` TEXT NOT NULL,
+`OfferedSem` TEXT NOT NULL,
+`SubName` TEXT NOT NULL,
+`SubCode` TEXT NOT NULL,
+`LecHrs` TEXT NOT NULL,
+`TuteHrs` TEXT NOT NULL,
+`LabHrs` TEXT NOT NULL,
+`EvalutionHrs` TEXT NOT NULL,
+PRIMARY KEY (`SubCode`)
+);
+LOCK TABLES `subject` WRITE;
+INSERT INTO `subject` VALUES ('1','1','1','1','11','1','11','1');
+UNLOCK TABLES;
+DROP TABLE IF EXISTS `tags`;
+
+CREATE TABLE `tags` (
+`id` int NOT NULL ,
+`Tcode` TEXT DEFAULT NULL,
+`Rtag` TEXT DEFAULT NULL,
+`Tname` TEXT DEFAULT NULL,
+PRIMARY KEY (`id`)
+);
+LOCK TABLES `tags` WRITE;
+INSERT INTO `tags` VALUES (1,'1','lecture','lec'),(2,'2','lecture','lec'),(3,'3','tutorial','tute'),(4,'4','lab','lab'),(5,'5','5','5'),(6,'5','51','5'),(8,'7','LEC','LEC'),(9,'9','LEC','LEC'),(10,'10','TUTORIAL','TUTE'),(11,'11','LECTURE','LEC'),(12,'16','TUTORIAL','TUTE');
+UNLOCK TABLES;
+
+
+
+CREATE UNIQUE INDEX `lectrer_EMPID_UNIQUE` ON `lectrer` (`EMPID`);
+CREATE UNIQUE INDEX `subject_SubCode_UNIQUE` ON `subject` (`SubCode`);
+
+COMMIT;
+PRAGMA ignore_check_constraints = ON;
+PRAGMA foreign_keys = ON;
+PRAGMA journal_mode = WAL;
+PRAGMA synchronous = NORMAL;

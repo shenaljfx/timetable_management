@@ -17,7 +17,7 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" exported="" name="mysql-connector-java-8.0.22" level="project" />
-    <orderEntry type="library" name="sqlite-jdbc-3.5.7" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.23" level="project" />
+    <orderEntry type="library" name="sqlite-jdbc-3.20.1" level="project" />
   </component>
 </module>

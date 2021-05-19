@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #eee9d9;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="RoomLocationController">
+   <children>
+      <Label alignment="CENTER" layoutX="57.0" layoutY="28.0" prefHeight="98.0" prefWidth="414.0" text="Locations">
+         <font>
+            <Font size="53.0" />
+         </font>
+      </Label>
+      <Label layoutX="77.0" layoutY="223.0" text="Building Name" />
+      <Label layoutX="77.0" layoutY="296.0" text="Room Name" />
+      <Label layoutX="77.0" layoutY="372.0" text="Capacity" />
+      <TextField fx:id="BNtxt" layoutX="239.0" layoutY="218.0" />
+      <TextField fx:id="RNTxt" layoutX="239.0" layoutY="291.0" />
+      <TextField fx:id="CAPTXT" layoutX="239.0" layoutY="367.0" />
+      <RadioButton fx:id="LecRB" layoutX="239.0" layoutY="453.0" mnemonicParsing="false" selected="true" text="Lecture Hall">
+         <toggleGroup>
+            <ToggleGroup fx:id="roomtype" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="LABRB" layoutX="239.0" layoutY="489.0" mnemonicParsing="false" text="Laboratory" toggleGroup="$roomtype" />
+      <Label layoutX="77.0" layoutY="453.0" text="Room Type" />
+      <Button fx:id="saveloc" layoutX="86.0" layoutY="570.0" mnemonicParsing="false" onAction="#Add_locations" style="-fx-background-color: c8c483;" text="Save" />
+      <Button layoutX="218.0" layoutY="570.0" mnemonicParsing="false" onAction="#Edit" style="-fx-background-color: c8c483;" text="update" />
+      <Button layoutX="348.0" layoutY="570.0" mnemonicParsing="false" onAction="#Delete" style="-fx-background-color: c8c483;" text="Delete" />
+      <TableView fx:id="tvloc" layoutX="445.0" layoutY="146.0" onMouseClicked="#getSelected" onSort="#UpdateTable" prefHeight="557.0" prefWidth="565.0">
+        <columns>
+          <TableColumn fx:id="tvlocbname" prefWidth="119.0" text="Building Name" />
+          <TableColumn fx:id="tvlocrname" prefWidth="120.0" text="Room Name" />
+            <TableColumn fx:id="tvcap" prefWidth="90.0" text="Capacity" />
+            <TableColumn fx:id="tvrromtype" prefWidth="125.0" text="Room Type" />
+            <TableColumn fx:id="roomID" prefWidth="109.0" text="RoomID" />
+        </columns>
+      </TableView>
+      <Label layoutX="77.0" layoutY="151.0" text="Room ID" />
+      <TextField fx:id="filterloc" layoutX="634.0" layoutY="85.0" promptText="Search" />
+      <TextField fx:id="roomid" layoutX="239.0" layoutY="147.0" />
+      <Button layoutX="14.0" layoutY="646.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="26.0" prefWidth="141.0" style="-fx-background-color: c8c483;" text="Back to main screen" />
+
+   </children>
+</AnchorPane>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="599.0" prefWidth="1287.0" style="-fx-background-color: #eee9d9;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Add_Working_Days_HoursController">
+   <children>
+      <TableView id="#deda93" fx:id="DescWorkingDays_AndHours" layoutX="391.0" layoutY="90.0" prefHeight="461.0" prefWidth="879.0">
+        <columns>
+          <TableColumn fx:id="CoID" prefWidth="39.0" text="ID" />
+          <TableColumn fx:id="CoNoOfWorkingDays" prefWidth="154.5999755859375" text="No of Working Days" />
+            <TableColumn fx:id="CoWorking_Days" prefWidth="305.0" text="Working Days" />
+            <TableColumn fx:id="CoHours" prefWidth="186.0" text="Working Time Per Day(Hours)" />
+            <TableColumn fx:id="CoMinutes" prefWidth="196.199951171875" text="Working Time Per Day(Minutes)" />
+        </columns>
+      </TableView>
+      <Label layoutX="215.0" layoutY="23.0" prefHeight="50.0" prefWidth="542.0" text="Add Working Days and Hours">
+         <font>
+            <Font name="Arial Black" size="33.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnSave" layoutX="47.0" layoutY="505.0" mnemonicParsing="false" onAction="#insertRecord" prefHeight="30.0" prefWidth="63.0" style="-fx-background-color: #deda93;" text="Save">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnUpdate" layoutX="157.0" layoutY="505.0" mnemonicParsing="false" onAction="#updateRecord" style="-fx-background-color: #deda93;" text="Update">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete" layoutX="284.0" layoutY="505.0" mnemonicParsing="false" onAction="#deleteRecord" style="-fx-background-color: #deda93;" text="Delete">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <VBox layoutX="18.0" layoutY="81.0" prefHeight="421.0" prefWidth="157.0">
+         <children>
+            <Label fx:id="ID" text="Session ID">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="NoOfWorkingDays" text="No of Working Days">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="WorkingDays" text="Working Days">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="WorkingPerTimeDay" text="Working Time Per Day">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="205.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="183.0" layoutY="79.0" prefHeight="429.0" prefWidth="185.0">
+         <children>
+            <TextField fx:id="txtID" prefHeight="26.0" prefWidth="145.0">
+               <VBox.margin>
+                  <Insets right="70.0" top="18.0" />
+               </VBox.margin>
+            </TextField>
+            <Spinner fx:id="ListSPINNERDays">
+               <VBox.margin>
+                  <Insets top="13.0" />
+               </VBox.margin>
+            </Spinner>
+            <CheckBox fx:id="chkMonday" mnemonicParsing="false" text="Monday">
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="chkTuesday" mnemonicParsing="false" text="Tuesday">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="chkWednesday" mnemonicParsing="false" text="Wednesday">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="chkThrusday" mnemonicParsing="false" text="Thrusday">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="chkFirday" mnemonicParsing="false" text="Firday">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="chkStaurday" mnemonicParsing="false" text="Saturday">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="chkSunday" mnemonicParsing="false" text="Sunday">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </CheckBox>
+            <Spinner fx:id="ListSPINNERHours" prefHeight="25.0" prefWidth="106.0">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Spinner>
+            <Label fx:id="hrs" text="Hours">
+               <VBox.margin>
+                  <Insets left="120.0" top="-20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Spinner fx:id="ListSPINNERMinutes" prefHeight="25.0" prefWidth="107.0">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Spinner>
+            <Label fx:id="minuts" text="Minutes">
+               <VBox.margin>
+                  <Insets left="120.0" top="-22.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Label fx:id="WORKD" layoutX="556.0" layoutY="494.0" prefHeight="18.0" prefWidth="93.0" textFill="#eee9d9" />
+      <Button layoutX="15.0" layoutY="554.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="30.0" prefWidth="164.0" style="-fx-background-color: #deda93;" text="Back to main page">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
+

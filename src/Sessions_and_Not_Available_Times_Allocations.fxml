@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="426.0" prefWidth="819.0" style="-fx-background-color: #eee9d9;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sessions_and_Not_Available_Times_AllocationsController">
+   <children>
+      <Label layoutX="84.0" layoutY="33.0" prefHeight="50.0" prefWidth="627.0" text="Sessions and Not Available Times Allocations">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+      </Label>
+      <VBox layoutX="35.0" layoutY="103.0" prefHeight="200.0" prefWidth="154.0">
+         <children>
+            <Label fx:id="lecturer" text="Select Lecturer :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="group" text="Select Group :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="subGroup" text="Select Sub Group :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="sessionID" text="Select Session ID :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="192.0" layoutY="103.0" prefHeight="200.0" prefWidth="238.0">
+         <children>
+            <Spinner fx:id="lecturerLevel" prefHeight="25.0" prefWidth="237.0">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Spinner>
+            <Spinner fx:id="groupLevel" prefHeight="25.0" prefWidth="240.0">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Spinner>
+            <Spinner fx:id="subGroupLevel" prefHeight="25.0" prefWidth="238.0">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Spinner>
+            <Spinner fx:id="sessionIDLevel" prefHeight="25.0" prefWidth="239.0">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Spinner>
+         </children>
+      </VBox>
+      <VBox layoutX="461.0" layoutY="103.0" prefHeight="79.0" prefWidth="83.0">
+         <children>
+            <Label fx:id="time" prefHeight="25.0" prefWidth="92.0" text="Time :">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+      <VBox layoutX="550.0" layoutY="103.0" prefHeight="61.0" prefWidth="215.0">
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+         <children>
+            <Spinner fx:id="TimeDurationLevel" prefHeight="25.0" prefWidth="202.0">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Spinner>
+         </children>
+      </VBox>
+      <Button fx:id="btnSubmit" layoutX="465.0" layoutY="203.0" mnemonicParsing="false" onAction="#insertRecord" prefHeight="30.0" prefWidth="295.0" style="-fx-background-color: #deda93;" text="Submit">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnView" layoutX="467.0" layoutY="256.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #deda93;" text="View">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnClear" layoutX="639.0" layoutY="256.0" mnemonicParsing="false" onAction="#clearFields" prefHeight="30.0" prefWidth="120.0" style="-fx-background-color: #deda93;" text="Clear">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="168.0" layoutY="332.0" mnemonicParsing="false" onAction="#changeScreen2" prefHeight="30.0" prefWidth="423.0" style="-fx-background-color: #deda93;" text="Back to main page">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

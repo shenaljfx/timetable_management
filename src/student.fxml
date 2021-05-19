@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" prefHeight="754.0" prefWidth="716.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studentController">
+   <rowConstraints>
+      <RowConstraints fillHeight="false" />
+   </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="755.0" prefWidth="1122.0" style="-fx-background-color: #eee9d9;">
+      <VBox layoutX="459.0" layoutY="39.0" prefHeight="164.0" prefWidth="58.0" spacing="25.0" />
+      <VBox layoutX="525.0" layoutY="39.0" prefHeight="164.0" prefWidth="147.0" spacing="13.0" />
+      <Button fx:id="Screate_btn" layoutX="35.0" layoutY="522.0" mnemonicParsing="false" onAction="#createStudent" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: #c8c483;" text="SAVE" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="993.0" AnchorPane.topAnchor="522.0" />
+      <Button fx:id="update_btn" layoutX="257.0" layoutY="522.0" mnemonicParsing="false" onAction="#updateStudent" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: #c8c483;" text="Update" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="257.0" AnchorPane.rightAnchor="771.0" AnchorPane.topAnchor="522.0" />
+      <Button fx:id="delete_btn" layoutX="155.0" layoutY="522.0" mnemonicParsing="false" onAction="#deleteStudent" prefHeight="27.0" prefWidth="80.0" style="-fx-background-color: #c8c483;" text="Delete" AnchorPane.bottomAnchor="206.0" AnchorPane.leftAnchor="155.0" AnchorPane.rightAnchor="887.0" AnchorPane.topAnchor="522.0" />
+      <TextField fx:id="get_text" layoutX="47.0" layoutY="569.0" prefHeight="27.0" prefWidth="88.0" promptText="Enter ID to GET data" AnchorPane.bottomAnchor="159.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="987.0" AnchorPane.topAnchor="569.0" />
+      <Button fx:id="get_button" layoutX="148.0" layoutY="569.0" mnemonicParsing="false" onAction="#getStudentByID" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #c8c483;" text="Get" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="148.0" AnchorPane.rightAnchor="894.0" AnchorPane.topAnchor="569.0" />
+      <Button fx:id="revert_button" layoutX="237.0" layoutY="569.0" mnemonicParsing="false" onAction="#buttonPressed" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #c8c483;" text="Revert" AnchorPane.bottomAnchor="160.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="805.0" AnchorPane.topAnchor="569.0" />
+      <Label layoutX="14.0" layoutY="181.0" prefHeight="18.0" prefWidth="87.0" text="ID" AnchorPane.bottomAnchor="556.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="925.0" AnchorPane.topAnchor="181.0" />
+      <TextField fx:id="sid_text" layoutX="131.0" layoutY="177.0" prefHeight="26.0" prefWidth="201.0" />
+      <TextField fx:id="syear_text" layoutX="131.0" layoutY="216.0" prefHeight="26.0" prefWidth="202.0" AnchorPane.bottomAnchor="513.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="789.0" AnchorPane.topAnchor="216.0" />
+      <Label layoutX="14.0" layoutY="220.0" prefHeight="18.0" prefWidth="116.0" text="Academic year" AnchorPane.bottomAnchor="517.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="992.0" AnchorPane.topAnchor="220.0" />
+      <TextField fx:id="program_text" layoutX="131.0" layoutY="255.0" prefHeight="26.0" prefWidth="202.0" AnchorPane.bottomAnchor="474.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="789.0" AnchorPane.topAnchor="255.0" />
+      <Label layoutX="14.0" layoutY="257.0" prefHeight="22.0" prefWidth="116.0" text="Program" AnchorPane.bottomAnchor="476.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="992.0" AnchorPane.topAnchor="257.0" />
+      <TextField fx:id="groupNo" layoutX="131.0" layoutY="294.0" prefHeight="26.0" prefWidth="202.0" AnchorPane.bottomAnchor="435.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="789.0" AnchorPane.topAnchor="294.0" />
+      <Label layoutX="14.0" layoutY="296.0" prefHeight="22.0" prefWidth="116.0" text="Group Number" AnchorPane.bottomAnchor="437.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="992.0" AnchorPane.topAnchor="296.0" />
+      <TableView fx:id="main_table" layoutX="375.0" onMouseClicked="#mouseClicked" prefHeight="755.0" prefWidth="748.0" style="-fx-background-size: 100%;">
+         <columns>
+            <TableColumn fx:id="sid_column" prefWidth="100.0" style="-fx-background-color: #ffff;" text="ID" />
+            <TableColumn fx:id="syear_column" prefWidth="142.0" style="-fx-background-color: #ffff;" text="Acadamin year" />
+            <TableColumn fx:id="program_column" prefWidth="129.4000244140625" style="-fx-background-color: #ffff;" text="Program" />
+            <TableColumn fx:id="groupNo_column" prefWidth="132.99993896484375" style="-fx-background-color: #ffff;" text="Group No" />
+            <TableColumn fx:id="sgroupNo_column" prefWidth="124.39996337890625" style="-fx-background-color: #ffff;" text="SubGroup No" />
+            <TableColumn fx:id="SGID_column" prefWidth="119.0" style="-fx-background-color: #ffff;" text="SudGroup ID" />
+         </columns>
+      </TableView>
+      <Label fx:id="syear_coloum" layoutX="47.0" layoutY="14.0" prefHeight="86.0" prefWidth="323.0" text="Student Groups" textFill="#616161" AnchorPane.bottomAnchor="655.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="656.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Bookman Old Style" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="340.0" prefHeight="18.0" prefWidth="116.0" text="SubGroup no" />
+      <TextField fx:id="sgroupNo" layoutX="131.0" layoutY="336.0" prefHeight="26.0" prefWidth="202.0" />
+      <Button fx:id="genID" layoutX="102.0" layoutY="472.0" mnemonicParsing="false" onAction="#GenerateIDS" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="GENARATE IDS" AnchorPane.bottomAnchor="257.0" AnchorPane.leftAnchor="102.0" AnchorPane.rightAnchor="830.0" AnchorPane.topAnchor="472.0" />
+      <Label layoutX="14.0" layoutY="382.0" prefHeight="18.0" prefWidth="116.0" text="SubGroup ID" />
+      <TextField fx:id="SGID" layoutX="131.0" layoutY="378.0" prefHeight="26.0" prefWidth="202.0" />
+      <Button layoutX="14.0" layoutY="714.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="Back to main page" />
+   </AnchorPane>
+</GridPane>

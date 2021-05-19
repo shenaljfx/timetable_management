@@ -1,3 +1,4 @@
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -8,7 +9,7 @@ import javafx.stage.Stage;
 public class MainPage {
     public void manageStudent(javafx.event.ActionEvent event) {
         try{
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("sample/student.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("student.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
             Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(tableViewScene);
@@ -19,7 +20,7 @@ public class MainPage {
     }
     public void manageTags(javafx.event.ActionEvent event) {
         try{
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("sample/tags.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("tags.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
             Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(tableViewScene);
@@ -30,7 +31,7 @@ public class MainPage {
     }
     public void add_working_days(javafx.event.ActionEvent event) {
         try{
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("time_table_management_system_it19171302/Add_Working_Days_Hours.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("Add_Working_Days_Hours.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
             Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(tableViewScene);
@@ -41,7 +42,7 @@ public class MainPage {
     }
     public void add_location(javafx.event.ActionEvent event) {
         try{
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("timetablemgt/RoomLocation.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("RoomLocation.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
             Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(tableViewScene);
@@ -53,7 +54,7 @@ public class MainPage {
     @FXML
     public void stat(javafx.event.ActionEvent event) {
         try{
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("timetablemgt/statistics.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("statistics.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
             Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(tableViewScene);
@@ -65,7 +66,7 @@ public class MainPage {
     @FXML
     public void TimeSlots(javafx.event.ActionEvent event) {
         try{
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("time_table_management_system_it19171302/Manage_Time_Slots.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("Manage_Time_Slots.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
             Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(tableViewScene);
@@ -77,7 +78,7 @@ public class MainPage {
     @FXML
     public void TimeTable(javafx.event.ActionEvent event) {
         try{
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("TIMETABLEGEN/timetable.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("timetable.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
             Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(tableViewScene);
@@ -89,7 +90,7 @@ public class MainPage {
     @FXML
     public void addLecturer(javafx.event.ActionEvent event) {
         try{
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("member2/lecture.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("lecture.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
             Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(tableViewScene);
@@ -101,7 +102,7 @@ public class MainPage {
     @FXML
     public void addSubject(javafx.event.ActionEvent event) {
         try{
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("member2/subject.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("subject.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
             Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(tableViewScene);
@@ -113,7 +114,7 @@ public class MainPage {
     @FXML
     public void managesession(javafx.event.ActionEvent event) {
         try{
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("sample/sessions.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("sessions.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
             Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(tableViewScene);

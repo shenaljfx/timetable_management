@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: eee9d9;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SubjectController">
+    <children>
+        <Label layoutX="30.0" layoutY="14.0" prefHeight="78.0" prefWidth="399.0" text="Add Subject">
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Label>
+        <Label layoutX="132.0" layoutY="211.0" prefHeight="18.0" prefWidth="104.0" text="Offerd Semester" />
+        <Label layoutX="132.0" layoutY="255.0" prefHeight="18.0" prefWidth="98.0" text="Subject Name" />
+        <Label layoutX="127.0" layoutY="164.0" prefHeight="18.0" prefWidth="115.0" text="Offerd Year" />
+        <Label layoutX="132.0" layoutY="300.0" prefHeight="18.0" prefWidth="98.0" text="Subject Code" />
+        <Label layoutX="553.0" layoutY="164.0" prefHeight="18.0" prefWidth="150.0" text="No Of Lecture Hours" />
+        <Label layoutX="553.0" layoutY="210.0" prefHeight="18.0" prefWidth="141.0" text="No Of TuteHours" />
+        <Label layoutX="553.0" layoutY="255.0" prefHeight="18.0" prefWidth="142.0" text="No Of Lab Hours" />
+        <Label layoutX="553.0" layoutY="300.0" prefHeight="18.0" prefWidth="142.0" text="No Of Evolution Hours" />
+        <TextField fx:id="off_year" layoutX="256.0" layoutY="160.0" />
+        <TextField fx:id="sub_code" layoutX="256.0" layoutY="295.0" />
+        <TextField fx:id="no_lec" layoutX="708.0" layoutY="160.0" />
+        <TextField fx:id="no_tute" layoutX="708.0" layoutY="206.0" />
+        <TextField fx:id="no_lab" layoutX="708.0" layoutY="250.0" />
+        <TextField fx:id="no_evo" layoutX="708.0" layoutY="295.0" />
+        <Button layoutX="270.0" layoutY="369.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: c8c483;" text="Save" />
+        <Button layoutX="468.0" layoutY="371.0" mnemonicParsing="false" onAction="#Edit" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: c8c483;" text="Update" />
+        <Button layoutX="665.0" layoutY="369.0" mnemonicParsing="false" onAction="#Delete" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: c8c483;" text="Delete" />
+        <TableView fx:id="table_stat" layoutX="17.0" layoutY="470.0" onMouseClicked="#getSelected" prefHeight="284.0" prefWidth="990.0">
+            <columns>
+                <TableColumn fx:id="off_col" prefWidth="106.20001602172852" text="Offerd Year" />
+                <TableColumn fx:id="sem_col" prefWidth="119.19998168945312" text="Offerd Semester" />
+                <TableColumn fx:id="sub_col" prefWidth="131.00003051757812" text="Subject Name" />
+                <TableColumn fx:id="code_col" prefWidth="145.79998779296875" text="Subject Code" />
+                <TableColumn fx:id="lec_col" prefWidth="156.5999755859375" text="No Of Lecture Hours" />
+                <TableColumn fx:id="tute_col" prefWidth="111.60003662109375" text="No Of TuteHours" />
+                <TableColumn fx:id="lab_col" prefWidth="109.00006103515625" text="No Of Lab Hours" />
+                <TableColumn fx:id="evo_col" prefWidth="122.199951171875" text="No Of Evolution Hours" />
+            </columns>
+        </TableView>
+        <TextField fx:id="off_sem" layoutX="256.0" layoutY="206.0" />
+        <TextField fx:id="sub_name" layoutX="256.0" layoutY="250.0" />
+        <Button layoutX="437.0" layoutY="425.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="26.0" prefWidth="149.0" style="-fx-background-color: c8c483;" text="Back to main page" />
+
+    </children>
+</AnchorPane>

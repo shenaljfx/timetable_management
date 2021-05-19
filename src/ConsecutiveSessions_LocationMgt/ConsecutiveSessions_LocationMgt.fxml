@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #eee9d9;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="consecutivesessions_locationmgt.ConsecutiveSessions_LocationMgtController">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <Text fill="#120857" layoutX="299.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manage Locations">
+         <font>
+            <Font size="53.0" />
+         </font>
+      </Text>
+      <Text fill="#1b0754" layoutX="358.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Consecutive Sessions">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Text>
+      <Text layoutX="98.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecturer 1" />
+      <Text layoutX="98.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lecturer 2" />
+      <Text layoutX="98.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject Code" />
+      <Text layoutX="98.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subject Name" />
+      <Text layoutX="577.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Group ID" />
+      <Text layoutX="577.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tag" />
+      <Text layoutX="577.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Room" />
+      <TextField fx:id="lec1txt" layoutX="242.0" layoutY="178.0" />
+      <TextField fx:id="lec2txt" layoutX="242.0" layoutY="222.0" />
+      <TextField fx:id="scodetxt" layoutX="242.0" layoutY="271.0" />
+      <TextField fx:id="snametxt" layoutX="242.0" layoutY="324.0" />
+      <TextField fx:id="gidtxt" layoutX="696.0" layoutY="178.0" />
+      <TextField fx:id="tagtxt" layoutX="696.0" layoutY="222.0" />
+      <TextField fx:id="roomtxt" layoutX="696.0" layoutY="270.0" />
+      <Button fx:id="btnsave" layoutX="572.0" layoutY="324.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="66.0" style="-fx-background-color: c8c483;" text="Save" />
+      <Button fx:id="btndelete" layoutX="818.0" layoutY="324.0" mnemonicParsing="false" style="-fx-background-color: c8c483;" text="Delete" />
+      <Button fx:id="btnupdate" layoutX="693.0" layoutY="324.0" mnemonicParsing="false" style="-fx-background-color: c8c483;" text="Update" />
+      <Button fx:id="btnsearch" layoutX="572.0" layoutY="369.0" mnemonicParsing="false" style="-fx-background-color: c8c483;" text="Search" />
+      <TextField fx:id="gettext" layoutX="696.0" layoutY="369.0" promptText="Enter Group ID to Search" />
+      <TableView fx:id="tableview" layoutX="41.0" layoutY="440.0" prefHeight="300.0" prefWidth="942.0">
+        <columns>
+          <TableColumn fx:id="collec1" prefWidth="130.0" text="Lecturer 1" />
+          <TableColumn fx:id="collec2" prefWidth="133.0" text="Lecturer 2" />
+            <TableColumn fx:id="colscode" prefWidth="101.0" text="Subject Code" />
+            <TableColumn fx:id="colsname" prefWidth="239.0" text="Subject Name" />
+            <TableColumn fx:id="colgid" prefWidth="129.0" text="Group ID" />
+            <TableColumn fx:id="coltag" prefWidth="88.0" text="Tag" />
+            <TableColumn fx:id="colroom" prefWidth="119.0" text="Room" />
+        </columns>
+      </TableView>
+    </children>
+</AnchorPane>
