@@ -9,6 +9,19 @@ public class Sessions {
     String tag;
     String noOfStudents;
 
+    public Sessions(int id, String lec, String sub_code, String sub_name, String group_id, String tag, String noOfStudents, String duration, String date) {
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
+    String room;
+
     public String getDate() {
         return date;
     }
@@ -36,7 +49,7 @@ public class Sessions {
 
     String duration;
 
-    public Sessions(int id, String lec, String sub_code, String sub_name, String group_id, String tag, String noOfStudents, String duration, String date) {
+    public Sessions(int id, String lec, String sub_code, String sub_name, String group_id, String tag, String noOfStudents, String duration, String date, String room) {
         this.id = id;
         this.lec = lec;
         this.sub_code = sub_code;
@@ -46,6 +59,7 @@ public class Sessions {
         this.noOfStudents = noOfStudents;
         this.duration = duration;
         this.date = date;
+        this.room = room;
     }
 
 

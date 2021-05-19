@@ -1,4 +1,3 @@
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -13,14 +12,29 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-
 import javax.swing.*;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class sessionController implements Initializable {
+public class room_allocation_controller implements Initializable {
+    @FXML
+    private TableColumn<locations, String> tvlocrname;
 
+    @FXML
+    private TableColumn<locations, String> tvlocbname;
+
+    @FXML
+    private TableColumn<locations, String> tvrromtype;
+
+    @FXML
+    private TableView<locations> tvloc;
+
+    @FXML
+    private TableColumn<locations, Integer> tvcap;
+
+    @FXML
+    private TableColumn<locations, Integer> roomID;
     @FXML
     private TableColumn<Sessions, Integer> sec_id;
 
@@ -46,8 +60,6 @@ public class sessionController implements Initializable {
     private TableColumn<Sessions, String> duration;
     @FXML
     private TableColumn<Sessions, String> sec_date;
-    @FXML
-    private TableColumn<Sessions, String>  room_col;
 
 
     @FXML
@@ -66,20 +78,18 @@ public class sessionController implements Initializable {
 
     ResultSet rs = null;
     PreparedStatement pst = null;
-    PreparedStatement pst2 = null;
+
 
     @FXML
-    public void consecutive (){
+    public void allocateRoom (){
         try {
             conn = getConnection();
             String value1 = s1_id.getText();
             String value2 = s2_id.getText();
-            String sql = "INSERT INTO consecutive SELECT * FROM allocate_room WHERE id ='"+value1+"' ";
-            String sql2 = "INSERT INTO consecutive SELECT * FROM allocate_room WHERE id ='"+value2+"' ";
+            String sql = "INSERT INTO allocate_room SELECT id,lec,sub_code,sub_name,group_id,tag,noOfStudents,duration,date,roomName FROM seesion_add,roomlocations WHERE id ='"+value1+"'and roomName ='"+value2+"'";
             pst= conn.prepareStatement(sql);
-            pst2= conn.prepareStatement(sql2);
             pst.execute();
-            pst2.execute();
+
             JOptionPane.showMessageDialog(null, "DONE");
             UpdateTable();
 
@@ -88,49 +98,12 @@ public class sessionController implements Initializable {
         }
 
     }
-    @FXML
-    public void parallel (){
-        try {
-            conn = getConnection();
-            String value1 = s1_id.getText();
-            String value2 = s2_id.getText();
-            String sql = "INSERT INTO parallel SELECT * FROM allocate_room WHERE id ='"+value1+"' ";
-            String sql2 = "INSERT INTO parallel SELECT * FROM allocate_room WHERE id ='"+value2+"' ";
-            pst= conn.prepareStatement(sql);
-            pst2= conn.prepareStatement(sql2);
-            pst.execute();
-            pst2.execute();
-            JOptionPane.showMessageDialog(null, "DONE");
-            UpdateTable();
 
-        } catch (Exception e) {
-            System.out.println("error " + e);
-        }
 
-    }
-    @FXML
-    public void notOverlap (){
-        try {
-            conn = getConnection();
-            String value1 = s1_id.getText();
-            String value2 = s2_id.getText();
-            String sql = "INSERT INTO nonoverlapping SELECT * FROM allocate_room WHERE id ='"+value1+"' ";
-            String sql2 = "INSERT INTO nonoverlapping SELECT * FROM allocate_room WHERE id ='"+value2+"' ";
-            pst= conn.prepareStatement(sql);
-            pst2= conn.prepareStatement(sql2);
-            pst.execute();
-            pst2.execute();
-            JOptionPane.showMessageDialog(null, "DONE");
-            UpdateTable();
-
-        } catch (Exception e) {
-            System.out.println("error " + e);
-        }
-
-    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         UpdateTable();
+        UpdateTable1();
     }
     public Connection getConnection() {
         Connection conn;
@@ -145,7 +118,7 @@ public class sessionController implements Initializable {
     public ObservableList<Sessions> getSession(){
         ObservableList<Sessions> SessionList = FXCollections.observableArrayList();
         Connection connection = getConnection();
-        String query = "SELECT * FROM allocate_room";
+        String query = "SELECT * FROM seesion_add ";
         Statement st;
         ResultSet rs;
 
@@ -155,8 +128,8 @@ public class sessionController implements Initializable {
             rs = st.executeQuery(query);
             Sessions Sessions;
             while(rs.next()) {
-                Sessions = new Sessions( rs.getInt("id"), rs.getString("lec"), rs.getString("sub_code"), rs.getString("sub_name"),rs.getString("group_id"),rs.getString("tag"),rs.getString("noOfStudents"),rs.getString("duration"),rs.getString("date"),rs.getString("room"));
-               SessionList.add(Sessions);
+                Sessions = new Sessions( rs.getInt("id"), rs.getString("lec"), rs.getString("sub_code"), rs.getString("sub_name"),rs.getString("group_id"),rs.getString("tag"),rs.getString("noOfStudents"),rs.getString("duration"),rs.getString("date"));
+                SessionList.add(Sessions);
 
             }
         } catch (Exception e) {
@@ -176,16 +149,45 @@ public class sessionController implements Initializable {
             tag.setCellValueFactory(new PropertyValueFactory<>("tag"));
             nostudent.setCellValueFactory(new PropertyValueFactory<>("noOfStudents"));
             duration.setCellValueFactory(new PropertyValueFactory<>("duration"));
-            sec_date.setCellValueFactory(new PropertyValueFactory<>("date"));
-            room_col.setCellValueFactory(new PropertyValueFactory<>("room"));
+            sec_date.setCellValueFactory(new PropertyValueFactory<>("date") );
             main_table.setItems(listM);
 
         }catch(Exception e){
             System.out.println(e);
         }
     }
+    public ObservableList<locations> getRoomList(){
+        ObservableList<locations> locations = FXCollections.observableArrayList();
+        Connection connection = getConnection();
+        String query = "SELECT * FROM roomlocations ";
+        Statement st;
+        ResultSet rs;
+        System.out.println(query);
 
+        try {
+            st = connection.createStatement();
+            rs = st.executeQuery(query);
 
+            while(rs.next()) {
+                locations locations1 = new locations( rs.getString("BuildingName"), rs.getString("RoomName"), rs.getInt("Capacity"), rs.getString("roomtype"),rs.getInt("roomID"));
+                locations.add(locations1);
+
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return locations;
+    }
+
+    public void UpdateTable1(){
+        ObservableList<locations> listL = getRoomList();
+        tvlocbname.setCellValueFactory(new PropertyValueFactory<locations,String>("BuildingName"));
+        tvlocrname.setCellValueFactory(new PropertyValueFactory<locations,String>("RoomName"));
+        tvcap.setCellValueFactory(new PropertyValueFactory<locations,Integer>("capacity"));
+        tvrromtype.setCellValueFactory(new PropertyValueFactory<locations,String>("roomtype"));
+        roomID.setCellValueFactory(new PropertyValueFactory<locations,Integer>("roomID"));
+        tvloc.setItems(listL);
+    }
 
 
 
@@ -201,18 +203,8 @@ public class sessionController implements Initializable {
             System.out.println(E);
         }
     }
-    @FXML
-    public void move_not_avil_times(javafx.event.ActionEvent event) {
-        try{
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("Sessions_and_Not_Available_Times_Allocations.fxml"));
-            Scene tableViewScene = new Scene(tableViewParent);
-            Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
-            window.setScene(tableViewScene);
-            window.show();
-        }catch(Exception E){
-            System.out.println(E);
-        }
-    }
+
+
+
 
 }
-
