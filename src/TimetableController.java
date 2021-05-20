@@ -103,227 +103,257 @@ public class TimetableController implements Initializable {
                 String i = (rs.getString("room"));
 
                 String paraSlot = a + "\n" + c + "(" + b + ")" + e + "\n" + d + "," + f + "(" + g + ")" + "," + i;
-
-                if (J == 0 && d.equals(group.getText()) && h.equals("monday") || J == 0 && a.equals(lec.getText()) && h.equals("monday") || J == 0 && i.equals(location.getText()) && h.equals("monday")) {
-                    paraArray[0] = paraSlot;
-                }
-                if (J == 1 && d.equals(group.getText()) && h.equals("monday") || J == 1 && a.equals(lec.getText()) && h.equals("monday") || J == 0 && i.equals(location.getText()) && h.equals("monday")) {
-                    paraArray[1] = paraSlot;
-                }
-                if (J == 2 && d.equals(group.getText()) && h.equals("monday") || J == 2 && a.equals(lec.getText()) && h.equals("monday") || J == 0 && i.equals(location.getText()) && h.equals("monday")) {
-                    paraArray[2] = paraSlot;
-                }
-                if (J == 3 && d.equals(group.getText()) && h.equals("monday") || J == 3 && a.equals(lec.getText()) && h.equals("monday") || J == 0 && i.equals(location.getText()) && h.equals("monday")) {
-                    paraArray[3] = paraSlot;
-                }
-                if (J == 4 && d.equals(group.getText()) && h.equals("monday") || J == 4 && a.equals(lec.getText()) && h.equals("monday") || J == 0 && i.equals(location.getText()) && h.equals("monday")) {
-                    paraArray[4] = paraSlot;
-                }
-                if (J == 5 && d.equals(group.getText()) && h.equals("monday") || J == 5 && a.equals(lec.getText()) && h.equals("monday") || J == 0 && i.equals(location.getText()) && h.equals("monday")) {
-                    paraArray[5] = paraSlot;
-                }
-                if (J == 6 && d.equals(group.getText()) && h.equals("monday") || J == 6 && a.equals(lec.getText()) && h.equals("monday") || J == 0 && i.equals(location.getText()) && h.equals("monday")) {
-                    paraArray[6] = paraSlot;
-                }
-                if (J == 7 && d.equals(group.getText()) && h.equals("monday") || J == 7 && a.equals(lec.getText()) && h.equals("monday") || J == 0 && i.equals(location.getText()) && h.equals("monday")) {
-                    paraArray[7] = paraSlot;
-                }
-                if (J == 8 && d.equals(group.getText()) && h.equals("monday") || J == 8 && a.equals(lec.getText()) && h.equals("monday") || J == 0 && i.equals(location.getText()) && h.equals("monday")) {
-                    paraArray[8] = paraSlot;
-                }
-                if (J == 8 && d.equals(group.getText()) && h.equals("monday") || J == 9 && a.equals(lec.getText()) && h.equals("monday") || J == 0 && i.equals(location.getText()) && h.equals("monday")) {
-                    paraArray[9] = paraSlot;
+                if(h.equals("monday")) {
+                    if (J == 0 && d.equals(group.getText()) || J == 0 && a.equals(lec.getText())) {
+                        paraArray[0] = paraSlot;
+                    }
+                    if (J == 1 && d.equals(group.getText()) || J == 1 && a.equals(lec.getText())) {
+                        paraArray[1] = paraSlot;
+                    }
+                    if (J == 2 && d.equals(group.getText()) || J == 2 && a.equals(lec.getText())) {
+                        paraArray[2] = paraSlot;
+                    }
+                    if (J == 3 && d.equals(group.getText()) || J == 3 && a.equals(lec.getText())) {
+                        paraArray[3] = paraSlot;
+                    }
+                    if (J == 4 && d.equals(group.getText()) || J == 4 && a.equals(lec.getText())) {
+                        paraArray[4] = paraSlot;
+                    }
+                    if (J == 5 && d.equals(group.getText()) || J == 5 && a.equals(lec.getText())) {
+                        paraArray[5] = paraSlot;
+                    }
+                    if (J == 6 && d.equals(group.getText()) || J == 6 && a.equals(lec.getText())) {
+                        paraArray[6] = paraSlot;
+                    }
+                    if (J == 7 && d.equals(group.getText()) || J == 7 && a.equals(lec.getText())) {
+                        paraArray[7] = paraSlot;
+                    }
+                    if (J == 8 && d.equals(group.getText()) || J == 8 && a.equals(lec.getText())) {
+                        paraArray[8] = paraSlot;
+                    }
+                    if (J == 8 && d.equals(group.getText()) || J == 9 && a.equals(lec.getText())) {
+                        paraArray[9] = paraSlot;
+                    }
+                    m6.setText((paraArray[0]) + "\n" + (paraArray[1]));
+                    m8.setText((paraArray[2]) + "\n" + (paraArray[3]));
+                    m9.setText((paraArray[4]) + "\n" + (paraArray[5]));
                 }
                 //tuesday
-
-                if (J == 0 && d.equals(group.getText()) && h.equals("tuesday") || J == 0 && a.equals(lec.getText()) && h.equals("tuesday") || J == 0 && i.equals(location.getText()) && h.equals("tuesday")) {
-                    paraArray2[0] = paraSlot;
-                }
-                if (J == 1 && d.equals(group.getText()) && h.equals("tuesday") || J == 1 && a.equals(lec.getText()) && h.equals("tuesday") || J == 0 && i.equals(location.getText()) && h.equals("tuesday")) {
-                    paraArray2[1] = paraSlot;
-                }
-                if (J == 2 && d.equals(group.getText()) && h.equals("tuesday") || J == 2 && a.equals(lec.getText()) && h.equals("tuesday") || J == 0 && i.equals(location.getText()) && h.equals("tuesday")) {
-                    paraArray2[2] = paraSlot;
-                }
-                if (J == 3 && d.equals(group.getText()) && h.equals("tuesday") || J == 3 && a.equals(lec.getText()) && h.equals("tuesday") || J == 0 && i.equals(location.getText()) && h.equals("tuesday")) {
-                    paraArray2[3] = paraSlot;
-                }
-                if (J == 4 && d.equals(group.getText()) && h.equals("tuesday") || J == 4 && a.equals(lec.getText()) && h.equals("tuesday") || J == 0 && i.equals(location.getText()) && h.equals("tuesday")) {
-                    paraArray2[4] = paraSlot;
-                }
-                if (J == 5 && d.equals(group.getText()) && h.equals("tuesday") || J == 5 && a.equals(lec.getText()) && h.equals("tuesday") || J == 0 && i.equals(location.getText()) && h.equals("tuesday")) {
-                    paraArray2[5] = paraSlot;
-                }
-                if (J == 6 && d.equals(group.getText()) && h.equals("tuesday") || J == 6 && a.equals(lec.getText()) && h.equals("tuesday") || J == 0 && i.equals(location.getText()) && h.equals("tuesday")) {
-                    paraArray2[6] = paraSlot;
-                }
-                if (J == 7 && d.equals(group.getText()) && h.equals("tuesday") || J == 7 && a.equals(lec.getText()) && h.equals("tuesday") || J == 0 && i.equals(location.getText()) && h.equals("tuesday")) {
-                    paraArray2[7] = paraSlot;
-                }
-                if (J == 8 && d.equals(group.getText()) && h.equals("tuesday") || J == 8 && a.equals(lec.getText()) && h.equals("tuesday") || J == 0 && i.equals(location.getText()) && h.equals("tuesday")) {
-                    paraArray2[8] = paraSlot;
-                }
-                if (J == 8 && d.equals(group.getText()) && h.equals("tuesday") || J == 9 && a.equals(lec.getText()) && h.equals("tuesday") || J == 0 && i.equals(location.getText()) && h.equals("tuesday")) {
-                    paraArray2[9] = paraSlot;
+                if(h.equals("tuesday")) {
+                    if (J == 0 && d.equals(group.getText()) || J == 0 && a.equals(lec.getText())) {
+                        paraArray2[0] = paraSlot;
+                    }
+                    if (J == 1 && d.equals(group.getText()) || J == 1 && a.equals(lec.getText())) {
+                        paraArray2[1] = paraSlot;
+                    }
+                    if (J == 2 && d.equals(group.getText()) || J == 2 && a.equals(lec.getText())) {
+                        paraArray2[2] = paraSlot;
+                    }
+                    if (J == 3 && d.equals(group.getText()) || J == 3 && a.equals(lec.getText())) {
+                        paraArray2[3] = paraSlot;
+                    }
+                    if (J == 4 && d.equals(group.getText()) || J == 4 && a.equals(lec.getText())) {
+                        paraArray2[4] = paraSlot;
+                    }
+                    if (J == 5 && d.equals(group.getText()) || J == 5 && a.equals(lec.getText())) {
+                        paraArray2[5] = paraSlot;
+                    }
+                    if (J == 6 && d.equals(group.getText()) || J == 6 && a.equals(lec.getText())) {
+                        paraArray2[6] = paraSlot;
+                    }
+                    if (J == 7 && d.equals(group.getText()) || J == 7 && a.equals(lec.getText())) {
+                        paraArray2[7] = paraSlot;
+                    }
+                    if (J == 8 && d.equals(group.getText()) || J == 8 && a.equals(lec.getText())) {
+                        paraArray2[8] = paraSlot;
+                    }
+                    if (J == 8 && d.equals(group.getText()) || J == 9 && a.equals(lec.getText())) {
+                        paraArray2[9] = paraSlot;
+                    }
+                    tu6.setText((paraArray2[0]) + "\n" + (paraArray2[1]));
+                    tu8.setText((paraArray2[2]) + "\n" + (paraArray2[3]));
+                    tu9.setText((paraArray2[4]) + "\n" + (paraArray2[5]));
                 }
                 //wednesday
-
-                if (J == 0 && d.equals(group.getText()) && h.equals("wednesday") || J == 0 && a.equals(lec.getText()) && h.equals("wednesday") || J == 0 && i.equals(location.getText()) && h.equals("wednesday")) {
-                    paraArray3[0] = paraSlot;
-                }
-                if (J == 1 && d.equals(group.getText()) && h.equals("wednesday") || J == 1 && a.equals(lec.getText()) && h.equals("wednesday") || J == 0 && i.equals(location.getText()) && h.equals("wednesday")) {
-                    paraArray3[1] = paraSlot;
-                }
-                if (J == 2 && d.equals(group.getText()) && h.equals("wednesday") || J == 2 && a.equals(lec.getText()) && h.equals("wednesday") || J == 0 && i.equals(location.getText()) && h.equals("wednesday")) {
-                    paraArray3[2] = paraSlot;
-                }
-                if (J == 3 && d.equals(group.getText()) && h.equals("wednesday") || J == 3 && a.equals(lec.getText()) && h.equals("wednesday") || J == 0 && i.equals(location.getText()) && h.equals("wednesday")) {
-                    paraArray3[3] = paraSlot;
-                }
-                if (J == 4 && d.equals(group.getText()) && h.equals("wednesday") || J == 4 && a.equals(lec.getText()) && h.equals("wednesday") || J == 0 && i.equals(location.getText()) && h.equals("wednesday")) {
-                    paraArray3[4] = paraSlot;
-                }
-                if (J == 5 && d.equals(group.getText()) && h.equals("wednesday") || J == 5 && a.equals(lec.getText()) && h.equals("wednesday") || J == 0 && i.equals(location.getText()) && h.equals("wednesday")) {
-                    paraArray3[5] = paraSlot;
-                }
-                if (J == 6 && d.equals(group.getText()) && h.equals("wednesday") || J == 6 && a.equals(lec.getText()) && h.equals("wednesday") || J == 0 && i.equals(location.getText()) && h.equals("wednesday")) {
-                    paraArray3[6] = paraSlot;
-                }
-                if (J == 7 && d.equals(group.getText()) && h.equals("wednesday") || J == 7 && a.equals(lec.getText()) && h.equals("wednesday") || J == 0 && i.equals(location.getText()) && h.equals("wednesday")) {
-                    paraArray3[7] = paraSlot;
-                }
-                if (J == 8 && d.equals(group.getText()) && h.equals("wednesday") || J == 8 && a.equals(lec.getText()) && h.equals("wednesday") || J == 0 && i.equals(location.getText()) && h.equals("wednesday")) {
-                    paraArray3[8] = paraSlot;
-                }
-                if (J == 8 && d.equals(group.getText()) && h.equals("wednesday") || J == 9 && a.equals(lec.getText()) && h.equals("wednesday") || J == 0 && i.equals(location.getText()) && h.equals("wednesday")) {
-                    paraArray3[9] = paraSlot;
+                if(h.equals("wednesday")) {
+                    if (J == 0 && d.equals(group.getText()) || J == 0 && a.equals(lec.getText())) {
+                        paraArray3[0] = paraSlot;
+                    }
+                    if (J == 1 && d.equals(group.getText()) || J == 1 && a.equals(lec.getText())) {
+                        paraArray3[1] = paraSlot;
+                    }
+                    if (J == 2 && d.equals(group.getText()) || J == 2 && a.equals(lec.getText())) {
+                        paraArray3[2] = paraSlot;
+                    }
+                    if (J == 3 && d.equals(group.getText()) || J == 3 && a.equals(lec.getText())) {
+                        paraArray3[3] = paraSlot;
+                    }
+                    if (J == 4 && d.equals(group.getText()) || J == 4 && a.equals(lec.getText())) {
+                        paraArray3[4] = paraSlot;
+                    }
+                    if (J == 5 && d.equals(group.getText()) || J == 5 && a.equals(lec.getText())) {
+                        paraArray3[5] = paraSlot;
+                    }
+                    if (J == 6 && d.equals(group.getText()) || J == 6 && a.equals(lec.getText())) {
+                        paraArray3[6] = paraSlot;
+                    }
+                    if (J == 7 && d.equals(group.getText()) || J == 7 && a.equals(lec.getText())) {
+                        paraArray3[7] = paraSlot;
+                    }
+                    if (J == 8 && d.equals(group.getText()) || J == 8 && a.equals(lec.getText())) {
+                        paraArray3[8] = paraSlot;
+                    }
+                    if (J == 8 && d.equals(group.getText()) || J == 9 && a.equals(lec.getText())) {
+                        paraArray3[9] = paraSlot;
+                    }
+                    w6.setText((paraArray3[0]) + "\n" + (paraArray3[1]));
+                    w8.setText((paraArray3[2]) + "\n" + (paraArray3[3]));
+                    w9.setText((paraArray3[4]) + "\n" + (paraArray3[5]));
                 }
                 //thursday
-
-                if (J == 0 && d.equals(group.getText()) && h.equals("thursday") || J == 0 && a.equals(lec.getText()) && h.equals("thursday") || J == 0 && i.equals(location.getText()) && h.equals("thursday")) {
-                    paraArray4[0] = paraSlot;
-                }
-                if (J == 1 && d.equals(group.getText()) && h.equals("thursday") || J == 1 && a.equals(lec.getText()) && h.equals("thursday") || J == 0 && i.equals(location.getText()) && h.equals("thursday")) {
-                    paraArray4[1] = paraSlot;
-                }
-                if (J == 2 && d.equals(group.getText()) && h.equals("thursday") || J == 2 && a.equals(lec.getText()) && h.equals("thursday") || J == 0 && i.equals(location.getText()) && h.equals("thursday")) {
-                    paraArray4[2] = paraSlot;
-                }
-                if (J == 3 && d.equals(group.getText()) && h.equals("thursday") || J == 3 && a.equals(lec.getText()) && h.equals("thursday") || J == 0 && i.equals(location.getText()) && h.equals("thursday")) {
-                    paraArray4[3] = paraSlot;
-                }
-                if (J == 4 && d.equals(group.getText()) && h.equals("thursday") || J == 4 && a.equals(lec.getText()) && h.equals("thursday") || J == 0 && i.equals(location.getText()) && h.equals("thursday")) {
-                    paraArray4[4] = paraSlot;
-                }
-                if (J == 5 && d.equals(group.getText()) && h.equals("thursday") || J == 5 && a.equals(lec.getText()) && h.equals("thursday") || J == 0 && i.equals(location.getText()) && h.equals("thursday")) {
-                    paraArray4[5] = paraSlot;
-                }
-                if (J == 6 && d.equals(group.getText()) && h.equals("thursday") || J == 6 && a.equals(lec.getText()) && h.equals("thursday") || J == 0 && i.equals(location.getText()) && h.equals("thursday")) {
-                    paraArray4[6] = paraSlot;
-                }
-                if (J == 7 && d.equals(group.getText()) && h.equals("thursday") || J == 7 && a.equals(lec.getText()) && h.equals("thursday") || J == 0 && i.equals(location.getText()) && h.equals("thursday")) {
-                    paraArray4[7] = paraSlot;
-                }
-                if (J == 8 && d.equals(group.getText()) && h.equals("thursday") || J == 8 && a.equals(lec.getText()) && h.equals("thursday") || J == 0 && i.equals(location.getText()) && h.equals("thursday")) {
-                    paraArray4[8] = paraSlot;
-                }
-                if (J == 8 && d.equals(group.getText()) && h.equals("thursday") || J == 9 && a.equals(lec.getText()) && h.equals("thursday") || J == 0 && i.equals(location.getText()) && h.equals("thursday")) {
-                    paraArray4[9] = paraSlot;
+                if(h.equals("thursday")) {
+                    if (J == 0 && d.equals(group.getText()) || J == 0 && a.equals(lec.getText())) {
+                        paraArray4[0] = paraSlot;
+                    }
+                    if (J == 1 && d.equals(group.getText()) || J == 1 && a.equals(lec.getText())) {
+                        paraArray4[1] = paraSlot;
+                    }
+                    if (J == 2 && d.equals(group.getText()) || J == 2 && a.equals(lec.getText())) {
+                        paraArray4[2] = paraSlot;
+                    }
+                    if (J == 3 && d.equals(group.getText()) || J == 3 && a.equals(lec.getText())) {
+                        paraArray4[3] = paraSlot;
+                    }
+                    if (J == 4 && d.equals(group.getText()) || J == 4 && a.equals(lec.getText())) {
+                        paraArray4[4] = paraSlot;
+                    }
+                    if (J == 5 && d.equals(group.getText()) || J == 5 && a.equals(lec.getText())) {
+                        paraArray4[5] = paraSlot;
+                    }
+                    if (J == 6 && d.equals(group.getText()) || J == 6 && a.equals(lec.getText())) {
+                        paraArray4[6] = paraSlot;
+                    }
+                    if (J == 7 && d.equals(group.getText()) || J == 7 && a.equals(lec.getText())) {
+                        paraArray4[7] = paraSlot;
+                    }
+                    if (J == 8 && d.equals(group.getText()) || J == 8 && a.equals(lec.getText())) {
+                        paraArray4[8] = paraSlot;
+                    }
+                    if (J == 8 && d.equals(group.getText()) || J == 9 && a.equals(lec.getText())) {
+                        paraArray4[9] = paraSlot;
+                    }
+                    th6.setText((paraArray4[0]) + "\n" + (paraArray4[1]));
+                    th8.setText((paraArray4[2]) + "\n" + (paraArray4[3]));
+                    th9.setText((paraArray4[4]) + "\n" + (paraArray4[5]));
                 }
 
                 //friday
-
-                if (J == 0 && d.equals(group.getText()) && h.equals("friday") || J == 0 && a.equals(lec.getText()) && h.equals("friday") || J == 0 && i.equals(location.getText()) && h.equals("friday")) {
-                    paraArray5[0] = paraSlot;
-                }
-                if (J == 1 && d.equals(group.getText()) && h.equals("friday") || J == 1 && a.equals(lec.getText()) && h.equals("friday") || J == 0 && i.equals(location.getText()) && h.equals("friday")) {
-                    paraArray5[1] = paraSlot;
-                }
-                if (J == 2 && d.equals(group.getText()) && h.equals("friday") || J == 2 && a.equals(lec.getText()) && h.equals("friday") || J == 0 && i.equals(location.getText()) && h.equals("friday")) {
-                    paraArray5[2] = paraSlot;
-                }
-                if (J == 3 && d.equals(group.getText()) && h.equals("friday") || J == 3 && a.equals(lec.getText()) && h.equals("friday") || J == 0 && i.equals(location.getText()) && h.equals("friday")) {
-                    paraArray5[3] = paraSlot;
-                }
-                if (J == 4 && d.equals(group.getText()) && h.equals("friday") || J == 4 && a.equals(lec.getText()) && h.equals("friday") || J == 0 && i.equals(location.getText()) && h.equals("friday")) {
-                    paraArray5[4] = paraSlot;
-                }
-                if (J == 5 && d.equals(group.getText()) && h.equals("friday") || J == 5 && a.equals(lec.getText()) && h.equals("friday") || J == 0 && i.equals(location.getText()) && h.equals("friday")) {
-                    paraArray5[5] = paraSlot;
-                }
-                if (J == 6 && d.equals(group.getText()) && h.equals("friday") || J == 6 && a.equals(lec.getText()) && h.equals("friday") || J == 0 && i.equals(location.getText()) && h.equals("friday")) {
-                    paraArray5[6] = paraSlot;
-                }
-                if (J == 7 && d.equals(group.getText()) && h.equals("friday") || J == 7 && a.equals(lec.getText()) && h.equals("friday") || J == 0 && i.equals(location.getText()) && h.equals("friday")) {
-                    paraArray5[7] = paraSlot;
-                }
-                if (J == 8 && d.equals(group.getText()) && h.equals("friday") || J == 8 && a.equals(lec.getText()) && h.equals("friday") || J == 0 && i.equals(location.getText()) && h.equals("friday")) {
-                    paraArray5[8] = paraSlot;
-                }
-                if (J == 8 && d.equals(group.getText()) && h.equals("friday") || J == 9 && a.equals(lec.getText()) && h.equals("friday") || J == 0 && i.equals(location.getText()) && h.equals("friday")) {
-                    paraArray5[9] = paraSlot;
+                if(h.equals("friday")) {
+                    if (J == 0 && d.equals(group.getText()) || J == 0 && a.equals(lec.getText())) {
+                        paraArray5[0] = paraSlot;
+                    }
+                    if (J == 1 && d.equals(group.getText()) || J == 1 && a.equals(lec.getText())) {
+                        paraArray5[1] = paraSlot;
+                    }
+                    if (J == 2 && d.equals(group.getText()) || J == 2 && a.equals(lec.getText())) {
+                        paraArray5[2] = paraSlot;
+                    }
+                    if (J == 3 && d.equals(group.getText()) || J == 3 && a.equals(lec.getText())) {
+                        paraArray5[3] = paraSlot;
+                    }
+                    if (J == 4 && d.equals(group.getText()) || J == 4 && a.equals(lec.getText())) {
+                        paraArray5[4] = paraSlot;
+                    }
+                    if (J == 5 && d.equals(group.getText()) || J == 5 && a.equals(lec.getText())) {
+                        paraArray5[5] = paraSlot;
+                    }
+                    if (J == 6 && d.equals(group.getText()) || J == 6 && a.equals(lec.getText())) {
+                        paraArray5[6] = paraSlot;
+                    }
+                    if (J == 7 && d.equals(group.getText()) || J == 7 && a.equals(lec.getText())) {
+                        paraArray5[7] = paraSlot;
+                    }
+                    if (J == 8 && d.equals(group.getText()) || J == 8 && a.equals(lec.getText())) {
+                        paraArray5[8] = paraSlot;
+                    }
+                    if (J == 8 && d.equals(group.getText()) || J == 9 && a.equals(lec.getText())) {
+                        paraArray5[9] = paraSlot;
+                    }
+                    fr6.setText((paraArray5[0]) + "\n" + (paraArray5[1]));
+                    fr8.setText((paraArray5[2]) + "\n" + (paraArray5[3]));
+                    fr9.setText((paraArray5[4]) + "\n" + (paraArray5[5]));
                 }
                 //saturday
-                if (J == 0 && d.equals(group.getText()) && h.equals("saturday") || J == 0 && a.equals(lec.getText()) && h.equals("saturday") || J == 0 && i.equals(location.getText()) && h.equals("saturday")) {
+                if(h.equals("saturday")) {
+                if (J == 0 && d.equals(group.getText())  || J == 0 && a.equals(lec.getText())) {
                     paraArray6[0] = paraSlot;
                 }
-                if (J == 1 && d.equals(group.getText()) && h.equals("saturday") || J == 1 && a.equals(lec.getText()) && h.equals("saturday") || J == 0 && i.equals(location.getText()) && h.equals("saturday")) {
+                if (J == 1 && d.equals(group.getText())  || J == 1 && a.equals(lec.getText())) {
                     paraArray6[1] = paraSlot;
                 }
-                if (J == 2 && d.equals(group.getText()) && h.equals("saturday") || J == 2 && a.equals(lec.getText()) && h.equals("saturday") || J == 0 && i.equals(location.getText()) && h.equals("saturday")) {
+                if (J == 2 && d.equals(group.getText())  || J == 2 && a.equals(lec.getText())) {
                     paraArray6[2] = paraSlot;
                 }
-                if (J == 3 && d.equals(group.getText()) && h.equals("saturday") || J == 3 && a.equals(lec.getText()) && h.equals("saturday") || J == 0 && i.equals(location.getText()) && h.equals("saturday")) {
+                if (J == 3 && d.equals(group.getText())  || J == 3 && a.equals(lec.getText())) {
                     paraArray6[3] = paraSlot;
                 }
-                if (J == 4 && d.equals(group.getText()) && h.equals("saturday") || J == 4 && a.equals(lec.getText()) && h.equals("saturday") || J == 0 && i.equals(location.getText()) && h.equals("saturday")) {
+                if (J == 4 && d.equals(group.getText())  || J == 4 && a.equals(lec.getText())) {
                     paraArray6[4] = paraSlot;
                 }
-                if (J == 5 && d.equals(group.getText()) && h.equals("saturday") || J == 5 && a.equals(lec.getText()) && h.equals("saturday") || J == 0 && i.equals(location.getText()) && h.equals("saturday")) {
+                if (J == 5 && d.equals(group.getText())  || J == 5 && a.equals(lec.getText())) {
                     paraArray6[5] = paraSlot;
                 }
-                if (J == 6 && d.equals(group.getText()) && h.equals("saturday") || J == 6 && a.equals(lec.getText()) && h.equals("saturday") || J == 0 && i.equals(location.getText()) && h.equals("saturday")) {
+                if (J == 6 && d.equals(group.getText())  || J == 6 && a.equals(lec.getText())) {
                     paraArray6[6] = paraSlot;
                 }
-                if (J == 7 && d.equals(group.getText()) && h.equals("saturday") || J == 7 && a.equals(lec.getText()) && h.equals("saturday") || J == 0 && i.equals(location.getText()) && h.equals("saturday")) {
+                if (J == 7 && d.equals(group.getText())  || J == 7 && a.equals(lec.getText())) {
                     paraArray6[7] = paraSlot;
                 }
-                if (J == 8 && d.equals(group.getText()) && h.equals("saturday") || J == 8 && a.equals(lec.getText()) && h.equals("saturday") || J == 0 && i.equals(location.getText()) && h.equals("saturday")) {
+                if (J == 8 && d.equals(group.getText())  || J == 8 && a.equals(lec.getText())) {
                     paraArray6[8] = paraSlot;
                 }
-                if (J == 8 && d.equals(group.getText()) && h.equals("saturday") || J == 9 && a.equals(lec.getText()) && h.equals("saturday") || J == 0 && i.equals(location.getText()) && h.equals("saturday")) {
+                if (J == 8 && d.equals(group.getText())  || J == 9 && a.equals(lec.getText())) {
                     paraArray6[9] = paraSlot;
                 }
+                    sat6.setText((paraArray6[0]) + "\n" + (paraArray6[1]));
+                    sat8.setText((paraArray6[2]) + "\n" + (paraArray6[3]));
+                    sat9.setText((paraArray6[4]) + "\n" + (paraArray6[5]));
+                }
                 //sunday
-                if (J == 0 && d.equals(group.getText()) && h.equals("sunday") || J == 0 && a.equals(lec.getText()) && h.equals("sunday") || J == 0 && i.equals(location.getText()) && h.equals("sunday")) {
+                if(h.equals("sunday")) {
+                if (J == 0 && d.equals(group.getText())  || J == 0 && a.equals(lec.getText())) {
                     paraArray7[0] = paraSlot;
                 }
-                if (J == 1 && d.equals(group.getText()) && h.equals("sunday") || J == 1 && a.equals(lec.getText()) && h.equals("sunday") || J == 0 && i.equals(location.getText()) && h.equals("sunday")) {
+                if (J == 1 && d.equals(group.getText())  || J == 1 && a.equals(lec.getText())) {
                     paraArray7[1] = paraSlot;
                 }
-                if (J == 2 && d.equals(group.getText()) && h.equals("sunday") || J == 2 && a.equals(lec.getText()) && h.equals("sunday") || J == 0 && i.equals(location.getText()) && h.equals("sunday")) {
+                if (J == 2 && d.equals(group.getText())  || J == 2 && a.equals(lec.getText())) {
                     paraArray7[2] = paraSlot;
                 }
-                if (J == 3 && d.equals(group.getText()) && h.equals("sunday") || J == 3 && a.equals(lec.getText()) && h.equals("sunday") || J == 0 && i.equals(location.getText()) && h.equals("sunday")) {
+                if (J == 3 && d.equals(group.getText())  || J == 3 && a.equals(lec.getText())) {
                     paraArray7[3] = paraSlot;
                 }
-                if (J == 4 && d.equals(group.getText()) && h.equals("sunday") || J == 4 && a.equals(lec.getText()) && h.equals("sunday") || J == 0 && i.equals(location.getText()) && h.equals("sunday")) {
+                if (J == 4 && d.equals(group.getText())  || J == 4 && a.equals(lec.getText())) {
                     paraArray7[4] = paraSlot;
                 }
-                if (J == 5 && d.equals(group.getText()) && h.equals("sunday") || J == 5 && a.equals(lec.getText()) && h.equals("sunday") || J == 0 && i.equals(location.getText()) && h.equals("sunday")) {
+                if (J == 5 && d.equals(group.getText())  || J == 5 && a.equals(lec.getText())) {
                     paraArray7[5] = paraSlot;
                 }
-                if (J == 6 && d.equals(group.getText()) && h.equals("sunday") || J == 6 && a.equals(lec.getText()) && h.equals("sunday") || J == 0 && i.equals(location.getText()) && h.equals("sunday")) {
+                if (J == 6 && d.equals(group.getText())  || J == 6 && a.equals(lec.getText())) {
                     paraArray7[6] = paraSlot;
                 }
-                if (J == 7 && d.equals(group.getText()) && h.equals("sunday") || J == 7 && a.equals(lec.getText()) && h.equals("sunday") || J == 0 && i.equals(location.getText()) && h.equals("sunday")) {
+                if (J == 7 && d.equals(group.getText())  || J == 7 && a.equals(lec.getText())) {
                     paraArray7[7] = paraSlot;
                 }
-                if (J == 8 && d.equals(group.getText()) && h.equals("sunday") || J == 8 && a.equals(lec.getText()) && h.equals("sunday") || J == 0 && i.equals(location.getText()) && h.equals("sunday")) {
+                if (J == 8 && d.equals(group.getText())  || J == 8 && a.equals(lec.getText())) {
                     paraArray7[8] = paraSlot;
                 }
-                if (J == 8 && d.equals(group.getText()) && h.equals("sunday") || J == 9 && a.equals(lec.getText()) && h.equals("sunday") || J == 0 && i.equals(location.getText()) && h.equals("sunday")) {
+                if (J == 8 && d.equals(group.getText())  || J == 9 && a.equals(lec.getText())) {
                     paraArray7[9] = paraSlot;
+                }
+                    sun6.setText((paraArray7[0]) + "\n" + (paraArray7[1]));
+                    sun8.setText((paraArray7[2]) + "\n" + (paraArray7[3]));
+                    sun9.setText((paraArray7[4]) + "\n" + (paraArray7[5]));
                 }
                 break;
             }catch (Exception e){
@@ -331,44 +361,6 @@ public class TimetableController implements Initializable {
             }
         }
     }
-        assert h != null;
-        if(h.equals("monday")) {
-            m6.setText((paraArray[0]) + "\n" + (paraArray[1]));
-            m8.setText((paraArray[2]) + "\n" + (paraArray[3]));
-            m9.setText((paraArray[4]) + "\n" + (paraArray[5]));
-        }
-        if(h.equals("tuesday")) {
-            tu6.setText((paraArray2[0]) + "\n" + (paraArray2[1]));
-            tu8.setText((paraArray2[2]) + "\n" + (paraArray2[3]));
-            tu9.setText((paraArray2[4]) + "\n" + (paraArray2[5]));
-        }
-        if(h.equals("wednesday")) {
-            w6.setText((paraArray3[0]) + "\n" + (paraArray3[1]));
-            w8.setText((paraArray3[2]) + "\n" + (paraArray3[3]));
-            w9.setText((paraArray3[4]) + "\n" + (paraArray3[5]));
-        }
-        if(h.equals("thursday")) {
-            th6.setText((paraArray4[0]) + "\n" + (paraArray4[1]));
-            th8.setText((paraArray4[2]) + "\n" + (paraArray4[3]));
-            th9.setText((paraArray4[4]) + "\n" + (paraArray4[5]));
-        }
-        if(h.equals("friday")) {
-            fr6.setText((paraArray5[0]) + "\n" + (paraArray5[1]));
-            fr8.setText((paraArray5[2]) + "\n" + (paraArray5[3]));
-            fr9.setText((paraArray5[4]) + "\n" + (paraArray5[5]));
-        }    if(h.equals("saturday")) {
-            sat6.setText((paraArray6[0]) + "\n" + (paraArray6[1]));
-            sat8.setText((paraArray6[2]) + "\n" + (paraArray6[3]));
-            sat9.setText((paraArray6[4]) + "\n" + (paraArray6[5]));
-        }
-        if(h.equals("sunday")) {
-            sun6.setText((paraArray7[0]) + "\n" + (paraArray7[1]));
-            sun8.setText((paraArray7[2]) + "\n" + (paraArray7[3]));
-            sun9.setText((paraArray7[4]) + "\n" + (paraArray7[5]));
-        }
-
-
-
     }
 
 
@@ -384,11 +376,12 @@ public class TimetableController implements Initializable {
         String [] consArray6 = new String[10];
         String [] consArray7 = new String[10];
         String h;
+        String i1;
 
         for (int i =0; i<10;i++) {
 
             while (rs.next()) {
-                try {
+
                     //Display values
                     String a = (rs.getString("lec"));
                     String b = (rs.getString("sub_code"));
@@ -398,272 +391,243 @@ public class TimetableController implements Initializable {
                     String f = (rs.getString("noOfStudents"));
                     String g = (rs.getString("duration"));
                     h = (rs.getString("date"));
-                    String i1 = (rs.getString("room"));
+                    i1 = (rs.getString("room"));
+
                     String conSlot = a + "\n" + c + "(" + b + ")" + e + "\n" + d + "," + f + "(" + g + ")" + "," + i1;
+                    if(h.equals("monday")) {
+                        if (i == 0 && d.equals(group.getText()) || i == 0 && a.equals(lec.getText()) || i == 0 && i1.equals(location.getText())) {
+                            consArray[0] = conSlot;
+                            System.out.println(i1);
+                            System.out.println(a);
 
-                    if (i == 0 && d.equals(group.getText()) && h.equals("monday") || i == 0 && a.equals(lec.getText()) && h.equals("monday") || i == 0 && i1.equals(location.getText()) && h.equals("monday")) {
-                        consArray[0] = conSlot;
-                    }
-                    if (i == 1 && d.equals(group.getText()) && h.equals("monday") || i == 1 && a.equals(lec.getText()) && h.equals("monday") || i == 0 && i1.equals(location.getText()) && h.equals("monday")) {
-                        consArray[1] = conSlot;
-                    }
-                    if (i == 2 && d.equals(group.getText()) && h.equals("monday") || i == 2 && a.equals(lec.getText()) && h.equals("monday") || i == 0 && i1.equals(location.getText()) && h.equals("monday")) {
-                        consArray[2] = conSlot;
-                    }
-                    if (i == 3 && d.equals(group.getText()) && h.equals("monday") || i == 3 && a.equals(lec.getText()) && h.equals("monday") || i == 0 && i1.equals(location.getText()) && h.equals("monday")) {
-                        consArray[3] = conSlot;
-                    }
-                    if (i == 4 && d.equals(group.getText()) && h.equals("monday") || i == 4 && a.equals(lec.getText()) && h.equals("monday") || i == 0 && i1.equals(location.getText()) && h.equals("monday")) {
-                        consArray[4] = conSlot;
-                    }
-                    if (i == 5 && d.equals(group.getText()) && h.equals("monday") || i == 5 && a.equals(lec.getText()) && h.equals("monday") || i == 0 && i1.equals(location.getText()) && h.equals("monday")) {
-                        consArray[5] = conSlot;
-                    }
-                    if (i == 6 && d.equals(group.getText()) && h.equals("monday") || i == 6 && a.equals(lec.getText()) && h.equals("monday") || i == 0 && i1.equals(location.getText()) && h.equals("monday")) {
-                        consArray[6] = conSlot;
-                    }
-                    if (i == 7 && d.equals(group.getText()) && h.equals("monday") || i == 7 && a.equals(lec.getText()) && h.equals("monday") || i == 0 && i1.equals(location.getText()) && h.equals("monday")) {
-                        consArray[7] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) && h.equals("monday") || i == 8 && a.equals(lec.getText()) && h.equals("monday") || i == 0 && i1.equals(location.getText()) && h.equals("monday")) {
-                        consArray[8] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) || i == 9 && a.equals(lec.getText()) && h.equals("monday") || i == 0 && i1.equals(location.getText()) && h.equals("monday")) {
-                        consArray[9] = conSlot;
-                    }
-                    //tuesday
-
-                    if (i == 0 && d.equals(group.getText()) && h.equals("tuesday") || i == 0 && a.equals(lec.getText()) && h.equals("tuesday") || i == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
-                        consArray2[0] = conSlot;
-                    }
-                    if (i == 1 && d.equals(group.getText()) && h.equals("tuesday") || i == 1 && a.equals(lec.getText()) && h.equals("tuesday") || i == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
-                        consArray2[1] = conSlot;
-                    }
-                    if (i == 2 && d.equals(group.getText()) && h.equals("tuesday") || i == 2 && a.equals(lec.getText()) && h.equals("tuesday") || i == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
-                        consArray2[2] = conSlot;
-                    }
-                    if (i == 3 && d.equals(group.getText()) && h.equals("tuesday") || i == 3 && a.equals(lec.getText()) && h.equals("tuesday") || i == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
-                        consArray2[3] = conSlot;
-                    }
-                    if (i == 4 && d.equals(group.getText()) && h.equals("tuesday") || i == 4 && a.equals(lec.getText()) && h.equals("tuesday") || i == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
-                        consArray2[4] = conSlot;
-                    }
-                    if (i == 5 && d.equals(group.getText()) && h.equals("tuesday") || i == 5 && a.equals(lec.getText()) && h.equals("tuesday") || i == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
-                        consArray2[5] = conSlot;
-                    }
-                    if (i == 6 && d.equals(group.getText()) && h.equals("tuesday") || i == 6 && a.equals(lec.getText()) && h.equals("tuesday") || i == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
-                        consArray2[6] = conSlot;
-                    }
-                    if (i == 7 && d.equals(group.getText()) && h.equals("tuesday") || i == 7 && a.equals(lec.getText()) && h.equals("tuesday") || i == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
-                        consArray2[7] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) && h.equals("tuesday") || i == 8 && a.equals(lec.getText()) && h.equals("tuesday") || i == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
-                        consArray2[8] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) && h.equals("tuesday") || i == 9 && a.equals(lec.getText()) && h.equals("tuesday") || i == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
-                        consArray2[9] = conSlot;
-                    }
-                    //wednesday
-
-                    if (i == 0 && d.equals(group.getText()) && h.equals("wednesday") || i == 0 && a.equals(lec.getText()) && h.equals("wednesday") || i == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
-                        consArray3[0] = conSlot;
-                    }
-                    if (i == 1 && d.equals(group.getText()) && h.equals("wednesday") || i == 1 && a.equals(lec.getText()) && h.equals("wednesday") || i == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
-                        consArray3[1] = conSlot;
-                    }
-                    if (i == 2 && d.equals(group.getText()) && h.equals("wednesday") || i == 2 && a.equals(lec.getText()) && h.equals("wednesday") || i == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
-                        consArray3[2] = conSlot;
-                    }
-                    if (i == 3 && d.equals(group.getText()) && h.equals("wednesday") || i == 3 && a.equals(lec.getText()) && h.equals("wednesday") || i == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
-                        consArray3[3] = conSlot;
-                    }
-                    if (i == 4 && d.equals(group.getText()) && h.equals("wednesday") || i == 4 && a.equals(lec.getText()) && h.equals("wednesday") || i == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
-                        consArray3[4] = conSlot;
-                    }
-                    if (i == 5 && d.equals(group.getText()) && h.equals("wednesday") || i == 5 && a.equals(lec.getText()) && h.equals("wednesday") || i == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
-                        consArray3[5] = conSlot;
-                    }
-                    if (i == 6 && d.equals(group.getText()) && h.equals("wednesday") || i == 6 && a.equals(lec.getText()) && h.equals("wednesday") || i == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
-                        consArray3[6] = conSlot;
-                    }
-                    if (i == 7 && d.equals(group.getText()) && h.equals("wednesday") || i == 7 && a.equals(lec.getText()) && h.equals("wednesday") || i == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
-                        consArray3[7] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) && h.equals("wednesday") || i == 8 && a.equals(lec.getText()) && h.equals("wednesday") || i == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
-                        consArray3[8] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) && h.equals("wednesday") || i == 9 && a.equals(lec.getText()) && h.equals("wednesday") || i == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
-                        consArray3[9] = conSlot;
-                    }
-                    //thursday
-
-                    if (i == 0 && d.equals(group.getText()) && h.equals("thursday") || i == 0 && a.equals(lec.getText()) && h.equals("thursday") || i == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
-                        consArray[0] = conSlot;
-                    }
-                    if (i == 1 && d.equals(group.getText()) && h.equals("thursday") || i == 1 && a.equals(lec.getText()) && h.equals("thursday") || i == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
-                        consArray4[1] = conSlot;
-                    }
-                    if (i == 2 && d.equals(group.getText()) && h.equals("thursday") || i == 2 && a.equals(lec.getText()) && h.equals("thursday") || i == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
-                        consArray4[2] = conSlot;
-                    }
-                    if (i == 3 && d.equals(group.getText()) && h.equals("thursday") || i == 3 && a.equals(lec.getText()) && h.equals("thursday") || i == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
-                        consArray4[3] = conSlot;
-                    }
-                    if (i == 4 && d.equals(group.getText()) && h.equals("thursday") || i == 4 && a.equals(lec.getText()) && h.equals("thursday") || i == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
-                        consArray4[4] = conSlot;
-                    }
-                    if (i == 5 && d.equals(group.getText()) && h.equals("thursday") || i == 5 && a.equals(lec.getText()) && h.equals("thursday") || i == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
-                        consArray4[5] = conSlot;
-                    }
-                    if (i == 6 && d.equals(group.getText()) && h.equals("thursday") || i == 6 && a.equals(lec.getText()) && h.equals("thursday") || i == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
-                        consArray4[6] = conSlot;
-                    }
-                    if (i == 7 && d.equals(group.getText()) && h.equals("thursday") || i == 7 && a.equals(lec.getText()) && h.equals("thursday") || i == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
-                        consArray4[7] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) && h.equals("thursday") || i == 8 && a.equals(lec.getText()) && h.equals("thursday") || i == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
-                        consArray4[8] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) && h.equals("thursday") || i == 9 && a.equals(lec.getText()) && h.equals("thursday") || i == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
-                        consArray4[9] = conSlot;
-                    }
-                    //friday
-
-                    if (i == 0 && d.equals(group.getText()) && h.equals("friday") || i == 0 && a.equals(lec.getText()) && h.equals("friday") || i == 0 && i1.equals(location.getText()) && h.equals("friday")) {
-                        consArray5[0] = conSlot;
-                    }
-                    if (i == 1 && d.equals(group.getText()) && h.equals("friday") || i == 1 && a.equals(lec.getText()) && h.equals("friday") || i == 0 && i1.equals(location.getText()) && h.equals("friday")) {
-                        consArray5[1] = conSlot;
-                    }
-                    if (i == 2 && d.equals(group.getText()) && h.equals("friday") || i == 2 && a.equals(lec.getText()) && h.equals("friday") || i == 0 && i1.equals(location.getText()) && h.equals("friday")) {
-                        consArray5[2] = conSlot;
-                    }
-                    if (i == 3 && d.equals(group.getText()) && h.equals("friday") || i == 3 && a.equals(lec.getText()) && h.equals("friday") || i == 0 && i1.equals(location.getText()) && h.equals("friday")) {
-                        consArray5[3] = conSlot;
-                    }
-                    if (i == 4 && d.equals(group.getText()) && h.equals("friday") || i == 4 && a.equals(lec.getText()) && h.equals("friday") || i == 0 && i1.equals(location.getText()) && h.equals("friday")) {
-                        consArray5[4] = conSlot;
-                    }
-                    if (i == 5 && d.equals(group.getText()) && h.equals("friday") || i == 5 && a.equals(lec.getText()) && h.equals("friday") || i == 0 && i1.equals(location.getText()) && h.equals("friday")) {
-                        consArray5[5] = conSlot;
-                    }
-                    if (i == 6 && d.equals(group.getText()) && h.equals("friday") || i == 6 && a.equals(lec.getText()) && h.equals("friday") || i == 0 && i1.equals(location.getText()) && h.equals("friday")) {
-                        consArray5[6] = conSlot;
-                    }
-                    if (i == 7 && d.equals(group.getText()) && h.equals("friday") || i == 7 && a.equals(lec.getText()) && h.equals("friday") || i == 0 && i1.equals(location.getText()) && h.equals("friday")) {
-                        consArray5[7] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) && h.equals("friday") || i == 8 && a.equals(lec.getText()) && h.equals("friday") || i == 0 && i1.equals(location.getText()) && h.equals("friday")) {
-                        consArray5[8] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) && h.equals("friday") || i == 9 && a.equals(lec.getText()) && h.equals("friday") || i == 0 && i1.equals(location.getText()) && h.equals("friday")) {
-                        consArray5[9] = conSlot;
-                    }
-                    //saturday
-                    if (i == 0 && d.equals(group.getText()) && h.equals("saturday") || i == 0 && a.equals(lec.getText()) && h.equals("saturday") || i == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
-                        consArray6[0] = conSlot;
-                    }
-                    if (i == 1 && d.equals(group.getText()) && h.equals("saturday") || i == 1 && a.equals(lec.getText()) && h.equals("saturday") || i == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
-                        consArray6[1] = conSlot;
-                    }
-                    if (i == 2 && d.equals(group.getText()) && h.equals("saturday") || i == 2 && a.equals(lec.getText()) && h.equals("saturday") || i == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
-                        consArray6[2] = conSlot;
-                    }
-                    if (i == 3 && d.equals(group.getText()) && h.equals("saturday") || i == 3 && a.equals(lec.getText()) && h.equals("saturday") || i == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
-                        consArray6[3] = conSlot;
-                    }
-                    if (i == 4 && d.equals(group.getText()) && h.equals("saturday") || i == 4 && a.equals(lec.getText()) && h.equals("saturday") || i == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
-                        consArray6[4] = conSlot;
-                    }
-                    if (i == 5 && d.equals(group.getText()) && h.equals("saturday") || i == 5 && a.equals(lec.getText()) && h.equals("saturday") || i == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
-                        consArray6[5] = conSlot;
-                    }
-                    if (i == 6 && d.equals(group.getText()) && h.equals("saturday") || i == 6 && a.equals(lec.getText()) && h.equals("saturday") || i == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
-                        consArray6[6] = conSlot;
-                    }
-                    if (i == 7 && d.equals(group.getText()) && h.equals("saturday") || i == 7 && a.equals(lec.getText()) && h.equals("saturday") || i == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
-                        consArray6[7] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) && h.equals("saturday") || i == 8 && a.equals(lec.getText()) && h.equals("saturday") || i == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
-                        consArray6[8] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) && h.equals("saturday") || i == 9 && a.equals(lec.getText()) && h.equals("saturday") || i == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
-                        consArray6[9] = conSlot;
-                    }
-                    //sunday
-                    if (i == 0 && d.equals(group.getText()) && h.equals("sunday") || i == 0 && a.equals(lec.getText()) && h.equals("sunday") || i == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
-                        consArray7[0] = conSlot;
-                    }
-                    if (i == 1 && d.equals(group.getText()) && h.equals("sunday") || i == 1 && a.equals(lec.getText()) && h.equals("sunday") || i == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
-                        consArray7[1] = conSlot;
-                    }
-                    if (i == 2 && d.equals(group.getText()) && h.equals("sunday") || i == 2 && a.equals(lec.getText()) && h.equals("sunday") || i == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
-                        consArray7[2] = conSlot;
-                    }
-                    if (i == 3 && d.equals(group.getText()) && h.equals("sunday") || i == 3 && a.equals(lec.getText()) && h.equals("sunday") || i == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
-                        consArray7[3] = conSlot;
-                    }
-                    if (i == 4 && d.equals(group.getText()) && h.equals("sunday") || i == 4 && a.equals(lec.getText()) && h.equals("sunday") || i == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
-                        consArray7[4] = conSlot;
-                    }
-                    if (i == 5 && d.equals(group.getText()) && h.equals("sunday") || i == 5 && a.equals(lec.getText()) && h.equals("sunday") || i == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
-                        consArray7[5] = conSlot;
-                    }
-                    if (i == 6 && d.equals(group.getText()) && h.equals("sunday") || i == 6 && a.equals(lec.getText()) && h.equals("sunday") || i == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
-                        consArray7[6] = conSlot;
-                    }
-                    if (i == 7 && d.equals(group.getText()) && h.equals("sunday") || i == 7 && a.equals(lec.getText()) && h.equals("sunday") || i == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
-                        consArray7[7] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) && h.equals("sunday") || i == 8 && a.equals(lec.getText()) && h.equals("sunday") || i == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
-                        consArray7[8] = conSlot;
-                    }
-                    if (i == 8 && d.equals(group.getText()) && h.equals("sunday") || i == 9 && a.equals(lec.getText()) && h.equals("sunday") || i == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
-                        consArray7[9] = conSlot;
-                    }
-                    assert h != null;
-                    if (h.equals("monday")) {
+                        }
+                        if (i == 1 && d.equals(group.getText()) || i == 1 && a.equals(lec.getText()) || i == 1 && i1.equals(location.getText())) {
+                            consArray[1] = conSlot;
+                            System.out.println(i1);
+                            System.out.println(a);
+                        }
+                        if (i == 2 && d.equals(group.getText()) || i == 2 && a.equals(lec.getText()) || i == 2 && i1.equals(location.getText())) {
+                            consArray[2] = conSlot;
+                            System.out.println(i1);
+                            System.out.println(a);
+                        }
+                        if (i == 3 && d.equals(group.getText()) || i == 3 && a.equals(lec.getText()) || i == 3 && i1.equals(location.getText())) {
+                            consArray[3] = conSlot;
+                            System.out.println(i1);
+                            System.out.println(a);
+                        }
+                        if (i == 4 && d.equals(group.getText()) || i == 4 && a.equals(lec.getText()) || i == 4 && i1.equals(location.getText())) {
+                            consArray[4] = conSlot;
+                        }
+                        if (i == 5 && d.equals(group.getText()) || i == 5 && a.equals(lec.getText()) || i == 5 && i1.equals(location.getText())) {
+                            consArray[5] = conSlot;
+                        }
+                        if (i == 6 && d.equals(group.getText()) || i == 6 && a.equals(lec.getText()) || i == 6 && i1.equals(location.getText())) {
+                            consArray[6] = conSlot;
+                        }
+                        if (i == 7 && d.equals(group.getText()) || i == 7 && a.equals(lec.getText()) || i == 7 && i1.equals(location.getText())) {
+                            consArray[7] = conSlot;
+                        }
+                        if (i == 8 && d.equals(group.getText()) || i == 8 && a.equals(lec.getText()) || i == 8 && i1.equals(location.getText())) {
+                            consArray[8] = conSlot;
+                        }
+                        if (i == 8 && d.equals(group.getText()) || i == 9 && a.equals(lec.getText()) || i == 9 && i1.equals(location.getText())) {
+                            consArray[9] = conSlot;
+                        }
 
                         m1.setText(consArray[0]);
                         m2.setText(consArray[1]);
                         m3.setText(consArray[2]);
                         m4.setText(consArray[3]);
+                        m5.setText(consArray[4]);
                     }
-                    if (h.equals("tuesday")) {
+                    //tuesday
+                    if(h.equals("tuesday")) {
+
+                        if (i == 0 && d.equals(group.getText()) || i == 0 && a.equals(lec.getText()) || i == 0 && i1.equals(location.getText())) {
+                            consArray2[0] = conSlot;
+                        }
+                        if (i == 1 && d.equals(group.getText()) || i == 1 && a.equals(lec.getText()) || i == 1 && i1.equals(location.getText())) {
+                            consArray2[1] = conSlot;
+                        }
+                        if (i == 2 && d.equals(group.getText()) || i == 2 && a.equals(lec.getText()) || i == 2 && i1.equals(location.getText())) {
+                            consArray2[2] = conSlot;
+                        }
+                        if (i == 3 && d.equals(group.getText()) || i == 3 && a.equals(lec.getText()) || i == 3 && i1.equals(location.getText())) {
+                            consArray2[3] = conSlot;
+                        }
+                        if (i == 4 && d.equals(group.getText()) || i == 4 && a.equals(lec.getText()) || i == 4 && i1.equals(location.getText())) {
+                            consArray2[4] = conSlot;
+                        }
+                        if (i == 5 && d.equals(group.getText()) || i == 5 && a.equals(lec.getText()) || i == 5 && i1.equals(location.getText())) {
+                            consArray2[5] = conSlot;
+                        }
+                        if (i == 6 && d.equals(group.getText()) || i == 6 && a.equals(lec.getText()) || i == 6 && i1.equals(location.getText())) {
+                            consArray2[6] = conSlot;
+                        }
+                        if (i == 7 && d.equals(group.getText()) || i == 7 && a.equals(lec.getText()) || i == 7 && i1.equals(location.getText())) {
+                            consArray2[7] = conSlot;
+                        }
+                        if (i == 8 && d.equals(group.getText()) || i == 8 && a.equals(lec.getText()) || i == 8 && i1.equals(location.getText())) {
+                            consArray2[8] = conSlot;
+                        }
+                        if (i == 8 && d.equals(group.getText()) || i == 9 && a.equals(lec.getText()) || i == 9 && i1.equals(location.getText())) {
+                            consArray2[9] = conSlot;
+                        }
                         tu1.setText(consArray2[0]);
                         tu2.setText(consArray2[1]);
                         tu3.setText(consArray2[2]);
                         tu4.setText(consArray2[3]);
                     }
-                    if (h.equals("wednesday")) {
+                    //wednesday
+                    if(h.equals("wednesday")) {
+                        if (i == 0 && d.equals(group.getText()) || i == 0 && a.equals(lec.getText()) || i == 0 && i1.equals(location.getText())) {
+                            consArray3[0] = conSlot;
+                        }
+                        if (i == 1 && d.equals(group.getText()) || i == 1 && a.equals(lec.getText()) || i == 1 && i1.equals(location.getText())) {
+                            consArray3[1] = conSlot;
+                        }
+                        if (i == 2 && d.equals(group.getText()) || i == 2 && a.equals(lec.getText()) || i == 2 && i1.equals(location.getText())) {
+                            consArray3[2] = conSlot;
+                        }
+                        if (i == 3 && d.equals(group.getText()) || i == 3 && a.equals(lec.getText()) || i == 3 && i1.equals(location.getText())) {
+                            consArray3[3] = conSlot;
+                        }
+                        if (i == 4 && d.equals(group.getText()) || i == 4 && a.equals(lec.getText()) || i == 4 && i1.equals(location.getText())) {
+                            consArray3[4] = conSlot;
+                        }
+                        if (i == 5 && d.equals(group.getText()) || i == 5 && a.equals(lec.getText()) || i == 5 && i1.equals(location.getText())) {
+                            consArray3[5] = conSlot;
+                        }
+                        if (i == 6 && d.equals(group.getText()) || i == 6 && a.equals(lec.getText()) || i == 6 && i1.equals(location.getText())) {
+                            consArray3[6] = conSlot;
+                        }
+                        if (i == 7 && d.equals(group.getText()) || i == 7 && a.equals(lec.getText()) || i == 7 && i1.equals(location.getText())) {
+                            consArray3[7] = conSlot;
+                        }
+                        if (i == 8 && d.equals(group.getText()) || i == 8 && a.equals(lec.getText()) || i == 8 && i1.equals(location.getText())) {
+                            consArray3[8] = conSlot;
+                        }
+                        if (i == 8 && d.equals(group.getText()) || i == 9 && a.equals(lec.getText()) || i == 9 && i1.equals(location.getText())) {
+                            consArray3[9] = conSlot;
+                        }
                         w1.setText(consArray3[0]);
                         w2.setText(consArray3[1]);
                         w3.setText(consArray3[2]);
                         w4.setText(consArray3[3]);
                     }
-                    if (h.equals("thursday")) {
+                    //thursday
+                    if(h.equals("thursday")) {
+                        if (i == 0 && d.equals(group.getText()) || i == 0 && a.equals(lec.getText()) || i == 0 && i1.equals(location.getText())) {
+                            consArray[0] = conSlot;
+                        }
+                        if (i == 1 && d.equals(group.getText()) || i == 1 && a.equals(lec.getText()) || i == 1 && i1.equals(location.getText())) {
+                            consArray4[1] = conSlot;
+                        }
+                        if (i == 2 && d.equals(group.getText()) || i == 2 && a.equals(lec.getText()) || i == 2 && i1.equals(location.getText())) {
+                            consArray4[2] = conSlot;
+                        }
+                        if (i == 3 && d.equals(group.getText()) || i == 3 && a.equals(lec.getText()) || i == 3 && i1.equals(location.getText())) {
+                            consArray4[3] = conSlot;
+                        }
+                        if (i == 4 && d.equals(group.getText()) || i == 4 && a.equals(lec.getText()) || i == 4 && i1.equals(location.getText())) {
+                            consArray4[4] = conSlot;
+                        }
+                        if (i == 5 && d.equals(group.getText()) || i == 5 && a.equals(lec.getText()) || i == 5 && i1.equals(location.getText())) {
+                            consArray4[5] = conSlot;
+                        }
+                        if (i == 6 && d.equals(group.getText()) || i == 6 && a.equals(lec.getText()) || i == 6 && i1.equals(location.getText())) {
+                            consArray4[6] = conSlot;
+                        }
+                        if (i == 7 && d.equals(group.getText()) || i == 7 && a.equals(lec.getText()) || i == 7 && i1.equals(location.getText())) {
+                            consArray4[7] = conSlot;
+                        }
+                        if (i == 8 && d.equals(group.getText()) || i == 8 && a.equals(lec.getText()) || i == 8 && i1.equals(location.getText())) {
+                            consArray4[8] = conSlot;
+                        }
+                        if (i == 8 && d.equals(group.getText()) || i == 9 && a.equals(lec.getText()) || i == 9 && i1.equals(location.getText())) {
+                            consArray4[9] = conSlot;
+                        }
                         th1.setText(consArray4[0]);
                         th2.setText(consArray4[1]);
                         th3.setText(consArray4[2]);
                         th4.setText(consArray4[3]);
                     }
-                    if (h.equals("friday")) {
+                    //friday
+                    if(h.equals("friday")) {
+                        if (i == 0 && d.equals(group.getText()) || i == 0 && a.equals(lec.getText()) || i == 0 && i1.equals(location.getText())) {
+                            consArray5[0] = conSlot;
+                        }
+                        if (i == 1 && d.equals(group.getText()) || i == 1 && a.equals(lec.getText()) || i == 1 && i1.equals(location.getText())) {
+                            consArray5[1] = conSlot;
+                        }
+                        if (i == 2 && d.equals(group.getText()) || i == 2 && a.equals(lec.getText()) || i == 2 && i1.equals(location.getText())) {
+                            consArray5[2] = conSlot;
+                        }
+                        if (i == 3 && d.equals(group.getText()) || i == 3 && a.equals(lec.getText()) || i == 3 && i1.equals(location.getText())) {
+                            consArray5[3] = conSlot;
+                        }
+                        if (i == 4 && d.equals(group.getText()) || i == 4 && a.equals(lec.getText()) || i == 4 && i1.equals(location.getText())) {
+                            consArray5[4] = conSlot;
+                        }
+                        if (i == 5 && d.equals(group.getText()) || i == 5 && a.equals(lec.getText()) || i == 5 && i1.equals(location.getText())) {
+                            consArray5[5] = conSlot;
+                        }
+                        if (i == 6 && d.equals(group.getText()) || i == 6 && a.equals(lec.getText()) || i == 6 && i1.equals(location.getText())) {
+                            consArray5[6] = conSlot;
+                        }
+                        if (i == 7 && d.equals(group.getText()) || i == 7 && a.equals(lec.getText()) || i == 7 && i1.equals(location.getText())) {
+                            consArray5[7] = conSlot;
+                        }
+                        if (i == 8 && d.equals(group.getText()) || i == 8 && a.equals(lec.getText()) || i == 8 && i1.equals(location.getText())) {
+                            consArray5[8] = conSlot;
+                        }
+                        if (i == 8 && d.equals(group.getText()) || i == 9 && a.equals(lec.getText()) || i == 9 && i1.equals(location.getText())) {
+                            consArray5[9] = conSlot;
+                        }
                         fr1.setText(consArray5[0]);
                         fr2.setText(consArray5[1]);
                         fr3.setText(consArray5[2]);
                         fr4.setText(consArray5[3]);
                     }
-                    if (h.equals("saturday")) {
+                    if(h.equals("saturday")) {
+                        //saturday
+                        if (i == 0 && d.equals(group.getText()) || i == 0 && a.equals(lec.getText()) || i == 0 && i1.equals(location.getText())) {
+                            consArray6[0] = conSlot;
+                        }
+                        if (i == 1 && d.equals(group.getText()) || i == 1 && a.equals(lec.getText()) || i == 1 && i1.equals(location.getText())) {
+                            consArray6[1] = conSlot;
+                        }
+                        if (i == 2 && d.equals(group.getText()) || i == 2 && a.equals(lec.getText()) || i == 2 && i1.equals(location.getText())) {
+                            consArray6[2] = conSlot;
+                        }
+                        if (i == 3 && d.equals(group.getText()) || i == 3 && a.equals(lec.getText()) || i == 3 && i1.equals(location.getText())) {
+                            consArray6[3] = conSlot;
+                        }
+                        if (i == 4 && d.equals(group.getText()) || i == 4 && a.equals(lec.getText()) || i == 4 && i1.equals(location.getText())) {
+                            consArray6[4] = conSlot;
+                        }
+                        if (i == 5 && d.equals(group.getText()) || i == 5 && a.equals(lec.getText()) || i == 5 && i1.equals(location.getText())) {
+                            consArray6[5] = conSlot;
+                        }
+                        if (i == 6 && d.equals(group.getText()) || i == 6 && a.equals(lec.getText()) || i == 6 && i1.equals(location.getText())) {
+                            consArray6[6] = conSlot;
+                        }
+                        if (i == 7 && d.equals(group.getText()) || i == 7 && a.equals(lec.getText()) || i == 7 && i1.equals(location.getText())) {
+                            consArray6[7] = conSlot;
+                        }
+                        if (i == 8 && d.equals(group.getText()) || i == 8 && a.equals(lec.getText()) || i == 8 && i1.equals(location.getText())) {
+                            consArray6[8] = conSlot;
+                        }
+                        if (i == 8 && d.equals(group.getText()) || i == 9 && a.equals(lec.getText()) || i == 9 && i1.equals(location.getText())) {
+                            consArray6[9] = conSlot;
+                        }
                         m1.setText(consArray6[0]);
                         m2.setText(consArray6[1]);
                         m3.setText(consArray6[2]);
                         m4.setText(consArray6[3]);
                     }
                     break;
-
-                }catch (Exception E){
-                    System.out.println(E);
-                }
             }
         }
 
@@ -684,294 +648,283 @@ public class TimetableController implements Initializable {
         String h = null;
         for (int z =0; z<10;z++) {
             while (rs.next()) {
-                try {
-                    //Display values
-                    String a = (rs.getString("lec"));
-                    String b = (rs.getString("sub_code"));
-                    String c = (rs.getString("sub_name"));
-                    String d = (rs.getString("group_id"));
-                    String e = (rs.getString("tag"));
-                    String f = (rs.getString("noOfStudents"));
-                    String g = (rs.getString("duration"));
-                    String i1 = (rs.getString("room"));
-                    String nonSlot = a + "\n" + c + "(" + b + ")" + e + "\n" + d + "," + f + "(" + g + ")" + "," + i1;
+                //get values
+                String a = (rs.getString("lec"));
+                String b = (rs.getString("sub_code"));
+                String c = (rs.getString("sub_name"));
+                String d = (rs.getString("group_id"));
+                String e = (rs.getString("tag"));
+                String f = (rs.getString("noOfStudents"));
+                String g = (rs.getString("duration"));
+                h = (rs.getString("date"));
+                String i =(rs.getString("room"));
+                String nonSlot = a + "\n" + c + "(" + b + ")" + e + "\n" + d + "," + f + "(" + g + ")"+","+i;
 //monday
-                    if ((z != 0 || !d.equals(group.getText()) || !h.equals("monday")) && (z != 0 || !a.equals(lec.getText()) || !h.equals("monday")) && (z != 0 || !i1.equals(location.getText()) || !h.equals("monday"))) {
-                    } else {
+                if(h.equals("monday")) {
+                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText())|| z == 0 && i.equals(location.getText())) {
                         nonArray[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) && h.equals("monday") || z == 1 && a.equals(lec.getText()) && h.equals("monday") || z == 0 && i1.equals(location.getText()) && h.equals("monday")) {
+                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText())|| z == 1 && i.equals(location.getText())) {
                         nonArray[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) && h.equals("monday") || z == 2 && a.equals(lec.getText()) && h.equals("monday") || z == 0 && i1.equals(location.getText()) && h.equals("monday")) {
+                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText())|| z == 2 && i.equals(location.getText())) {
                         nonArray[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) && h.equals("monday") || z == 3 && a.equals(lec.getText()) && h.equals("monday") || z == 0 && i1.equals(location.getText()) && h.equals("monday")) {
+                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText())|| z == 3 && i.equals(location.getText())) {
                         nonArray[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) && h.equals("monday") || z == 4 && a.equals(lec.getText()) && h.equals("monday") || z == 0 && i1.equals(location.getText()) && h.equals("monday")) {
+                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText())|| z == 4 && i.equals(location.getText())) {
                         nonArray[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) && h.equals("monday") || z == 5 && a.equals(lec.getText()) && h.equals("monday") || z == 0 && i1.equals(location.getText()) && h.equals("monday")) {
+                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText())|| z == 5 && i.equals(location.getText())) {
                         nonArray[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) && h.equals("monday") || z == 6 && a.equals(lec.getText()) && h.equals("monday") || z == 0 && i1.equals(location.getText()) && h.equals("monday")) {
+                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText())|| z == 6 && i.equals(location.getText())) {
                         nonArray[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) && h.equals("monday") || z == 7 && a.equals(lec.getText()) && h.equals("monday") || z == 0 && i1.equals(location.getText()) && h.equals("monday")) {
+                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText())|| z == 7 && i.equals(location.getText())) {
                         nonArray[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("monday") || z == 8 && a.equals(lec.getText()) && h.equals("monday") || z == 0 && i1.equals(location.getText()) && h.equals("monday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText())|| z == 8 && i.equals(location.getText())) {
                         nonArray[8] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("monday") || z == 9 && a.equals(lec.getText()) && h.equals("monday") || z == 0 && i1.equals(location.getText()) && h.equals("monday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
                         nonArray[8] = nonSlot;
                     }
-
+                    m1.setText(nonArray1[0]);
+                    m2.setText(nonArray1[1]);
+                    m3.setText(nonArray1[2]);
+                    m4.setText(nonArray1[3]);
+                }
 //tuesday
 
-                    if (z == 0 && d.equals(group.getText()) && h.equals("tuesday") || z == 0 && a.equals(lec.getText()) && h.equals("tuesday") || z == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
+                if(h.equals("tuesday")) {
+                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText())|| z == 0 && i.equals(location.getText())) {
                         nonArray2[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) && h.equals("tuesday") || z == 1 && a.equals(lec.getText()) && h.equals("tuesday") || z == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
+                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText())|| z == 1 && i.equals(location.getText())) {
                         nonArray2[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) && h.equals("tuesday") || z == 2 && a.equals(lec.getText()) && h.equals("tuesday") || z == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
+                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText())|| z == 2 && i.equals(location.getText())) {
                         nonArray2[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) && h.equals("tuesday") || z == 3 && a.equals(lec.getText()) && h.equals("tuesday") || z == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
+                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText())|| z == 3 && i.equals(location.getText())) {
                         nonArray2[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) && h.equals("tuesday") || z == 4 && a.equals(lec.getText()) && h.equals("tuesday") || z == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
+                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText())|| z == 4 && i.equals(location.getText())) {
                         nonArray2[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) && h.equals("tuesday") || z == 5 && a.equals(lec.getText()) && h.equals("tuesday") || z == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
+                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText())|| z == 5 && i.equals(location.getText())) {
                         nonArray2[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) && h.equals("tuesday") || z == 6 && a.equals(lec.getText()) && h.equals("tuesday") || z == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
+                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText())|| z == 6 && i.equals(location.getText())) {
                         nonArray2[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) && h.equals("tuesday") || z == 7 && a.equals(lec.getText()) && h.equals("tuesday") || z == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
+                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText())|| z == 7 && i.equals(location.getText())) {
                         nonArray2[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("tuesday") || z == 8 && a.equals(lec.getText()) && h.equals("tuesday") || z == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText())|| z == 8 && i.equals(location.getText())) {
                         nonArray2[8] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("tuesday") || z == 9 && a.equals(lec.getText()) && h.equals("tuesday") || z == 0 && i1.equals(location.getText()) && h.equals("tuesday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
                         nonArray2[9] = nonSlot;
                     }
-                    //wednesday
-
-                    if (z == 0 && d.equals(group.getText()) && h.equals("wednesday") || z == 0 && a.equals(lec.getText()) && h.equals("wednesday") || z == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
+                    tu1.setText(nonArray2[0]);
+                    tu2.setText(nonArray2[1]);
+                    tu3.setText(nonArray2[2]);
+                    tu4.setText(nonArray2[3]);
+                }
+                //wednesday
+                if(h.equals("wednesday")) {
+                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText())|| z == 0 && i.equals(location.getText())) {
                         nonArray3[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) && h.equals("wednesday") || z == 1 && a.equals(lec.getText()) && h.equals("wednesday") || z == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
+                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText())|| z == 1 && i.equals(location.getText())) {
                         nonArray3[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) && h.equals("wednesday") || z == 2 && a.equals(lec.getText()) && h.equals("wednesday") || z == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
+                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText())|| z == 2 && i.equals(location.getText())) {
                         nonArray3[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) && h.equals("wednesday") || z == 3 && a.equals(lec.getText()) && h.equals("wednesday") || z == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
+                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText())|| z == 3 && i.equals(location.getText())) {
                         nonArray3[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) && h.equals("wednesday") || z == 4 && a.equals(lec.getText()) && h.equals("wednesday") || z == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
+                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText())|| z == 4 && i.equals(location.getText())) {
                         nonArray3[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) && h.equals("wednesday") || z == 5 && a.equals(lec.getText()) && h.equals("wednesday") || z == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
+                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText())|| z == 5 && i.equals(location.getText())) {
                         nonArray3[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) && h.equals("wednesday") || z == 6 && a.equals(lec.getText()) && h.equals("wednesday") || z == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
+                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText())|| z == 6 && i.equals(location.getText())) {
                         nonArray3[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) && h.equals("wednesday") || z == 7 && a.equals(lec.getText()) && h.equals("wednesday") || z == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
+                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText())|| z == 7 && i.equals(location.getText())) {
                         nonArray3[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("wednesday") || z == 8 && a.equals(lec.getText()) && h.equals("wednesday") || z == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText())|| z == 8 && i.equals(location.getText())) {
                         nonArray3[8] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("wednesday") || z == 9 && a.equals(lec.getText()) && h.equals("wednesday") || z == 0 && i1.equals(location.getText()) && h.equals("wednesday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
                         nonArray3[9] = nonSlot;
                     }
-                    //thursday
-
-                    if (z == 0 && d.equals(group.getText()) && h.equals("thursday") || z == 0 && a.equals(lec.getText()) && h.equals("thursday") || z == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
+                    w1.setText(nonArray3[0]);
+                    w2.setText(nonArray3[1]);
+                    w3.setText(nonArray3[2]);
+                    w4.setText(nonArray3[3]);
+                }
+                //thursday
+                if(h.equals("thursday")) {
+                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText())|| z == 0 && i.equals(location.getText())) {
                         nonArray4[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) && h.equals("thursday") || z == 1 && a.equals(lec.getText()) && h.equals("thursday") || z == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
+                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText())|| z == 1 && i.equals(location.getText())) {
                         nonArray4[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) && h.equals("thursday") || z == 2 && a.equals(lec.getText()) && h.equals("thursday") || z == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
+                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText())|| z == 2 && i.equals(location.getText())) {
                         nonArray4[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) && h.equals("thursday") || z == 3 && a.equals(lec.getText()) && h.equals("thursday") || z == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
+                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText())|| z == 3 && i.equals(location.getText())) {
                         nonArray4[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) && h.equals("thursday") || z == 4 && a.equals(lec.getText()) && h.equals("thursday") || z == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
+                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText())|| z == 4 && i.equals(location.getText())) {
                         nonArray4[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) && h.equals("thursday") || z == 5 && a.equals(lec.getText()) && h.equals("thursday") || z == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
+                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText())|| z == 5 && i.equals(location.getText())) {
                         nonArray4[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) && h.equals("thursday") || z == 6 && a.equals(lec.getText()) && h.equals("thursday") || z == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
+                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText())|| z == 6 && i.equals(location.getText())) {
                         nonArray4[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) && h.equals("thursday") || z == 7 && a.equals(lec.getText()) && h.equals("thursday") || z == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
+                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText())|| z == 0 && i.equals(location.getText())) {
                         nonArray4[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("thursday") || z == 8 && a.equals(lec.getText()) && h.equals("thursday") || z == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText())|| z == 0 && i.equals(location.getText())) {
                         nonArray4[8] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("thursday") || z == 9 && a.equals(lec.getText()) && h.equals("thursday") || z == 0 && i1.equals(location.getText()) && h.equals("thursday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText())|| z == 0 && i.equals(location.getText())) {
                         nonArray4[9] = nonSlot;
                     }
-                    //friday
-
-                    if (z == 0 && d.equals(group.getText()) && h.equals("friday") || z == 0 && a.equals(lec.getText()) && h.equals("friday") || z == 0 && i1.equals(location.getText()) && h.equals("friday")) {
+                    th1.setText(nonArray4[0]);
+                    th2.setText(nonArray4[1]);
+                    th3.setText(nonArray4[2]);
+                    th4.setText(nonArray4[3]);
+                }
+                //friday
+                if(h.equals("friday")) {
+                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText())) {
                         nonArray5[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) && h.equals("friday") || z == 1 && a.equals(lec.getText()) && h.equals("friday") || z == 0 && i1.equals(location.getText()) && h.equals("friday")) {
+                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText())) {
                         nonArray5[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) && h.equals("friday") || z == 2 && a.equals(lec.getText()) && h.equals("friday") || z == 0 && i1.equals(location.getText()) && h.equals("friday")) {
+                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText())) {
                         nonArray5[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) && h.equals("friday") || z == 3 && a.equals(lec.getText()) && h.equals("friday") || z == 0 && i1.equals(location.getText()) && h.equals("friday")) {
+                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText())) {
                         nonArray5[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) && h.equals("friday") || z == 4 && a.equals(lec.getText()) && h.equals("friday") || z == 0 && i1.equals(location.getText()) && h.equals("friday")) {
+                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText())) {
                         nonArray5[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) && h.equals("friday") || z == 5 && a.equals(lec.getText()) && h.equals("friday") || z == 0 && i1.equals(location.getText()) && h.equals("friday")) {
+                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText())) {
                         nonArray5[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) && h.equals("friday") || z == 6 && a.equals(lec.getText()) && h.equals("friday") || z == 0 && i1.equals(location.getText()) && h.equals("friday")) {
+                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText())) {
                         nonArray5[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) && h.equals("friday") || z == 7 && a.equals(lec.getText()) && h.equals("friday") || z == 0 && i1.equals(location.getText()) && h.equals("friday")) {
+                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText())) {
                         nonArray5[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("friday") || z == 8 && a.equals(lec.getText()) && h.equals("friday") || z == 0 && i1.equals(location.getText()) && h.equals("friday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText())) {
                         nonArray5[8] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("friday") || z == 9 && a.equals(lec.getText()) && h.equals("friday") || z == 0 && i1.equals(location.getText()) && h.equals("friday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText())) {
                         nonArray5[9] = nonSlot;
                     }
+                    fr1.setText(nonArray5[0]);
+                    fr2.setText(nonArray5[1]);
+                    fr3.setText(nonArray5[2]);
+                    fr4.setText(nonArray5[3]);
+                }
+                if(h.equals("saturday")) {
                     //saturday
-                    if (z == 0 && d.equals(group.getText()) && h.equals("saturday") || z == 0 && a.equals(lec.getText()) && h.equals("saturday") || z == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
+                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText())) {
                         nonArray6[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) && h.equals("saturday") || z == 1 && a.equals(lec.getText()) && h.equals("saturday") || z == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
+                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText())) {
                         nonArray6[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) && h.equals("saturday") || z == 2 && a.equals(lec.getText()) && h.equals("saturday") || z == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
+                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText())) {
                         nonArray6[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) && h.equals("saturday") || z == 3 && a.equals(lec.getText()) && h.equals("saturday") || z == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
+                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText())) {
                         nonArray6[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) && h.equals("saturday") || z == 4 && a.equals(lec.getText()) && h.equals("saturday") || z == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
+                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText())) {
                         nonArray6[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) && h.equals("saturday") || z == 5 && a.equals(lec.getText()) && h.equals("saturday") || z == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
+                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText())) {
                         nonArray6[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) && h.equals("saturday") || z == 6 && a.equals(lec.getText()) && h.equals("saturday") || z == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
+                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText())) {
                         nonArray6[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) && h.equals("saturday") || z == 7 && a.equals(lec.getText()) && h.equals("saturday") || z == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
+                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText())) {
                         nonArray6[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("saturday") || z == 8 && a.equals(lec.getText()) && h.equals("saturday") || z == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText())) {
                         nonArray6[8] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("saturday") || z == 9 && a.equals(lec.getText()) && h.equals("saturday") || z == 0 && i1.equals(location.getText()) && h.equals("saturday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText())) {
                         nonArray6[9] = nonSlot;
                     }
+                    m1.setText(nonArray6[0]);
+                    m2.setText(nonArray6[1]);
+                    m3.setText(nonArray6[2]);
+                    m4.setText(nonArray6[3]);
+                }
+                if(h.equals("sunday")) {
                     //sunday
-                    if (z == 0 && d.equals(group.getText()) && h.equals("sunday") || z == 0 && a.equals(lec.getText()) && h.equals("sunday") || z == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
+                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText()) ) {
                         nonArray7[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) && h.equals("sunday") || z == 1 && a.equals(lec.getText()) && h.equals("sunday") || z == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
+                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText()) ) {
                         nonArray7[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) && h.equals("sunday") || z == 2 && a.equals(lec.getText()) && h.equals("sunday") || z == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
+                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText()) ) {
                         nonArray7[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) && h.equals("sunday") || z == 3 && a.equals(lec.getText()) && h.equals("sunday") || z == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
+                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText()) ) {
                         nonArray7[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) && h.equals("sunday") || z == 4 && a.equals(lec.getText()) && h.equals("sunday") || z == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
+                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText()) ) {
                         nonArray7[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) && h.equals("sunday") || z == 5 && a.equals(lec.getText()) && h.equals("sunday") || z == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
+                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText()) ) {
                         nonArray7[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) && h.equals("sunday") || z == 6 && a.equals(lec.getText()) && h.equals("sunday") || z == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
+                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText()) ) {
                         nonArray7[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) && h.equals("sunday") || z == 7 && a.equals(lec.getText()) && h.equals("sunday") || z == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
+                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText()) ) {
                         nonArray7[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("sunday") || z == 8 && a.equals(lec.getText()) && h.equals("sunday") || z == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText()) ) {
                         nonArray7[8] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) && h.equals("sunday") || z == 9 && a.equals(lec.getText()) && h.equals("sunday") || z == 0 && i1.equals(location.getText()) && h.equals("sunday")) {
+                    if (z == 8 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText()) ) {
                         nonArray7[9] = nonSlot;
                     }
-                    assert h != null;
-                    if (h.equals("monday")) {
-
-                        m1.setText(nonArray1[0]);
-                        m2.setText(nonArray1[1]);
-                        m3.setText(nonArray1[2]);
-                        m4.setText(nonArray1[3]);
-                    }
-                    if (h.equals("tuesday")) {
-                        tu1.setText(nonArray2[0]);
-                        tu2.setText(nonArray2[1]);
-                        tu3.setText(nonArray2[2]);
-                        tu4.setText(nonArray2[3]);
-                    }
-                    if (h.equals("wednesday")) {
-                        w1.setText(nonArray3[0]);
-                        w2.setText(nonArray3[1]);
-                        w3.setText(nonArray3[2]);
-                        w4.setText(nonArray3[3]);
-                    }
-                    if (h.equals("thursday")) {
-                        th1.setText(nonArray4[0]);
-                        th2.setText(nonArray4[1]);
-                        th3.setText(nonArray4[2]);
-                        th4.setText(nonArray4[3]);
-                    }
-                    if (h.equals("friday")) {
-                        fr1.setText(nonArray5[0]);
-                        fr2.setText(nonArray5[1]);
-                        fr3.setText(nonArray5[2]);
-                        fr4.setText(nonArray5[3]);
-                    }
-                    if (h.equals("saturday")) {
-                        m1.setText(nonArray6[0]);
-                        m2.setText(nonArray6[1]);
-                        m3.setText(nonArray6[2]);
-                        m4.setText(nonArray6[3]);
-                    }
-                    if (h.equals("sunday")) {
-                        m1.setText(nonArray7[0]);
-                        m2.setText(nonArray7[1]);
-                        m3.setText(nonArray7[2]);
-                        m4.setText(nonArray7[3]);
-                    }
-                    break;
-                }catch (Exception e){
-                    System.out.println(e);
+                    m1.setText(nonArray7[0]);
+                    m2.setText(nonArray7[1]);
+                    m3.setText(nonArray7[2]);
+                    m4.setText(nonArray7[3]);
                 }
+
+                break;
+
             }
         }
-        m7.setText(nonArray[0]);
-        m8.setText(nonArray[1]);
-        m9.setText(nonArray[2]);
-        tu1.setText(nonArray[3]);
+
 
     }
     @FXML
