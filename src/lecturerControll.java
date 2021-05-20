@@ -230,6 +230,7 @@ public class lecturerControll implements Initializable {
         table_stat.setItems(listM);
 
 
+
     }
 
 

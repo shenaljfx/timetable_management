@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" prefHeight="570.0" prefWidth="674.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="addSessionController">
+    <rowConstraints>
+        <RowConstraints fillHeight="false" />
+    </rowConstraints>
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="1169.0" style="-fx-background-color: #eee9d9;">
+
+    <TableView fx:id="main_table" layoutX="21.0" layoutY="79.0" prefHeight="338.0" prefWidth="1127.0" style="-fx-background-size: 100%;">
+        <columns>
+            <TableColumn fx:id="sec_id" prefWidth="100.0" style="-fx-background-color: #fff;" text="ID" />
+            <TableColumn fx:id="sec_lec" prefWidth="184.0" style="-fx-background-color: #fff;" text="Lecture" />
+            <TableColumn fx:id="sub_code" prefWidth="160.0" style="-fx-background-color: #fff;" text="Subject code" />
+            <TableColumn fx:id="sub_name" prefWidth="116.00006103515625" style="-fx-background-color: #fff;" text="Subject Name" />
+            <TableColumn fx:id="groupID" prefWidth="126.4000244140625" style="-fx-background-color: #fff;" text="Group ID" />
+            <TableColumn fx:id="tag" prefWidth="101.5999755859375" style="-fx-background-color: #fff;" text="Tag" />
+            <TableColumn fx:id="nostudent" prefWidth="121.0" style="-fx-background-color: #fff;" text="Number of students" />
+            <TableColumn fx:id="duration" prefWidth="98.199951171875" style="-fx-background-color: #fff;" text="duration" />
+            <TableColumn fx:id="sec_date" prefWidth="114.800048828125" style="-fx-background-color: #fff;" text="Date" />
+        </columns>
+    </TableView>
+      <Label layoutX="21.0" layoutY="14.0" prefHeight="56.0" prefWidth="423.0" text="Session Managment">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="lec" layoutX="259.0" layoutY="445.0" prefHeight="26.0" prefWidth="178.0" promptText="Select Lecturer" style="-fx-background-color: #FFF;" />
+      <TextField fx:id="id" layoutX="32.0" layoutY="445.0" text="Enter ID" />
+      <ComboBox fx:id="subName" layoutX="697.0" layoutY="445.0" prefHeight="26.0" prefWidth="178.0" promptText="Select Subject Name" style="-fx-background-color: #FFF;" />
+      <ComboBox fx:id="subCode" layoutX="481.0" layoutY="445.0" prefHeight="26.0" prefWidth="178.0" promptText="Select Subject Code" style="-fx-background-color: #FFF;" />
+      <ComboBox fx:id="group_ID" layoutX="915.0" layoutY="445.0" prefHeight="26.0" prefWidth="178.0" promptText="Select Group ID" style="-fx-background-color: #FFF;" />
+      <TextField fx:id="tags" layoutX="32.0" layoutY="483.0" text="Enter tag" />
+      <TextField fx:id="s_cap" layoutX="32.0" layoutY="525.0" text="Enter  Student Capacity" />
+      <TextField fx:id="durations" layoutX="32.0" layoutY="563.0" text="Enter  duration" />
+      <TextField fx:id="date" layoutX="32.0" layoutY="606.0" text="Enter  date" />
+        <Button fx:id="btnAddSession" layoutX="298.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #deda93;" text="Add Session" />
+      <Button fx:id="btnAddSession1" layoutX="869.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #deda93;" text="Clear" />
+      <Button fx:id="btnAddSession11" layoutX="497.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #deda93;" text="Update" />
+      <Button fx:id="btnAddSession111" layoutX="688.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #deda93;" text="Delete" />
+      <Button layoutX="539.0" layoutY="593.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="178.0" style="-fx-background-color: #deda93;" text="Back to main page" />
+</AnchorPane>
+</GridPane>

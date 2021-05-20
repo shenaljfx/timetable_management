@@ -282,7 +282,7 @@ public class studentController  implements Initializable {
         String z = groupNo.getText();
         String z2= sgroupNo.getText();
 
-        String genID = x+y+z+z2;
+        String genID = x+y+z+"."+z2;
         System.out.println(genID);
         SGID.setText(genID);
     }

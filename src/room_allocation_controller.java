@@ -141,7 +141,7 @@ public class room_allocation_controller implements Initializable {
     public void UpdateTable() {
         try{
             ObservableList<Sessions> listM = getSession();
-            sec_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+            sec_id.setCellValueFactory(new PropertyValueFactory<Sessions,Integer>("id"));
             sec_lec.setCellValueFactory(new PropertyValueFactory<>("lec"));
             sub_code.setCellValueFactory(new PropertyValueFactory<>("sub_code"));
             sub_name.setCellValueFactory(new PropertyValueFactory<>("sub_name"));

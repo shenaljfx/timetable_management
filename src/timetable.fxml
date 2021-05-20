@@ -13,18 +13,15 @@
     </columnConstraints>
     <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="1447.0" prefWidth="1227.0" style="-fx-background-color: #eee9d9;">
         <Label layoutX="133.0" layoutY="62.0" prefHeight="26.0" prefWidth="185.0" text="Lecturer" />
-        <TextField fx:id="lec" layoutX="127.0" layoutY="90.0" prefHeight="26.0" prefWidth="201.0" />
-        <TextField fx:id="group" layoutX="460.0" layoutY="90.0" prefHeight="26.0" prefWidth="202.0" />
-        <Label layoutX="459.0" layoutY="62.0" prefHeight="26.0" prefWidth="118.0" text="Group" />
-        <TextField fx:id="location" layoutX="814.0" layoutY="90.0" prefHeight="26.0" prefWidth="202.0" />
-        <Label layoutX="821.0" layoutY="60.0" prefHeight="26.0" prefWidth="118.0" text="Location" />
+        <Label layoutX="472.0" layoutY="62.0" prefHeight="26.0" prefWidth="118.0" text="Group" />
+        <Label layoutX="797.0" layoutY="62.0" prefHeight="26.0" prefWidth="118.0" text="Location" />
         <Label fx:id="syear_coloum" layoutX="403.0" prefHeight="60.0" prefWidth="421.0" text="Generate Time Tables" textFill="#616161">
             <font>
                 <Font name="Bookman Old Style" size="30.0" />
             </font>
         </Label>
-        <Button layoutX="460.0" layoutY="180.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="Back to main page" />
-      <Button fx:id="genID1" layoutX="460.0" layoutY="138.0" mnemonicParsing="false" onAction="#generateStudentGroupTimetable" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="GENARATE TIMETABLE" />
+        <Button layoutX="258.0" layoutY="138.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="Back to main page" />
+      <Button fx:id="genID1" layoutX="482.0" layoutY="138.0" mnemonicParsing="false" onAction="#generateStudentGroupTimetable" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="GENARATE TIMETABLE" />
       <Label fx:id="time1" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="268.0" prefHeight="130.0" prefWidth="143.0" style="-fx-background-color: #DCDCDC; -fx-border-color: black;" text="--------" textAlignment="CENTER">
          <font>
             <Font size="13.0" />
@@ -321,5 +318,9 @@
       <Label layoutX="779.0" layoutY="242.0" prefHeight="18.0" prefWidth="92.0" text="Friday" />
       <Label layoutX="915.0" layoutY="242.0" prefHeight="18.0" prefWidth="92.0" text="Saturday" />
       <Label layoutX="1047.0" layoutY="242.0" prefHeight="18.0" prefWidth="92.0" text="Sunday" />
+      <ComboBox fx:id="leclist" layoutX="130.0" layoutY="90.0" prefHeight="26.0" prefWidth="209.0" promptText="Select lecturer" />
+      <ComboBox fx:id="grouplist" layoutX="472.0" layoutY="90.0" prefHeight="26.0" prefWidth="209.0" promptText="Select Student Group" />
+      <ComboBox fx:id="roomlist" layoutX="797.0" layoutY="90.0" prefHeight="26.0" prefWidth="209.0" promptText="Select Room" />
+      <Button fx:id="genID11" layoutX="702.0" layoutY="138.0" mnemonicParsing="false" onAction="#refresh" prefHeight="26.0" prefWidth="190.0" style="-fx-background-color: #c8c483;" text="Refresh" />
     </AnchorPane>
 </GridPane>

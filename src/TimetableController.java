@@ -1,17 +1,25 @@
 
-
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+import java.awt.*;
 import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class TimetableController implements Initializable {
@@ -32,25 +40,115 @@ public class TimetableController implements Initializable {
     @FXML
     public Label sun1,sun2,sun3,sun4,sun5,sun6,sun7,sun8,sun9;
     @FXML
-    public TextField lec;
-    @FXML
     public TextField group;
     @FXML
     public TextField location;
+    @FXML
+    public ComboBox <String>leclist ;
+    @FXML
+    public ComboBox <String>grouplist ;
+    @FXML
+    public ComboBox <String>roomlist ;
 
 
 
 
         static final String DB_URL = "jdbc:sqlite:D:/SLIIT/3rd year 1st sem/ITPM/IT19033938/src/student";
-
         static final String QUERY = "SELECT lec, sub_code, sub_name, group_id, tag, noOfStudents, duration,date,room FROM parallel";
         static final String QUERY2 = "SELECT lec, sub_code, sub_name, group_id, tag, noOfStudents, duration,date,room  FROM consecutive";
         static final String QUERY3 = "SELECT lec, sub_code, sub_name, group_id, tag, noOfStudents, duration,date,room  FROM nonoverlapping";
+        static final String QUERY4 = "SELECT Name FROM lectrer";
+        static final String QUERY5 = "SELECT SGID FROM studentgroup";
+        static final String QUERY6 = "SELECT RoomName FROM roomlocations";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        try {
+            getLecToList();
+            getGroupToList();
+            getRoomToList();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    @FXML
+    public void refresh(ActionEvent event) {
+            try{
+                Parent tableViewParent = FXMLLoader.load(getClass().getResource("timetable.fxml"));
+                Scene tableViewScene = new Scene(tableViewParent);
+                Stage window =(Stage)((Node)event.getSource()).getScene().getWindow();
+                window.setScene(tableViewScene);
+                window.show();
+            }catch(Exception E){
+                System.out.println(E);
+            }
+        }
+
+    @FXML
+    public void getLecToList()throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL);
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(QUERY4);
+        ObservableList<String>  data = FXCollections.observableArrayList();
+
+        while (rs.next()) {
+            try {
+                data.add(rs.getString("Name"));
+
+            }catch (Exception e){
+                System.out.println(e);
+            }
+
+
+        }leclist.setItems(data);
+
 
     }
+    @FXML
+    public void getGroupToList()throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL);
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(QUERY5);
+        ObservableList<String>  data = FXCollections.observableArrayList();
+
+        while (rs.next()) {
+            try {
+                data.add(rs.getString("SGID"));
+
+            }catch (Exception e){
+                System.out.println(e);
+            }
+
+
+        }grouplist.setItems(data);
+
+
+    }
+    @FXML
+    public void getRoomToList()throws SQLException {
+        Connection conn = DriverManager.getConnection(DB_URL);
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery(QUERY6);
+        ObservableList<String>  data = FXCollections.observableArrayList();
+
+        while (rs.next()) {
+            try {
+                data.add(rs.getString("RoomName"));
+
+            }catch (Exception e){
+                System.out.println(e);
+            }
+
+
+        }roomlist.setItems(data);
+
+
+    }
+
+
+
+
+
 
     @FXML
     public void genTimeSlotes(){
@@ -101,37 +199,36 @@ public class TimetableController implements Initializable {
                 String g = (rs.getString("duration"));
                 h = (rs.getString("date"));
                 String i = (rs.getString("room"));
-
                 String paraSlot = a + "\n" + c + "(" + b + ")" + e + "\n" + d + "," + f + "(" + g + ")" + "," + i;
                 if(h.equals("monday")) {
-                    if (J == 0 && d.equals(group.getText()) || J == 0 && a.equals(lec.getText())|| J == 0 && i.equals(location.getText())) {
+                    if (J == 0 &&  d.equals(grouplist.getValue()) || J == 0 && a.equals(leclist.getValue())|| J == 0 && i.equals(roomlist.getValue())) {
                         paraArray[0] = paraSlot;
                     }
-                    if (J == 1 && d.equals(group.getText()) || J == 1 && a.equals(lec.getText())|| J == 1 && i.equals(location.getText())) {
+                    if (J == 1 &&  d.equals(grouplist.getValue()) || J == 1 && a.equals(leclist.getValue()) || J == 1 && i.equals(roomlist.getValue())) {
                         paraArray[1] = paraSlot;
                     }
-                    if (J == 2 && d.equals(group.getText()) || J == 2 && a.equals(lec.getText())|| J == 2 && i.equals(location.getText())) {
+                    if (J == 2 &&  d.equals(grouplist.getValue()) || J == 2 && a.equals(leclist.getValue()) || J == 2 && i.equals(roomlist.getValue())) {
                         paraArray[2] = paraSlot;
                     }
-                    if (J == 3 && d.equals(group.getText()) || J == 3 && a.equals(lec.getText())|| J == 3 && i.equals(location.getText())) {
+                    if (J == 3 &&  d.equals(grouplist.getValue()) || J == 3 && a.equals(leclist.getValue()) || J == 3 && i.equals(roomlist.getValue())) {
                         paraArray[3] = paraSlot;
                     }
-                    if (J == 4 && d.equals(group.getText()) || J == 4 && a.equals(lec.getText())|| J == 4 && i.equals(location.getText())) {
+                    if (J == 4 &&  d.equals(grouplist.getValue()) || J == 4 && a.equals(leclist.getValue()) || J == 4 && i.equals(roomlist.getValue())) {
                         paraArray[4] = paraSlot;
                     }
-                    if (J == 5 && d.equals(group.getText()) || J == 5 && a.equals(lec.getText())|| J == 5 && i.equals(location.getText())) {
+                    if (J == 5 &&  d.equals(grouplist.getValue()) || J == 5 && a.equals(leclist.getValue()) || J == 5 && i.equals(roomlist.getValue())) {
                         paraArray[5] = paraSlot;
                     }
-                    if (J == 6 && d.equals(group.getText()) || J == 6 && a.equals(lec.getText())|| J == 6 && i.equals(location.getText())) {
+                    if (J == 6 &&  d.equals(grouplist.getValue()) || J == 6 && a.equals(leclist.getValue()) || J == 6 && i.equals(roomlist.getValue())) {
                         paraArray[6] = paraSlot;
                     }
-                    if (J == 7 && d.equals(group.getText()) || J == 7 && a.equals(lec.getText())|| J == 7 && i.equals(location.getText())) {
+                    if (J == 7 &&  d.equals(grouplist.getValue()) || J == 7 && a.equals(leclist.getValue()) || J == 7 && i.equals(roomlist.getValue())) {
                         paraArray[7] = paraSlot;
                     }
-                    if (J == 8 && d.equals(group.getText()) || J == 8 && a.equals(lec.getText())|| J == 8 && i.equals(location.getText())) {
+                    if (J == 8 &&  d.equals(grouplist.getValue()) || J == 8 && a.equals(leclist.getValue()) || J == 8 && i.equals(roomlist.getValue())) {
                         paraArray[8] = paraSlot;
                     }
-                    if (J == 8 && d.equals(group.getText()) || J == 9 && a.equals(lec.getText())|| J == 9 && i.equals(location.getText())) {
+                    if (J == 8 &&  d.equals(grouplist.getValue()) || J == 9 && a.equals(leclist.getValue()) || J == 9 && i.equals(roomlist.getValue())) {
                         paraArray[9] = paraSlot;
                     }
                     m6.setText((paraArray[0]) + "\n" + (paraArray[1]));
@@ -140,34 +237,34 @@ public class TimetableController implements Initializable {
                 }
                 //tuesday
                 if(h.equals("tuesday")) {
-                    if (J == 0 && d.equals(group.getText()) || J == 0 && a.equals(lec.getText())|| J == 0 && i.equals(location.getText())) {
+                    if (J == 0 &&  d.equals(grouplist.getValue()) || J == 0 && a.equals(leclist.getValue()) || J == 0 && i.equals(roomlist.getValue())) {
                         paraArray2[0] = paraSlot;
                     }
-                    if (J == 1 && d.equals(group.getText()) || J == 1 && a.equals(lec.getText())|| J == 1 && i.equals(location.getText())) {
+                    if (J == 1 &&  d.equals(grouplist.getValue()) || J == 1 && a.equals(leclist.getValue()) || J == 1 && i.equals(roomlist.getValue())) {
                         paraArray2[1] = paraSlot;
                     }
-                    if (J == 2 && d.equals(group.getText()) || J == 2 && a.equals(lec.getText())|| J == 2 && i.equals(location.getText())) {
+                    if (J == 2 &&  d.equals(grouplist.getValue()) || J == 2 && a.equals(leclist.getValue()) || J == 2 && i.equals(roomlist.getValue())) {
                         paraArray2[2] = paraSlot;
                     }
-                    if (J == 3 && d.equals(group.getText()) || J == 3 && a.equals(lec.getText())|| J == 3 && i.equals(location.getText())) {
+                    if (J == 3 &&  d.equals(grouplist.getValue()) || J == 3 && a.equals(leclist.getValue()) || J == 3 && i.equals(roomlist.getValue())) {
                         paraArray2[3] = paraSlot;
                     }
-                    if (J == 4 && d.equals(group.getText()) || J == 4 && a.equals(lec.getText())|| J == 4 && i.equals(location.getText())) {
+                    if (J == 4 &&  d.equals(grouplist.getValue()) || J == 4 && a.equals(leclist.getValue()) || J == 4 && i.equals(roomlist.getValue())) {
                         paraArray2[4] = paraSlot;
                     }
-                    if (J == 5 && d.equals(group.getText()) || J == 5 && a.equals(lec.getText())|| J == 5 && i.equals(location.getText())) {
+                    if (J == 5 &&  d.equals(grouplist.getValue()) || J == 5 && a.equals(leclist.getValue()) || J == 5 && i.equals(roomlist.getValue())) {
                         paraArray2[5] = paraSlot;
                     }
-                    if (J == 6 && d.equals(group.getText()) || J == 6 && a.equals(lec.getText())|| J == 6 && i.equals(location.getText())) {
+                    if (J == 6 &&  d.equals(grouplist.getValue()) || J == 6 && a.equals(leclist.getValue()) || J == 6 && i.equals(roomlist.getValue())) {
                         paraArray2[6] = paraSlot;
                     }
-                    if (J == 7 && d.equals(group.getText()) || J == 7 && a.equals(lec.getText())|| J == 7 && i.equals(location.getText())) {
+                    if (J == 7 &&  d.equals(grouplist.getValue()) || J == 7 && a.equals(leclist.getValue()) || J == 7 && i.equals(roomlist.getValue())) {
                         paraArray2[7] = paraSlot;
                     }
-                    if (J == 8 && d.equals(group.getText()) || J == 8 && a.equals(lec.getText())|| J == 8 && i.equals(location.getText())) {
+                    if (J == 8 &&  d.equals(grouplist.getValue()) || J == 8 && a.equals(leclist.getValue()) || J == 8 && i.equals(roomlist.getValue())) {
                         paraArray2[8] = paraSlot;
                     }
-                    if (J == 8 && d.equals(group.getText()) || J == 9 && a.equals(lec.getText())|| J == 9 && i.equals(location.getText())) {
+                    if (J == 8 &&  d.equals(grouplist.getValue()) || J == 9 && a.equals(leclist.getValue()) || J == 9 && i.equals(roomlist.getValue())) {
                         paraArray2[9] = paraSlot;
                     }
                     tu6.setText((paraArray2[0]) + "\n" + (paraArray2[1]));
@@ -176,34 +273,34 @@ public class TimetableController implements Initializable {
                 }
                 //wednesday
                 if(h.equals("wednesday")) {
-                    if (J == 0 && d.equals(group.getText()) || J == 0 && a.equals(lec.getText())|| J == 0 && i.equals(location.getText())) {
+                    if (J == 0 &&  d.equals(grouplist.getValue()) || J == 0 && a.equals(leclist.getValue()) || J == 0 && i.equals(roomlist.getValue())) {
                         paraArray3[0] = paraSlot;
                     }
-                    if (J == 1 && d.equals(group.getText()) || J == 1 && a.equals(lec.getText())|| J == 1 && i.equals(location.getText())) {
+                    if (J == 1 &&  d.equals(grouplist.getValue()) || J == 1 && a.equals(leclist.getValue()) || J == 1 && i.equals(roomlist.getValue())) {
                         paraArray3[1] = paraSlot;
                     }
-                    if (J == 2 && d.equals(group.getText()) || J == 2 && a.equals(lec.getText())|| J == 2 && i.equals(location.getText())) {
+                    if (J == 2 &&  d.equals(grouplist.getValue()) || J == 2 && a.equals(leclist.getValue()) || J == 2 && i.equals(roomlist.getValue())) {
                         paraArray3[2] = paraSlot;
                     }
-                    if (J == 3 && d.equals(group.getText()) || J == 3 && a.equals(lec.getText())|| J == 3 && i.equals(location.getText())) {
+                    if (J == 3 &&  d.equals(grouplist.getValue()) || J == 3 && a.equals(leclist.getValue()) || J == 3 && i.equals(roomlist.getValue())) {
                         paraArray3[3] = paraSlot;
                     }
-                    if (J == 4 && d.equals(group.getText()) || J == 4 && a.equals(lec.getText())|| J == 4 && i.equals(location.getText())) {
+                    if (J == 4 &&  d.equals(grouplist.getValue()) || J == 4 && a.equals(leclist.getValue()) || J == 4 && i.equals(roomlist.getValue())) {
                         paraArray3[4] = paraSlot;
                     }
-                    if (J == 5 && d.equals(group.getText()) || J == 5 && a.equals(lec.getText())|| J == 5 && i.equals(location.getText())) {
+                    if (J == 5 &&  d.equals(grouplist.getValue()) || J == 5 && a.equals(leclist.getValue()) || J == 5 && i.equals(roomlist.getValue())) {
                         paraArray3[5] = paraSlot;
                     }
-                    if (J == 6 && d.equals(group.getText()) || J == 6 && a.equals(lec.getText())|| J == 6 && i.equals(location.getText())) {
+                    if (J == 6 &&  d.equals(grouplist.getValue()) || J == 6 && a.equals(leclist.getValue()) || J == 6 && i.equals(roomlist.getValue())) {
                         paraArray3[6] = paraSlot;
                     }
-                    if (J == 7 && d.equals(group.getText()) || J == 7 && a.equals(lec.getText())|| J == 7 && i.equals(location.getText())) {
+                    if (J == 7 &&  d.equals(grouplist.getValue()) || J == 7 && a.equals(leclist.getValue()) || J == 7 && i.equals(roomlist.getValue())) {
                         paraArray3[7] = paraSlot;
                     }
-                    if (J == 8 && d.equals(group.getText()) || J == 8 && a.equals(lec.getText())|| J == 8 && i.equals(location.getText())) {
+                    if (J == 8 &&  d.equals(grouplist.getValue()) || J == 8 && a.equals(leclist.getValue()) || J == 8 && i.equals(roomlist.getValue())) {
                         paraArray3[8] = paraSlot;
                     }
-                    if (J == 8 && d.equals(group.getText()) || J == 9 && a.equals(lec.getText())|| J == 9 && i.equals(location.getText())) {
+                    if (J == 8 &&  d.equals(grouplist.getValue()) || J == 9 && a.equals(leclist.getValue()) || J == 9 && i.equals(roomlist.getValue())) {
                         paraArray3[9] = paraSlot;
                     }
                     w6.setText((paraArray3[0]) + "\n" + (paraArray3[1]));
@@ -212,34 +309,34 @@ public class TimetableController implements Initializable {
                 }
                 //thursday
                 if(h.equals("thursday")) {
-                    if (J == 0 && d.equals(group.getText()) || J == 0 && a.equals(lec.getText())|| J == 0 && i.equals(location.getText())) {
+                    if (J == 0 &&  d.equals(grouplist.getValue()) || J == 0 && a.equals(leclist.getValue()) || J == 0 && i.equals(roomlist.getValue())) {
                         paraArray4[0] = paraSlot;
                     }
-                    if (J == 1 && d.equals(group.getText()) || J == 1 && a.equals(lec.getText())|| J == 1 && i.equals(location.getText())) {
+                    if (J == 1 &&  d.equals(grouplist.getValue()) || J == 1 && a.equals(leclist.getValue()) || J == 1 && i.equals(roomlist.getValue())) {
                         paraArray4[1] = paraSlot;
                     }
-                    if (J == 2 && d.equals(group.getText()) || J == 2 && a.equals(lec.getText())|| J == 2 && i.equals(location.getText())) {
+                    if (J == 2 &&  d.equals(grouplist.getValue()) || J == 2 && a.equals(leclist.getValue()) || J == 2 && i.equals(roomlist.getValue())) {
                         paraArray4[2] = paraSlot;
                     }
-                    if (J == 3 && d.equals(group.getText()) || J == 3 && a.equals(lec.getText())|| J == 3 && i.equals(location.getText())) {
+                    if (J == 3 &&  d.equals(grouplist.getValue()) || J == 3 && a.equals(leclist.getValue()) || J == 3 && i.equals(roomlist.getValue())) {
                         paraArray4[3] = paraSlot;
                     }
-                    if (J == 4 && d.equals(group.getText()) || J == 4 && a.equals(lec.getText())|| J == 4 && i.equals(location.getText())) {
+                    if (J == 4 &&  d.equals(grouplist.getValue()) || J == 4 && a.equals(leclist.getValue()) || J == 4 && i.equals(roomlist.getValue())) {
                         paraArray4[4] = paraSlot;
                     }
-                    if (J == 5 && d.equals(group.getText()) || J == 5 && a.equals(lec.getText())|| J == 5 && i.equals(location.getText())) {
+                    if (J == 5 &&  d.equals(grouplist.getValue()) || J == 5 && a.equals(leclist.getValue()) || J == 5 && i.equals(roomlist.getValue())) {
                         paraArray4[5] = paraSlot;
                     }
-                    if (J == 6 && d.equals(group.getText()) || J == 6 && a.equals(lec.getText())|| J == 6 && i.equals(location.getText())) {
+                    if (J == 6 &&  d.equals(grouplist.getValue()) || J == 6 && a.equals(leclist.getValue()) || J == 6 && i.equals(roomlist.getValue())) {
                         paraArray4[6] = paraSlot;
                     }
-                    if (J == 7 && d.equals(group.getText()) || J == 7 && a.equals(lec.getText())|| J == 7 && i.equals(location.getText())) {
+                    if (J == 7 &&  d.equals(grouplist.getValue()) || J == 7 && a.equals(leclist.getValue()) || J == 7 && i.equals(roomlist.getValue())) {
                         paraArray4[7] = paraSlot;
                     }
-                    if (J == 8 && d.equals(group.getText()) || J == 8 && a.equals(lec.getText())|| J == 8 && i.equals(location.getText())) {
+                    if (J == 8 &&  d.equals(grouplist.getValue()) || J == 8 && a.equals(leclist.getValue()) || J == 8 && i.equals(roomlist.getValue())) {
                         paraArray4[8] = paraSlot;
                     }
-                    if (J == 8 && d.equals(group.getText()) || J == 9 && a.equals(lec.getText())|| J == 9 && i.equals(location.getText())) {
+                    if (J == 8 &&  d.equals(grouplist.getValue()) || J == 9 && a.equals(leclist.getValue()) || J == 9 && i.equals(roomlist.getValue())) {
                         paraArray4[9] = paraSlot;
                     }
                     th6.setText((paraArray4[0]) + "\n" + (paraArray4[1]));
@@ -249,34 +346,34 @@ public class TimetableController implements Initializable {
 
                 //friday
                 if(h.equals("friday")) {
-                    if (J == 0 && d.equals(group.getText()) || J == 0 && a.equals(lec.getText())|| J == 0 && i.equals(location.getText())) {
+                    if (J == 0 &&  d.equals(grouplist.getValue()) || J == 0 && a.equals(leclist.getValue()) || J == 0 && i.equals(roomlist.getValue())) {
                         paraArray5[0] = paraSlot;
                     }
-                    if (J == 1 && d.equals(group.getText()) || J == 1 && a.equals(lec.getText())|| J == 1 && i.equals(location.getText())) {
+                    if (J == 1 &&  d.equals(grouplist.getValue()) || J == 1 && a.equals(leclist.getValue()) || J == 1 && i.equals(roomlist.getValue())) {
                         paraArray5[1] = paraSlot;
                     }
-                    if (J == 2 && d.equals(group.getText()) || J == 2 && a.equals(lec.getText())|| J == 2 && i.equals(location.getText())) {
+                    if (J == 2 &&  d.equals(grouplist.getValue()) || J == 2 && a.equals(leclist.getValue()) || J == 2 && i.equals(roomlist.getValue())) {
                         paraArray5[2] = paraSlot;
                     }
-                    if (J == 3 && d.equals(group.getText()) || J == 3 && a.equals(lec.getText())|| J == 3 && i.equals(location.getText())) {
+                    if (J == 3 &&  d.equals(grouplist.getValue()) || J == 3 && a.equals(leclist.getValue()) || J == 3 && i.equals(roomlist.getValue())) {
                         paraArray5[3] = paraSlot;
                     }
-                    if (J == 4 && d.equals(group.getText()) || J == 4 && a.equals(lec.getText())|| J == 4 && i.equals(location.getText())) {
+                    if (J == 4 &&  d.equals(grouplist.getValue()) || J == 4 && a.equals(leclist.getValue()) || J == 4 && i.equals(roomlist.getValue())) {
                         paraArray5[4] = paraSlot;
                     }
-                    if (J == 5 && d.equals(group.getText()) || J == 5 && a.equals(lec.getText())|| J == 5 && i.equals(location.getText())) {
+                    if (J == 5 &&  d.equals(grouplist.getValue()) || J == 5 && a.equals(leclist.getValue()) || J == 5 && i.equals(roomlist.getValue())) {
                         paraArray5[5] = paraSlot;
                     }
-                    if (J == 6 && d.equals(group.getText()) || J == 6 && a.equals(lec.getText())|| J == 6 && i.equals(location.getText())) {
+                    if (J == 6 &&  d.equals(grouplist.getValue()) || J == 6 && a.equals(leclist.getValue()) || J == 6 && i.equals(roomlist.getValue())) {
                         paraArray5[6] = paraSlot;
                     }
-                    if (J == 7 && d.equals(group.getText()) || J == 7 && a.equals(lec.getText())|| J == 7 && i.equals(location.getText())) {
+                    if (J == 7 &&  d.equals(grouplist.getValue()) || J == 7 && a.equals(leclist.getValue()) || J == 7 && i.equals(roomlist.getValue())) {
                         paraArray5[7] = paraSlot;
                     }
-                    if (J == 8 && d.equals(group.getText()) || J == 8 && a.equals(lec.getText())|| J == 8 && i.equals(location.getText())) {
+                    if (J == 8 &&  d.equals(grouplist.getValue()) || J == 8 && a.equals(leclist.getValue()) || J == 8 && i.equals(roomlist.getValue())) {
                         paraArray5[8] = paraSlot;
                     }
-                    if (J == 8 && d.equals(group.getText()) || J == 9 && a.equals(lec.getText())|| J == 9 && i.equals(location.getText())) {
+                    if (J == 8 &&  d.equals(grouplist.getValue()) || J == 9 && a.equals(leclist.getValue()) || J == 9 && i.equals(roomlist.getValue())) {
                         paraArray5[9] = paraSlot;
                     }
                     fr6.setText((paraArray5[0]) + "\n" + (paraArray5[1]));
@@ -285,34 +382,34 @@ public class TimetableController implements Initializable {
                 }
                 //saturday
                 if(h.equals("saturday")) {
-                if (J == 0 && d.equals(group.getText())  || J == 0 && a.equals(lec.getText())|| J == 0 && i.equals(location.getText())) {
+                if (J == 0 &&  d.equals(grouplist.getValue())  || J == 0 && a.equals(leclist.getValue()) || J == 0 && i.equals(roomlist.getValue())) {
                     paraArray6[0] = paraSlot;
                 }
-                if (J == 1 && d.equals(group.getText())  || J == 1 && a.equals(lec.getText())|| J == 1 && i.equals(location.getText())) {
+                if (J == 1 &&  d.equals(grouplist.getValue())  || J == 1 && a.equals(leclist.getValue()) || J == 1 && i.equals(roomlist.getValue())) {
                     paraArray6[1] = paraSlot;
                 }
-                if (J == 2 && d.equals(group.getText())  || J == 2 && a.equals(lec.getText())|| J == 2 && i.equals(location.getText())) {
+                if (J == 2 &&  d.equals(grouplist.getValue())  || J == 2 && a.equals(leclist.getValue()) || J == 2 && i.equals(roomlist.getValue())) {
                     paraArray6[2] = paraSlot;
                 }
-                if (J == 3 && d.equals(group.getText())  || J == 3 && a.equals(lec.getText())|| J == 3 && i.equals(location.getText())) {
+                if (J == 3 &&  d.equals(grouplist.getValue())  || J == 3 && a.equals(leclist.getValue()) || J == 3 && i.equals(roomlist.getValue())) {
                     paraArray6[3] = paraSlot;
                 }
-                if (J == 4 && d.equals(group.getText())  || J == 4 && a.equals(lec.getText())|| J == 4 && i.equals(location.getText())) {
+                if (J == 4 &&  d.equals(grouplist.getValue())  || J == 4 && a.equals(leclist.getValue()) || J == 4 && i.equals(roomlist.getValue())) {
                     paraArray6[4] = paraSlot;
                 }
-                if (J == 5 && d.equals(group.getText())  || J == 5 && a.equals(lec.getText())|| J == 5 && i.equals(location.getText())) {
+                if (J == 5 &&  d.equals(grouplist.getValue())  || J == 5 && a.equals(leclist.getValue()) || J == 5 && i.equals(roomlist.getValue())) {
                     paraArray6[5] = paraSlot;
                 }
-                if (J == 6 && d.equals(group.getText())  || J == 6 && a.equals(lec.getText())|| J == 6 && i.equals(location.getText())) {
+                if (J == 6 &&  d.equals(grouplist.getValue())  || J == 6 && a.equals(leclist.getValue()) || J == 6 && i.equals(roomlist.getValue())) {
                     paraArray6[6] = paraSlot;
                 }
-                if (J == 7 && d.equals(group.getText())  || J == 7 && a.equals(lec.getText())|| J == 7 && i.equals(location.getText())) {
+                if (J == 7 &&  d.equals(grouplist.getValue())  || J == 7 && a.equals(leclist.getValue()) || J == 7 && i.equals(roomlist.getValue())) {
                     paraArray6[7] = paraSlot;
                 }
-                if (J == 8 && d.equals(group.getText())  || J == 8 && a.equals(lec.getText())|| J == 8 && i.equals(location.getText())) {
+                if (J == 8 &&  d.equals(grouplist.getValue())  || J == 8 && a.equals(leclist.getValue()) || J == 8 && i.equals(roomlist.getValue())) {
                     paraArray6[8] = paraSlot;
                 }
-                if (J == 8 && d.equals(group.getText())  || J == 9 && a.equals(lec.getText())|| J == 9 && i.equals(location.getText())) {
+                if (J == 8 &&  d.equals(grouplist.getValue())  || J == 9 && a.equals(leclist.getValue()) || J == 9 && i.equals(roomlist.getValue())) {
                     paraArray6[9] = paraSlot;
                 }
                     sat6.setText((paraArray6[0]) + "\n" + (paraArray6[1]));
@@ -321,34 +418,34 @@ public class TimetableController implements Initializable {
                 }
                 //sunday
                 if(h.equals("sunday")) {
-                if (J == 0 && d.equals(group.getText())  || J == 0 && a.equals(lec.getText())|| J == 0 && i.equals(location.getText())) {
+                if (J == 0 &&  d.equals(grouplist.getValue())  || J == 0 && a.equals(leclist.getValue()) || J == 0 && i.equals(roomlist.getValue())) {
                     paraArray7[0] = paraSlot;
                 }
-                if (J == 1 && d.equals(group.getText())  || J == 1 && a.equals(lec.getText())|| J == 1 && i.equals(location.getText())) {
+                if (J == 1 &&  d.equals(grouplist.getValue())  || J == 1 && a.equals(leclist.getValue()) || J == 1 && i.equals(roomlist.getValue())) {
                     paraArray7[1] = paraSlot;
                 }
-                if (J == 2 && d.equals(group.getText())  || J == 2 && a.equals(lec.getText())|| J == 2 && i.equals(location.getText())) {
+                if (J == 2 &&  d.equals(grouplist.getValue())  || J == 2 && a.equals(leclist.getValue()) || J == 2 && i.equals(roomlist.getValue())) {
                     paraArray7[2] = paraSlot;
                 }
-                if (J == 3 && d.equals(group.getText())  || J == 3 && a.equals(lec.getText())|| J == 3 && i.equals(location.getText())) {
+                if (J == 3 &&  d.equals(grouplist.getValue())  || J == 3 && a.equals(leclist.getValue()) || J == 3 && i.equals(roomlist.getValue())) {
                     paraArray7[3] = paraSlot;
                 }
-                if (J == 4 && d.equals(group.getText())  || J == 4 && a.equals(lec.getText())|| J == 4 && i.equals(location.getText())) {
+                if (J == 4 &&  d.equals(grouplist.getValue())  || J == 4 && a.equals(leclist.getValue()) || J == 4 && i.equals(roomlist.getValue())) {
                     paraArray7[4] = paraSlot;
                 }
-                if (J == 5 && d.equals(group.getText())  || J == 5 && a.equals(lec.getText())|| J == 5 && i.equals(location.getText())) {
+                if (J == 5 &&  d.equals(grouplist.getValue())  || J == 5 && a.equals(leclist.getValue()) || J == 5 && i.equals(roomlist.getValue())) {
                     paraArray7[5] = paraSlot;
                 }
-                if (J == 6 && d.equals(group.getText())  || J == 6 && a.equals(lec.getText())|| J == 6 && i.equals(location.getText())) {
+                if (J == 6 &&  d.equals(grouplist.getValue())  || J == 6 && a.equals(leclist.getValue()) || J == 6 && i.equals(roomlist.getValue())) {
                     paraArray7[6] = paraSlot;
                 }
-                if (J == 7 && d.equals(group.getText())  || J == 7 && a.equals(lec.getText())|| J == 7 && i.equals(location.getText())) {
+                if (J == 7 &&  d.equals(grouplist.getValue())  || J == 7 && a.equals(leclist.getValue()) || J == 7 && i.equals(roomlist.getValue())) {
                     paraArray7[7] = paraSlot;
                 }
-                if (J == 8 && d.equals(group.getText())  || J == 8 && a.equals(lec.getText())|| J == 8 && i.equals(location.getText())) {
+                if (J == 8 &&  d.equals(grouplist.getValue())  || J == 8 && a.equals(leclist.getValue()) || J == 8 && i.equals(roomlist.getValue())) {
                     paraArray7[8] = paraSlot;
                 }
-                if (J == 8 && d.equals(group.getText())  || J == 9 && a.equals(lec.getText())|| J == 9 && i.equals(location.getText())) {
+                if (J == 8 &&  d.equals(grouplist.getValue())  || J == 9 && a.equals(leclist.getValue()) || J == 9 && i.equals(roomlist.getValue())) {
                     paraArray7[9] = paraSlot;
                 }
                     sun6.setText((paraArray7[0]) + "\n" + (paraArray7[1]));
@@ -395,43 +492,43 @@ public class TimetableController implements Initializable {
 
                     String conSlot = a + "\n" + c + "(" + b + ")" + e + "\n" + d + "," + f + "(" + g + ")" + "," + i1;
                     if(h.equals("monday")) {
-                        if (i == 0 && d.equals(group.getText()) || i == 0 && a.equals(lec.getText()) || i == 0 && i1.equals(location.getText())) {
+                        if (i == 0 && d.equals(grouplist.getValue()) || i == 0 && a.equals(leclist.getValue()) || i == 0 && i1.equals(roomlist.getValue())) {
                             consArray[0] = conSlot;
                             System.out.println(i1);
                             System.out.println(a);
 
                         }
-                        if (i == 1 && d.equals(group.getText()) || i == 1 && a.equals(lec.getText()) || i == 1 && i1.equals(location.getText())) {
+                        if (i == 1 &&  d.equals(grouplist.getValue()) || i == 1 && a.equals(leclist.getValue()) || i == 1 && i1.equals(roomlist.getValue())) {
                             consArray[1] = conSlot;
                             System.out.println(i1);
                             System.out.println(a);
                         }
-                        if (i == 2 && d.equals(group.getText()) || i == 2 && a.equals(lec.getText()) || i == 2 && i1.equals(location.getText())) {
+                        if (i == 2 &&  d.equals(grouplist.getValue()) || i == 2 && a.equals(leclist.getValue()) || i == 2 && i1.equals(roomlist.getValue())) {
                             consArray[2] = conSlot;
                             System.out.println(i1);
                             System.out.println(a);
                         }
-                        if (i == 3 && d.equals(group.getText()) || i == 3 && a.equals(lec.getText()) || i == 3 && i1.equals(location.getText())) {
+                        if (i == 3 &&  d.equals(grouplist.getValue()) || i == 3 && a.equals(leclist.getValue()) || i == 3 && i1.equals(roomlist.getValue())) {
                             consArray[3] = conSlot;
                             System.out.println(i1);
                             System.out.println(a);
                         }
-                        if (i == 4 && d.equals(group.getText()) || i == 4 && a.equals(lec.getText()) || i == 4 && i1.equals(location.getText())) {
+                        if (i == 4 &&  d.equals(grouplist.getValue()) || i == 4 && a.equals(leclist.getValue()) || i == 4 && i1.equals(roomlist.getValue())) {
                             consArray[4] = conSlot;
                         }
-                        if (i == 5 && d.equals(group.getText()) || i == 5 && a.equals(lec.getText()) || i == 5 && i1.equals(location.getText())) {
+                        if (i == 5 &&  d.equals(grouplist.getValue()) || i == 5 && a.equals(leclist.getValue()) || i == 5 && i1.equals(roomlist.getValue())) {
                             consArray[5] = conSlot;
                         }
-                        if (i == 6 && d.equals(group.getText()) || i == 6 && a.equals(lec.getText()) || i == 6 && i1.equals(location.getText())) {
+                        if (i == 6 &&  d.equals(grouplist.getValue()) || i == 6 && a.equals(leclist.getValue()) || i == 6 && i1.equals(roomlist.getValue())) {
                             consArray[6] = conSlot;
                         }
-                        if (i == 7 && d.equals(group.getText()) || i == 7 && a.equals(lec.getText()) || i == 7 && i1.equals(location.getText())) {
+                        if (i == 7 &&  d.equals(grouplist.getValue()) || i == 7 && a.equals(leclist.getValue()) || i == 7 && i1.equals(roomlist.getValue())) {
                             consArray[7] = conSlot;
                         }
-                        if (i == 8 && d.equals(group.getText()) || i == 8 && a.equals(lec.getText()) || i == 8 && i1.equals(location.getText())) {
+                        if (i == 8 &&  d.equals(grouplist.getValue()) || i == 8 && a.equals(leclist.getValue()) || i == 8 && i1.equals(roomlist.getValue())) {
                             consArray[8] = conSlot;
                         }
-                        if (i == 8 && d.equals(group.getText()) || i == 9 && a.equals(lec.getText()) || i == 9 && i1.equals(location.getText())) {
+                        if (i == 8 &&  d.equals(grouplist.getValue()) || i == 9 && a.equals(leclist.getValue()) || i == 9 && i1.equals(roomlist.getValue())) {
                             consArray[9] = conSlot;
                         }
 
@@ -444,34 +541,34 @@ public class TimetableController implements Initializable {
                     //tuesday
                     if(h.equals("tuesday")) {
 
-                        if (i == 0 && d.equals(group.getText()) || i == 0 && a.equals(lec.getText()) || i == 0 && i1.equals(location.getText())) {
+                        if (i == 0 &&  d.equals(grouplist.getValue()) || i == 0 && a.equals(leclist.getValue()) || i == 0 && i1.equals(roomlist.getValue())) {
                             consArray2[0] = conSlot;
                         }
-                        if (i == 1 && d.equals(group.getText()) || i == 1 && a.equals(lec.getText()) || i == 1 && i1.equals(location.getText())) {
+                        if (i == 1 &&  d.equals(grouplist.getValue()) || i == 1 && a.equals(leclist.getValue()) || i == 1 && i1.equals(roomlist.getValue())) {
                             consArray2[1] = conSlot;
                         }
-                        if (i == 2 && d.equals(group.getText()) || i == 2 && a.equals(lec.getText()) || i == 2 && i1.equals(location.getText())) {
+                        if (i == 2 &&  d.equals(grouplist.getValue()) || i == 2 && a.equals(leclist.getValue()) || i == 2 && i1.equals(roomlist.getValue())) {
                             consArray2[2] = conSlot;
                         }
-                        if (i == 3 && d.equals(group.getText()) || i == 3 && a.equals(lec.getText()) || i == 3 && i1.equals(location.getText())) {
+                        if (i == 3 &&  d.equals(grouplist.getValue()) || i == 3 && a.equals(leclist.getValue()) || i == 3 && i1.equals(roomlist.getValue())) {
                             consArray2[3] = conSlot;
                         }
-                        if (i == 4 && d.equals(group.getText()) || i == 4 && a.equals(lec.getText()) || i == 4 && i1.equals(location.getText())) {
+                        if (i == 4 &&  d.equals(grouplist.getValue()) || i == 4 && a.equals(leclist.getValue()) || i == 4 && i1.equals(roomlist.getValue())) {
                             consArray2[4] = conSlot;
                         }
-                        if (i == 5 && d.equals(group.getText()) || i == 5 && a.equals(lec.getText()) || i == 5 && i1.equals(location.getText())) {
+                        if (i == 5 &&  d.equals(grouplist.getValue()) || i == 5 && a.equals(leclist.getValue()) || i == 5 && i1.equals(roomlist.getValue())) {
                             consArray2[5] = conSlot;
                         }
-                        if (i == 6 && d.equals(group.getText()) || i == 6 && a.equals(lec.getText()) || i == 6 && i1.equals(location.getText())) {
+                        if (i == 6 &&  d.equals(grouplist.getValue()) || i == 6 && a.equals(leclist.getValue()) || i == 6 && i1.equals(roomlist.getValue())) {
                             consArray2[6] = conSlot;
                         }
-                        if (i == 7 && d.equals(group.getText()) || i == 7 && a.equals(lec.getText()) || i == 7 && i1.equals(location.getText())) {
+                        if (i == 7 &&  d.equals(grouplist.getValue()) || i == 7 && a.equals(leclist.getValue()) || i == 7 && i1.equals(roomlist.getValue())) {
                             consArray2[7] = conSlot;
                         }
-                        if (i == 8 && d.equals(group.getText()) || i == 8 && a.equals(lec.getText()) || i == 8 && i1.equals(location.getText())) {
+                        if (i == 8 &&  d.equals(grouplist.getValue()) || i == 8 && a.equals(leclist.getValue()) || i == 8 && i1.equals(roomlist.getValue())) {
                             consArray2[8] = conSlot;
                         }
-                        if (i == 8 && d.equals(group.getText()) || i == 9 && a.equals(lec.getText()) || i == 9 && i1.equals(location.getText())) {
+                        if (i == 8 &&  d.equals(grouplist.getValue()) || i == 9 && a.equals(leclist.getValue()) || i == 9 && i1.equals(roomlist.getValue())) {
                             consArray2[9] = conSlot;
                         }
                         tu1.setText(consArray2[0]);
@@ -481,34 +578,34 @@ public class TimetableController implements Initializable {
                     }
                     //wednesday
                     if(h.equals("wednesday")) {
-                        if (i == 0 && d.equals(group.getText()) || i == 0 && a.equals(lec.getText()) || i == 0 && i1.equals(location.getText())) {
+                        if (i == 0 &&  d.equals(grouplist.getValue()) || i == 0 && a.equals(leclist.getValue()) || i == 0 && i1.equals(roomlist.getValue())) {
                             consArray3[0] = conSlot;
                         }
-                        if (i == 1 && d.equals(group.getText()) || i == 1 && a.equals(lec.getText()) || i == 1 && i1.equals(location.getText())) {
+                        if (i == 1 &&  d.equals(grouplist.getValue()) || i == 1 && a.equals(leclist.getValue()) || i == 1 && i1.equals(roomlist.getValue())) {
                             consArray3[1] = conSlot;
                         }
-                        if (i == 2 && d.equals(group.getText()) || i == 2 && a.equals(lec.getText()) || i == 2 && i1.equals(location.getText())) {
+                        if (i == 2 &&  d.equals(grouplist.getValue()) || i == 2 && a.equals(leclist.getValue()) || i == 2 && i1.equals(roomlist.getValue())) {
                             consArray3[2] = conSlot;
                         }
-                        if (i == 3 && d.equals(group.getText()) || i == 3 && a.equals(lec.getText()) || i == 3 && i1.equals(location.getText())) {
+                        if (i == 3 &&  d.equals(grouplist.getValue()) || i == 3 && a.equals(leclist.getValue()) || i == 3 && i1.equals(roomlist.getValue())) {
                             consArray3[3] = conSlot;
                         }
-                        if (i == 4 && d.equals(group.getText()) || i == 4 && a.equals(lec.getText()) || i == 4 && i1.equals(location.getText())) {
+                        if (i == 4 &&  d.equals(grouplist.getValue()) || i == 4 && a.equals(leclist.getValue()) || i == 4 && i1.equals(roomlist.getValue())) {
                             consArray3[4] = conSlot;
                         }
-                        if (i == 5 && d.equals(group.getText()) || i == 5 && a.equals(lec.getText()) || i == 5 && i1.equals(location.getText())) {
+                        if (i == 5 &&  d.equals(grouplist.getValue()) || i == 5 && a.equals(leclist.getValue()) || i == 5 && i1.equals(roomlist.getValue())) {
                             consArray3[5] = conSlot;
                         }
-                        if (i == 6 && d.equals(group.getText()) || i == 6 && a.equals(lec.getText()) || i == 6 && i1.equals(location.getText())) {
+                        if (i == 6 &&  d.equals(grouplist.getValue()) || i == 6 && a.equals(leclist.getValue()) || i == 6 && i1.equals(roomlist.getValue())) {
                             consArray3[6] = conSlot;
                         }
-                        if (i == 7 && d.equals(group.getText()) || i == 7 && a.equals(lec.getText()) || i == 7 && i1.equals(location.getText())) {
+                        if (i == 7 &&  d.equals(grouplist.getValue()) || i == 7 && a.equals(leclist.getValue()) || i == 7 && i1.equals(roomlist.getValue())) {
                             consArray3[7] = conSlot;
                         }
-                        if (i == 8 && d.equals(group.getText()) || i == 8 && a.equals(lec.getText()) || i == 8 && i1.equals(location.getText())) {
+                        if (i == 8 &&  d.equals(grouplist.getValue()) || i == 8 && a.equals(leclist.getValue()) || i == 8 && i1.equals(roomlist.getValue())) {
                             consArray3[8] = conSlot;
                         }
-                        if (i == 8 && d.equals(group.getText()) || i == 9 && a.equals(lec.getText()) || i == 9 && i1.equals(location.getText())) {
+                        if (i == 8 &&  d.equals(grouplist.getValue()) || i == 9 && a.equals(leclist.getValue()) || i == 9 && i1.equals(roomlist.getValue())) {
                             consArray3[9] = conSlot;
                         }
                         w1.setText(consArray3[0]);
@@ -518,34 +615,34 @@ public class TimetableController implements Initializable {
                     }
                     //thursday
                     if(h.equals("thursday")) {
-                        if (i == 0 && d.equals(group.getText()) || i == 0 && a.equals(lec.getText()) || i == 0 && i1.equals(location.getText())) {
+                        if (i == 0 &&  d.equals(grouplist.getValue()) || i == 0 && a.equals(leclist.getValue()) || i == 0 && i1.equals(roomlist.getValue())) {
                             consArray[0] = conSlot;
                         }
-                        if (i == 1 && d.equals(group.getText()) || i == 1 && a.equals(lec.getText()) || i == 1 && i1.equals(location.getText())) {
+                        if (i == 1 &&  d.equals(grouplist.getValue()) || i == 1 && a.equals(leclist.getValue())  || i == 1 && i1.equals(roomlist.getValue())) {
                             consArray4[1] = conSlot;
                         }
-                        if (i == 2 && d.equals(group.getText()) || i == 2 && a.equals(lec.getText()) || i == 2 && i1.equals(location.getText())) {
+                        if (i == 2 &&  d.equals(grouplist.getValue()) || i == 2 && a.equals(leclist.getValue())  || i == 2 && i1.equals(roomlist.getValue())) {
                             consArray4[2] = conSlot;
                         }
-                        if (i == 3 && d.equals(group.getText()) || i == 3 && a.equals(lec.getText()) || i == 3 && i1.equals(location.getText())) {
+                        if (i == 3 &&  d.equals(grouplist.getValue()) || i == 3 && a.equals(leclist.getValue())  || i == 3 && i1.equals(roomlist.getValue())) {
                             consArray4[3] = conSlot;
                         }
-                        if (i == 4 && d.equals(group.getText()) || i == 4 && a.equals(lec.getText()) || i == 4 && i1.equals(location.getText())) {
+                        if (i == 4 &&  d.equals(grouplist.getValue()) || i == 4 && a.equals(leclist.getValue())  || i == 4 && i1.equals(roomlist.getValue())) {
                             consArray4[4] = conSlot;
                         }
-                        if (i == 5 && d.equals(group.getText()) || i == 5 && a.equals(lec.getText()) || i == 5 && i1.equals(location.getText())) {
+                        if (i == 5 &&  d.equals(grouplist.getValue()) || i == 5 && a.equals(leclist.getValue())  || i == 5 && i1.equals(roomlist.getValue())) {
                             consArray4[5] = conSlot;
                         }
-                        if (i == 6 && d.equals(group.getText()) || i == 6 && a.equals(lec.getText()) || i == 6 && i1.equals(location.getText())) {
+                        if (i == 6 &&  d.equals(grouplist.getValue()) || i == 6 && a.equals(leclist.getValue())  || i == 6 && i1.equals(roomlist.getValue())) {
                             consArray4[6] = conSlot;
                         }
-                        if (i == 7 && d.equals(group.getText()) || i == 7 && a.equals(lec.getText()) || i == 7 && i1.equals(location.getText())) {
+                        if (i == 7 &&  d.equals(grouplist.getValue()) || i == 7 && a.equals(leclist.getValue())  || i == 7 && i1.equals(roomlist.getValue())) {
                             consArray4[7] = conSlot;
                         }
-                        if (i == 8 && d.equals(group.getText()) || i == 8 && a.equals(lec.getText()) || i == 8 && i1.equals(location.getText())) {
+                        if (i == 8 &&  d.equals(grouplist.getValue()) || i == 8 && a.equals(leclist.getValue())  || i == 8 && i1.equals(roomlist.getValue())) {
                             consArray4[8] = conSlot;
                         }
-                        if (i == 8 && d.equals(group.getText()) || i == 9 && a.equals(lec.getText()) || i == 9 && i1.equals(location.getText())) {
+                        if (i == 8 &&  d.equals(grouplist.getValue()) || i == 9 && a.equals(leclist.getValue())  || i == 9 && i1.equals(roomlist.getValue())) {
                             consArray4[9] = conSlot;
                         }
                         th1.setText(consArray4[0]);
@@ -555,34 +652,34 @@ public class TimetableController implements Initializable {
                     }
                     //friday
                     if(h.equals("friday")) {
-                        if (i == 0 && d.equals(group.getText()) || i == 0 && a.equals(lec.getText()) || i == 0 && i1.equals(location.getText())) {
+                        if (i == 0 &&  d.equals(grouplist.getValue()) || i == 0 && a.equals(leclist.getValue())  || i == 0 && i1.equals(roomlist.getValue())) {
                             consArray5[0] = conSlot;
                         }
-                        if (i == 1 && d.equals(group.getText()) || i == 1 && a.equals(lec.getText()) || i == 1 && i1.equals(location.getText())) {
+                        if (i == 1 &&  d.equals(grouplist.getValue()) || i == 1 && a.equals(leclist.getValue())  || i == 1 && i1.equals(roomlist.getValue())) {
                             consArray5[1] = conSlot;
                         }
-                        if (i == 2 && d.equals(group.getText()) || i == 2 && a.equals(lec.getText()) || i == 2 && i1.equals(location.getText())) {
+                        if (i == 2 &&  d.equals(grouplist.getValue()) || i == 2 && a.equals(leclist.getValue())  || i == 2 && i1.equals(roomlist.getValue())) {
                             consArray5[2] = conSlot;
                         }
-                        if (i == 3 && d.equals(group.getText()) || i == 3 && a.equals(lec.getText()) || i == 3 && i1.equals(location.getText())) {
+                        if (i == 3 &&  d.equals(grouplist.getValue()) || i == 3 && a.equals(leclist.getValue())  || i == 3 && i1.equals(roomlist.getValue())) {
                             consArray5[3] = conSlot;
                         }
-                        if (i == 4 && d.equals(group.getText()) || i == 4 && a.equals(lec.getText()) || i == 4 && i1.equals(location.getText())) {
+                        if (i == 4 &&  d.equals(grouplist.getValue()) || i == 4 && a.equals(leclist.getValue())  || i == 4 && i1.equals(roomlist.getValue())) {
                             consArray5[4] = conSlot;
                         }
-                        if (i == 5 && d.equals(group.getText()) || i == 5 && a.equals(lec.getText()) || i == 5 && i1.equals(location.getText())) {
+                        if (i == 5 &&  d.equals(grouplist.getValue()) || i == 5 && a.equals(leclist.getValue())  || i == 5 && i1.equals(roomlist.getValue())) {
                             consArray5[5] = conSlot;
                         }
-                        if (i == 6 && d.equals(group.getText()) || i == 6 && a.equals(lec.getText()) || i == 6 && i1.equals(location.getText())) {
+                        if (i == 6 &&  d.equals(grouplist.getValue()) || i == 6 && a.equals(leclist.getValue())  || i == 6 && i1.equals(roomlist.getValue())) {
                             consArray5[6] = conSlot;
                         }
-                        if (i == 7 && d.equals(group.getText()) || i == 7 && a.equals(lec.getText()) || i == 7 && i1.equals(location.getText())) {
+                        if (i == 7 &&  d.equals(grouplist.getValue()) || i == 7 && a.equals(leclist.getValue())  || i == 7 && i1.equals(roomlist.getValue())) {
                             consArray5[7] = conSlot;
                         }
-                        if (i == 8 && d.equals(group.getText()) || i == 8 && a.equals(lec.getText()) || i == 8 && i1.equals(location.getText())) {
+                        if (i == 8 &&  d.equals(grouplist.getValue()) || i == 8 && a.equals(leclist.getValue())  || i == 8 && i1.equals(roomlist.getValue())) {
                             consArray5[8] = conSlot;
                         }
-                        if (i == 8 && d.equals(group.getText()) || i == 9 && a.equals(lec.getText()) || i == 9 && i1.equals(location.getText())) {
+                        if (i == 8 &&  d.equals(grouplist.getValue()) || i == 9 && a.equals(leclist.getValue())  || i == 9 && i1.equals(roomlist.getValue())) {
                             consArray5[9] = conSlot;
                         }
                         fr1.setText(consArray5[0]);
@@ -592,34 +689,34 @@ public class TimetableController implements Initializable {
                     }
                     if(h.equals("saturday")) {
                         //saturday
-                        if (i == 0 && d.equals(group.getText()) || i == 0 && a.equals(lec.getText()) || i == 0 && i1.equals(location.getText())) {
+                        if (i == 0 &&  d.equals(grouplist.getValue()) || i == 0 && a.equals(leclist.getValue())  || i == 0 && i1.equals(roomlist.getValue())) {
                             consArray6[0] = conSlot;
                         }
-                        if (i == 1 && d.equals(group.getText()) || i == 1 && a.equals(lec.getText()) || i == 1 && i1.equals(location.getText())) {
+                        if (i == 1 &&  d.equals(grouplist.getValue()) || i == 1 && a.equals(leclist.getValue())  || i == 1 && i1.equals(roomlist.getValue())) {
                             consArray6[1] = conSlot;
                         }
-                        if (i == 2 && d.equals(group.getText()) || i == 2 && a.equals(lec.getText()) || i == 2 && i1.equals(location.getText())) {
+                        if (i == 2 &&  d.equals(grouplist.getValue()) || i == 2 && a.equals(leclist.getValue())  || i == 2 && i1.equals(roomlist.getValue())) {
                             consArray6[2] = conSlot;
                         }
-                        if (i == 3 && d.equals(group.getText()) || i == 3 && a.equals(lec.getText()) || i == 3 && i1.equals(location.getText())) {
+                        if (i == 3 &&  d.equals(grouplist.getValue()) || i == 3 && a.equals(leclist.getValue())  || i == 3 && i1.equals(roomlist.getValue())) {
                             consArray6[3] = conSlot;
                         }
-                        if (i == 4 && d.equals(group.getText()) || i == 4 && a.equals(lec.getText()) || i == 4 && i1.equals(location.getText())) {
+                        if (i == 4 &&  d.equals(grouplist.getValue()) || i == 4 && a.equals(leclist.getValue())  || i == 4 && i1.equals(roomlist.getValue())) {
                             consArray6[4] = conSlot;
                         }
-                        if (i == 5 && d.equals(group.getText()) || i == 5 && a.equals(lec.getText()) || i == 5 && i1.equals(location.getText())) {
+                        if (i == 5 &&  d.equals(grouplist.getValue()) || i == 5 && a.equals(leclist.getValue())  || i == 5 && i1.equals(roomlist.getValue())) {
                             consArray6[5] = conSlot;
                         }
-                        if (i == 6 && d.equals(group.getText()) || i == 6 && a.equals(lec.getText()) || i == 6 && i1.equals(location.getText())) {
+                        if (i == 6 &&  d.equals(grouplist.getValue()) || i == 6 && a.equals(leclist.getValue())  || i == 6 && i1.equals(roomlist.getValue())) {
                             consArray6[6] = conSlot;
                         }
-                        if (i == 7 && d.equals(group.getText()) || i == 7 && a.equals(lec.getText()) || i == 7 && i1.equals(location.getText())) {
+                        if (i == 7 &&  d.equals(grouplist.getValue()) || i == 7 && a.equals(leclist.getValue())  || i == 7 && i1.equals(roomlist.getValue())) {
                             consArray6[7] = conSlot;
                         }
-                        if (i == 8 && d.equals(group.getText()) || i == 8 && a.equals(lec.getText()) || i == 8 && i1.equals(location.getText())) {
+                        if (i == 8 &&  d.equals(grouplist.getValue()) || i == 8 && a.equals(leclist.getValue())  || i == 8 && i1.equals(roomlist.getValue())) {
                             consArray6[8] = conSlot;
                         }
-                        if (i == 8 && d.equals(group.getText()) || i == 9 && a.equals(lec.getText()) || i == 9 && i1.equals(location.getText())) {
+                        if (i == 8 &&  d.equals(grouplist.getValue()) || i == 9 && a.equals(leclist.getValue())  || i == 9 && i1.equals(roomlist.getValue())) {
                             consArray6[9] = conSlot;
                         }
                         m1.setText(consArray6[0]);
@@ -661,34 +758,34 @@ public class TimetableController implements Initializable {
                 String nonSlot = a + "\n" + c + "(" + b + ")" + e + "\n" + d + "," + f + "(" + g + ")"+","+i;
 //monday
                 if(h.equals("monday")) {
-                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText())|| z == 0 && i.equals(location.getText())) {
+                    if (z == 0 &&  d.equals(grouplist.getValue()) || z == 0 && a.equals(leclist.getValue()) || z == 0 && i.equals(roomlist.getValue())) {
                         nonArray[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText())|| z == 1 && i.equals(location.getText())) {
+                    if (z == 1 &&  d.equals(grouplist.getValue()) || z == 1 && a.equals(leclist.getValue()) || z == 1 && i.equals(roomlist.getValue())) {
                         nonArray[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText())|| z == 2 && i.equals(location.getText())) {
+                    if (z == 2 &&  d.equals(grouplist.getValue()) || z == 2 && a.equals(leclist.getValue()) || z == 2 && i.equals(roomlist.getValue())) {
                         nonArray[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText())|| z == 3 && i.equals(location.getText())) {
+                    if (z == 3 &&  d.equals(grouplist.getValue()) || z == 3 && a.equals(leclist.getValue()) || z == 3 && i.equals(roomlist.getValue())) {
                         nonArray[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText())|| z == 4 && i.equals(location.getText())) {
+                    if (z == 4 &&  d.equals(grouplist.getValue()) || z == 4 && a.equals(leclist.getValue()) || z == 4 && i.equals(roomlist.getValue())) {
                         nonArray[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText())|| z == 5 && i.equals(location.getText())) {
+                    if (z == 5 &&  d.equals(grouplist.getValue()) || z == 5 && a.equals(leclist.getValue()) || z == 5 && i.equals(roomlist.getValue())) {
                         nonArray[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText())|| z == 6 && i.equals(location.getText())) {
+                    if (z == 6 &&  d.equals(grouplist.getValue()) || z == 6 && a.equals(leclist.getValue()) || z == 6 && i.equals(roomlist.getValue())) {
                         nonArray[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText())|| z == 7 && i.equals(location.getText())) {
+                    if (z == 7 &&  d.equals(grouplist.getValue()) || z == 7 && a.equals(leclist.getValue()) || z == 7 && i.equals(roomlist.getValue())) {
                         nonArray[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText())|| z == 8 && i.equals(location.getText())) {
+                    if (z == 8 &&  d.equals(grouplist.getValue()) || z == 8 && a.equals(leclist.getValue()) || z == 8 && i.equals(roomlist.getValue())) {
                         nonArray[8] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 8 &&  d.equals(grouplist.getValue()) || z == 9 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray[8] = nonSlot;
                     }
                     m1.setText(nonArray1[0]);
@@ -699,34 +796,34 @@ public class TimetableController implements Initializable {
 //tuesday
 
                 if(h.equals("tuesday")) {
-                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText())|| z == 0 && i.equals(location.getText())) {
+                    if (z == 0 &&  d.equals(grouplist.getValue()) || z == 0 && a.equals(leclist.getValue()) || z == 0 && i.equals(roomlist.getValue())) {
                         nonArray2[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText())|| z == 1 && i.equals(location.getText())) {
+                    if (z == 1 &&  d.equals(grouplist.getValue()) || z == 1 && a.equals(leclist.getValue()) || z == 1 && i.equals(roomlist.getValue())) {
                         nonArray2[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText())|| z == 2 && i.equals(location.getText())) {
+                    if (z == 2 &&  d.equals(grouplist.getValue()) || z == 2 && a.equals(leclist.getValue()) || z == 2 && i.equals(roomlist.getValue())) {
                         nonArray2[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText())|| z == 3 && i.equals(location.getText())) {
+                    if (z == 3 &&  d.equals(grouplist.getValue()) || z == 3 && a.equals(leclist.getValue()) || z == 3 && i.equals(roomlist.getValue())) {
                         nonArray2[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText())|| z == 4 && i.equals(location.getText())) {
+                    if (z == 4 &&  d.equals(grouplist.getValue()) || z == 4 && a.equals(leclist.getValue()) || z == 4 && i.equals(roomlist.getValue())) {
                         nonArray2[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText())|| z == 5 && i.equals(location.getText())) {
+                    if (z == 5 &&  d.equals(grouplist.getValue()) || z == 5 && a.equals(leclist.getValue()) || z == 5 && i.equals(roomlist.getValue())) {
                         nonArray2[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText())|| z == 6 && i.equals(location.getText())) {
+                    if (z == 6 &&  d.equals(grouplist.getValue()) || z == 6 && a.equals(leclist.getValue()) || z == 6 && i.equals(roomlist.getValue())) {
                         nonArray2[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText())|| z == 7 && i.equals(location.getText())) {
+                    if (z == 7 &&  d.equals(grouplist.getValue()) || z == 7 && a.equals(leclist.getValue()) || z == 7 && i.equals(roomlist.getValue())) {
                         nonArray2[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText())|| z == 8 && i.equals(location.getText())) {
+                    if (z == 8 &&  d.equals(grouplist.getValue()) || z == 8 && a.equals(leclist.getValue()) || z == 8 && i.equals(roomlist.getValue())) {
                         nonArray2[8] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 8 &&  d.equals(grouplist.getValue()) || z == 9 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray2[9] = nonSlot;
                     }
                     tu1.setText(nonArray2[0]);
@@ -736,34 +833,34 @@ public class TimetableController implements Initializable {
                 }
                 //wednesday
                 if(h.equals("wednesday")) {
-                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText())|| z == 0 && i.equals(location.getText())) {
+                    if (z == 0 &&  d.equals(grouplist.getValue()) || z == 0 && a.equals(leclist.getValue()) || z == 0 && i.equals(roomlist.getValue())) {
                         nonArray3[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText())|| z == 1 && i.equals(location.getText())) {
+                    if (z == 1 &&  d.equals(grouplist.getValue()) || z == 1 && a.equals(leclist.getValue()) || z == 1 && i.equals(roomlist.getValue())) {
                         nonArray3[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText())|| z == 2 && i.equals(location.getText())) {
+                    if (z == 2 &&  d.equals(grouplist.getValue()) || z == 2 && a.equals(leclist.getValue()) || z == 2 && i.equals(roomlist.getValue())) {
                         nonArray3[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText())|| z == 3 && i.equals(location.getText())) {
+                    if (z == 3 &&  d.equals(grouplist.getValue()) || z == 3 && a.equals(leclist.getValue()) || z == 3 && i.equals(roomlist.getValue())) {
                         nonArray3[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText())|| z == 4 && i.equals(location.getText())) {
+                    if (z == 4 &&  d.equals(grouplist.getValue()) || z == 4 && a.equals(leclist.getValue()) || z == 4 && i.equals(roomlist.getValue())) {
                         nonArray3[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText())|| z == 5 && i.equals(location.getText())) {
+                    if (z == 5 &&  d.equals(grouplist.getValue()) || z == 5 && a.equals(leclist.getValue()) || z == 5 && i.equals(roomlist.getValue())) {
                         nonArray3[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText())|| z == 6 && i.equals(location.getText())) {
+                    if (z == 6 &&  d.equals(grouplist.getValue()) || z == 6 && a.equals(leclist.getValue()) || z == 6 && i.equals(roomlist.getValue())) {
                         nonArray3[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText())|| z == 7 && i.equals(location.getText())) {
+                    if (z == 7 &&  d.equals(grouplist.getValue()) || z == 7 && a.equals(leclist.getValue()) || z == 7 && i.equals(roomlist.getValue())) {
                         nonArray3[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText())|| z == 8 && i.equals(location.getText())) {
+                    if (z == 8 &&  d.equals(grouplist.getValue()) || z == 8 && a.equals(leclist.getValue()) || z == 8 && i.equals(roomlist.getValue())) {
                         nonArray3[8] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 8 &&  d.equals(grouplist.getValue()) || z == 9 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray3[9] = nonSlot;
                     }
                     w1.setText(nonArray3[0]);
@@ -773,34 +870,34 @@ public class TimetableController implements Initializable {
                 }
                 //thursday
                 if(h.equals("thursday")) {
-                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText())|| z == 0 && i.equals(location.getText())) {
+                    if (z == 0 &&  d.equals(grouplist.getValue()) || z == 0 && a.equals(leclist.getValue()) || z == 0 && i.equals(roomlist.getValue())) {
                         nonArray4[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText())|| z == 1 && i.equals(location.getText())) {
+                    if (z == 1 &&  d.equals(grouplist.getValue()) || z == 1 && a.equals(leclist.getValue()) || z == 1 && i.equals(roomlist.getValue())) {
                         nonArray4[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText())|| z == 2 && i.equals(location.getText())) {
+                    if (z == 2 &&  d.equals(grouplist.getValue()) || z == 2 && a.equals(leclist.getValue()) || z == 2 && i.equals(roomlist.getValue())) {
                         nonArray4[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText())|| z == 3 && i.equals(location.getText())) {
+                    if (z == 3 &&  d.equals(grouplist.getValue()) || z == 3 && a.equals(leclist.getValue()) || z == 3 && i.equals(roomlist.getValue())) {
                         nonArray4[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText())|| z == 4 && i.equals(location.getText())) {
+                    if (z == 4 &&  d.equals(grouplist.getValue()) || z == 4 && a.equals(leclist.getValue()) || z == 4 && i.equals(roomlist.getValue())) {
                         nonArray4[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText())|| z == 5 && i.equals(location.getText())) {
+                    if (z == 5 &&  d.equals(grouplist.getValue()) || z == 5 && a.equals(leclist.getValue()) || z == 5 && i.equals(roomlist.getValue())) {
                         nonArray4[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText())|| z == 6 && i.equals(location.getText())) {
+                    if (z == 6 &&  d.equals(grouplist.getValue()) || z == 6 && a.equals(leclist.getValue()) || z == 6 && i.equals(roomlist.getValue())) {
                         nonArray4[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText())|| z == 7 && i.equals(location.getText())) {
+                    if (z == 7 &&  d.equals(grouplist.getValue()) || z == 7 && a.equals(leclist.getValue()) || z == 7 && i.equals(roomlist.getValue())) {
                         nonArray4[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText())|| z == 8 && i.equals(location.getText())) {
+                    if (z == 8 &&  d.equals(grouplist.getValue()) || z == 8 && a.equals(leclist.getValue()) || z == 8 && i.equals(roomlist.getValue())) {
                         nonArray4[8] = nonSlot;
                     }
-                    if (z == 9 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 9 &&  d.equals(grouplist.getValue()) || z == 9 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray4[9] = nonSlot;
                     }
                     th1.setText(nonArray4[0]);
@@ -810,34 +907,34 @@ public class TimetableController implements Initializable {
                 }
                 //friday
                 if(h.equals("friday")) {
-                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 0 &&  d.equals(grouplist.getValue()) || z == 0 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray5[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 1 &&  d.equals(grouplist.getValue()) || z == 1 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray5[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 2 &&  d.equals(grouplist.getValue()) || z == 2 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray5[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 3 &&  d.equals(grouplist.getValue()) || z == 3 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray5[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 4 &&  d.equals(grouplist.getValue()) || z == 4 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray5[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 5 &&  d.equals(grouplist.getValue()) || z == 5 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray5[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 6 &&  d.equals(grouplist.getValue()) || z == 6 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray5[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 7 &&  d.equals(grouplist.getValue()) || z == 7 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray5[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 8 &&  d.equals(grouplist.getValue()) || z == 8 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray5[8] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 8 &&  d.equals(grouplist.getValue()) || z == 9 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray5[9] = nonSlot;
                     }
                     fr1.setText(nonArray5[0]);
@@ -847,34 +944,34 @@ public class TimetableController implements Initializable {
                 }
                 if(h.equals("saturday")) {
                     //saturday
-                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText())|| z == 0 && i.equals(location.getText())) {
+                    if (z == 0 &&  d.equals(grouplist.getValue()) || z == 0 && a.equals(leclist.getValue()) || z == 0 && i.equals(roomlist.getValue())) {
                         nonArray6[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText())|| z == 1 && i.equals(location.getText())) {
+                    if (z == 1 &&  d.equals(grouplist.getValue()) || z == 1 && a.equals(leclist.getValue()) || z == 1 && i.equals(roomlist.getValue())) {
                         nonArray6[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText())|| z == 2 && i.equals(location.getText())) {
+                    if (z == 2 &&  d.equals(grouplist.getValue()) || z == 2 && a.equals(leclist.getValue()) || z == 2 && i.equals(roomlist.getValue())) {
                         nonArray6[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText())|| z == 3 && i.equals(location.getText())) {
+                    if (z == 3 &&  d.equals(grouplist.getValue()) || z == 3 && a.equals(leclist.getValue()) || z == 3 && i.equals(roomlist.getValue())) {
                         nonArray6[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText())|| z == 4 && i.equals(location.getText())) {
+                    if (z == 4 &&  d.equals(grouplist.getValue()) || z == 4 && a.equals(leclist.getValue()) || z == 4 && i.equals(roomlist.getValue())) {
                         nonArray6[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText())|| z == 5 && i.equals(location.getText())) {
+                    if (z == 5 &&  d.equals(grouplist.getValue()) || z == 5 && a.equals(leclist.getValue()) || z == 5 && i.equals(roomlist.getValue())) {
                         nonArray6[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText())|| z == 6 && i.equals(location.getText())) {
+                    if (z == 6 &&  d.equals(grouplist.getValue()) || z == 6 && a.equals(leclist.getValue()) || z == 6 && i.equals(roomlist.getValue())) {
                         nonArray6[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText())|| z == 7 && i.equals(location.getText())) {
+                    if (z == 7 &&  d.equals(grouplist.getValue()) || z == 7 && a.equals(leclist.getValue()) || z == 7 && i.equals(roomlist.getValue())) {
                         nonArray6[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText())|| z == 8 && i.equals(location.getText())) {
+                    if (z == 8 &&  d.equals(grouplist.getValue()) || z == 8 && a.equals(leclist.getValue()) || z == 8 && i.equals(roomlist.getValue())) {
                         nonArray6[8] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText())|| z == 9 && i.equals(location.getText())) {
+                    if (z == 8 &&  d.equals(grouplist.getValue()) || z == 9 && a.equals(leclist.getValue()) || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray6[9] = nonSlot;
                     }
                     m1.setText(nonArray6[0]);
@@ -884,34 +981,34 @@ public class TimetableController implements Initializable {
                 }
                 if(h.equals("sunday")) {
                     //sunday
-                    if (z == 0 && d.equals(group.getText()) || z == 0 && a.equals(lec.getText()) || z == 0 && i.equals(location.getText())) {
+                    if (z == 0 &&  d.equals(grouplist.getValue()) || z == 0 && a.equals(leclist.getValue())  || z == 0 && i.equals(roomlist.getValue())) {
                         nonArray7[0] = nonSlot;
                     }
-                    if (z == 1 && d.equals(group.getText()) || z == 1 && a.equals(lec.getText()) || z == 1 && i.equals(location.getText())) {
+                    if (z == 1 &&  d.equals(grouplist.getValue()) || z == 1 && a.equals(leclist.getValue())  || z == 1 && i.equals(roomlist.getValue())) {
                         nonArray7[1] = nonSlot;
                     }
-                    if (z == 2 && d.equals(group.getText()) || z == 2 && a.equals(lec.getText()) || z == 2 && i.equals(location.getText())) {
+                    if (z == 2 &&  d.equals(grouplist.getValue()) || z == 2 && a.equals(leclist.getValue())  || z == 2 && i.equals(roomlist.getValue())) {
                         nonArray7[2] = nonSlot;
                     }
-                    if (z == 3 && d.equals(group.getText()) || z == 3 && a.equals(lec.getText()) || z == 3 && i.equals(location.getText())) {
+                    if (z == 3 &&  d.equals(grouplist.getValue()) || z == 3 && a.equals(leclist.getValue())  || z == 3 && i.equals(roomlist.getValue())) {
                         nonArray7[3] = nonSlot;
                     }
-                    if (z == 4 && d.equals(group.getText()) || z == 4 && a.equals(lec.getText())|| z == 4 && i.equals(location.getText()) ) {
+                    if (z == 4 &&  d.equals(grouplist.getValue()) || z == 4 && a.equals(leclist.getValue()) || z == 4 && i.equals(roomlist.getValue()) ) {
                         nonArray7[4] = nonSlot;
                     }
-                    if (z == 5 && d.equals(group.getText()) || z == 5 && a.equals(lec.getText())|| z == 5 && i.equals(location.getText()) ) {
+                    if (z == 5 &&  d.equals(grouplist.getValue()) || z == 5 && a.equals(leclist.getValue()) || z == 5 && i.equals(roomlist.getValue()) ) {
                         nonArray7[5] = nonSlot;
                     }
-                    if (z == 6 && d.equals(group.getText()) || z == 6 && a.equals(lec.getText())|| z == 6 && i.equals(location.getText()) ) {
+                    if (z == 6 &&  d.equals(grouplist.getValue()) || z == 6 && a.equals(leclist.getValue()) || z == 6 && i.equals(roomlist.getValue()) ) {
                         nonArray7[6] = nonSlot;
                     }
-                    if (z == 7 && d.equals(group.getText()) || z == 7 && a.equals(lec.getText()) || z == 7 && i.equals(location.getText())) {
+                    if (z == 7 &&  d.equals(grouplist.getValue()) || z == 7 && a.equals(leclist.getValue())  || z == 7 && i.equals(roomlist.getValue())) {
                         nonArray7[7] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) || z == 8 && a.equals(lec.getText()) || z == 8 && i.equals(location.getText())) {
+                    if (z == 8 &&  d.equals(grouplist.getValue()) || z == 8 && a.equals(leclist.getValue())  || z == 8 && i.equals(roomlist.getValue())) {
                         nonArray7[8] = nonSlot;
                     }
-                    if (z == 8 && d.equals(group.getText()) || z == 9 && a.equals(lec.getText()) || z == 9 && i.equals(location.getText())) {
+                    if (z == 8 &&  d.equals(grouplist.getValue()) || z == 9 && a.equals(leclist.getValue())  || z == 9 && i.equals(roomlist.getValue())) {
                         nonArray7[9] = nonSlot;
                     }
                     m1.setText(nonArray7[0]);
@@ -928,7 +1025,7 @@ public class TimetableController implements Initializable {
 
     }
     @FXML
-    public void changeScreen(javafx.event.ActionEvent event) {
+    public void changeScreen(ActionEvent event) {
         try{
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
