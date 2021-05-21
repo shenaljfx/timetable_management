@@ -116,10 +116,6 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <ButtonBar prefHeight="40.0" prefWidth="200.0">
-        <buttons>
-          <Button mnemonicParsing="false" text="Button" />
-        </buttons>
-      </ButtonBar>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0" />
    </children>
 </AnchorPane>

@@ -15,12 +15,27 @@
         <TextField fx:id="s1_id" layoutX="730.0" layoutY="464.0" prefHeight="27.0" prefWidth="155.0" promptText="Session ID" />
         <Button layoutX="730.0" layoutY="558.0" mnemonicParsing="false" onAction="#allocateRoom" prefHeight="26.0" prefWidth="155.0" style="-fx-background-color: #c8c483;" text="Submit" />
         <Label layoutX="29.0" layoutY="-16.0" prefHeight="69.0" prefWidth="323.0" text="Rooms allocation" textFill="#616161">
+
             <font>
                 <Font name="Bookman Old Style" size="30.0" />
             </font>
         </Label>
         <Button layoutX="730.0" layoutY="614.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="27.0" prefWidth="155.0" style="-fx-background-color: #c8c483;" text="Back to main page" />
         <TextField fx:id="s2_id" layoutX="730.0" layoutY="515.0" prefHeight="27.0" prefWidth="155.0" promptText="ROOM " />
+
+        <TableView fx:id="main_table" layoutX="14.0" layoutY="44.0" prefHeight="338.0" prefWidth="1127.0" style="-fx-background-size: 100%;">
+            <columns>
+                <TableColumn fx:id="sec_id" prefWidth="100.0" style="-fx-background-color: #fff;" text="ID" />
+                <TableColumn fx:id="sec_lec" prefWidth="184.0" style="-fx-background-color: #fff;" text="Lecture" />
+                <TableColumn fx:id="sub_code" prefWidth="160.0" style="-fx-background-color: #fff;" text="Subject code" />
+                <TableColumn fx:id="sub_name" prefWidth="116.00006103515625" style="-fx-background-color: #fff;" text="Subject Name" />
+                <TableColumn fx:id="groupID" prefWidth="126.4000244140625" style="-fx-background-color: #fff;" text="Group ID" />
+                <TableColumn fx:id="tag" prefWidth="101.5999755859375" style="-fx-background-color: #fff;" text="Tag" />
+                <TableColumn fx:id="nostudent" prefWidth="121.0" style="-fx-background-color: #fff;" text="Number of students" />
+                <TableColumn fx:id="duration" prefWidth="98.199951171875" style="-fx-background-color: #fff;" text="duration" />
+                <TableColumn fx:id="sec_date" prefWidth="114.800048828125" style="-fx-background-color: #fff;" text="Date" />
+            </columns>
+        </TableView>
         <TableView fx:id="tvloc" layoutX="36.0" layoutY="417.0" prefHeight="422.0" prefWidth="566.0">
             <columns>
                 <TableColumn fx:id="tvlocbname" prefWidth="119.0" text="Building Name" />

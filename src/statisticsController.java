@@ -116,7 +116,7 @@ public class statisticsController implements Initializable {
     ResultSet rs = null;
     PreparedStatement pst = null;
 
-
+    @FXML
     public void save_stat (){
         conn =getConnection();
         String sql = "insert into analysisdata (GroupID,MonthFrom,MonthTo,Subject,Nooflectures,Nooflostlectures,Noofpracticals,Nooflostpracticals)values(?,?,?,?,?,?,?,? )";

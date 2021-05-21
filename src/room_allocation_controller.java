@@ -48,7 +48,7 @@ public class room_allocation_controller implements Initializable {
     private TableColumn<Sessions, String>  sub_name;
 
     @FXML
-    private TableView<Sessions> main_table;
+    private TableView<addSession> main_table;
 
     @FXML
     private TableColumn<Sessions, String> groupID;
@@ -115,8 +115,8 @@ public class room_allocation_controller implements Initializable {
             return null;
         }
     }
-    public ObservableList<Sessions> getSession(){
-        ObservableList<Sessions> SessionList = FXCollections.observableArrayList();
+    public ObservableList<addSession> getSession(){
+        ObservableList<addSession> SessionList = FXCollections.observableArrayList();
         Connection connection = getConnection();
         String query = "SELECT * FROM seesion_add ";
         Statement st;
@@ -126,10 +126,10 @@ public class room_allocation_controller implements Initializable {
         try {
             st = connection.createStatement();
             rs = st.executeQuery(query);
-            Sessions Sessions;
+            addSession addSession;
             while(rs.next()) {
-                Sessions = new Sessions( rs.getInt("id"), rs.getString("lec"), rs.getString("sub_code"), rs.getString("sub_name"),rs.getString("group_id"),rs.getString("tag"),rs.getString("noOfStudents"),rs.getString("duration"),rs.getString("date"));
-                SessionList.add(Sessions);
+                addSession = new addSession( rs.getInt("id"), rs.getString("lec"), rs.getString("sub_code"), rs.getString("sub_name"),rs.getString("group_id"),rs.getString("tag"),rs.getString("noOfStudents"),rs.getString("duration"),rs.getString("date"));
+                SessionList.add(addSession);
 
             }
         } catch (Exception e) {
@@ -140,7 +140,7 @@ public class room_allocation_controller implements Initializable {
 
     public void UpdateTable() {
         try{
-            ObservableList<Sessions> listM = getSession();
+            ObservableList<addSession> listM = getSession();
             sec_id.setCellValueFactory(new PropertyValueFactory<Sessions,Integer>("id"));
             sec_lec.setCellValueFactory(new PropertyValueFactory<>("lec"));
             sub_code.setCellValueFactory(new PropertyValueFactory<>("sub_code"));

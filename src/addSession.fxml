@@ -13,7 +13,7 @@
     </columnConstraints>
     <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="646.0" prefWidth="1169.0" style="-fx-background-color: #eee9d9;">
 
-    <TableView fx:id="main_table" layoutX="21.0" layoutY="79.0" prefHeight="338.0" prefWidth="1127.0" style="-fx-background-size: 100%;">
+    <TableView fx:id="main_table"  onMouseClicked="#mouseClicked" layoutX="21.0" layoutY="79.0" prefHeight="338.0" prefWidth="1127.0" style="-fx-background-size: 100%;">
         <columns>
             <TableColumn fx:id="sec_id" prefWidth="100.0" style="-fx-background-color: #fff;" text="ID" />
             <TableColumn fx:id="sec_lec" prefWidth="184.0" style="-fx-background-color: #fff;" text="Lecture" />
@@ -31,19 +31,19 @@
             <Font size="39.0" />
          </font>
       </Label>
-      <ComboBox fx:id="lec" layoutX="259.0" layoutY="445.0" prefHeight="26.0" prefWidth="178.0" promptText="Select Lecturer" style="-fx-background-color: #FFF;" />
-      <TextField fx:id="id" layoutX="32.0" layoutY="445.0" text="Enter ID" />
-      <ComboBox fx:id="subName" layoutX="697.0" layoutY="445.0" prefHeight="26.0" prefWidth="178.0" promptText="Select Subject Name" style="-fx-background-color: #FFF;" />
-      <ComboBox fx:id="subCode" layoutX="481.0" layoutY="445.0" prefHeight="26.0" prefWidth="178.0" promptText="Select Subject Code" style="-fx-background-color: #FFF;" />
-      <ComboBox fx:id="group_ID" layoutX="915.0" layoutY="445.0" prefHeight="26.0" prefWidth="178.0" promptText="Select Group ID" style="-fx-background-color: #FFF;" />
-      <TextField fx:id="tags" layoutX="32.0" layoutY="483.0" text="Enter tag" />
-      <TextField fx:id="s_cap" layoutX="32.0" layoutY="525.0" text="Enter  Student Capacity" />
-      <TextField fx:id="durations" layoutX="32.0" layoutY="563.0" text="Enter  duration" />
-      <TextField fx:id="date" layoutX="32.0" layoutY="606.0" text="Enter  date" />
-        <Button fx:id="btnAddSession" layoutX="298.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #deda93;" text="Add Session" />
-      <Button fx:id="btnAddSession1" layoutX="869.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #deda93;" text="Clear" />
-      <Button fx:id="btnAddSession11" layoutX="497.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #deda93;" text="Update" />
-      <Button fx:id="btnAddSession111" layoutX="688.0" layoutY="525.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #deda93;" text="Delete" />
-      <Button layoutX="539.0" layoutY="593.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="178.0" style="-fx-background-color: #deda93;" text="Back to main page" />
+      <ComboBox fx:id="lec" layoutX="233.0" layoutY="445.0" prefHeight="26.0" prefWidth="214.0" promptText="Select Lecturer" style="-fx-background-color: #FFF;" />
+      <TextField fx:id="id" layoutX="32.0" layoutY="445.0" promptText="Enter ID" />
+      <ComboBox fx:id="subName" layoutX="688.0" layoutY="445.0" prefHeight="26.0" prefWidth="214.0" promptText="Select Subject Name" style="-fx-background-color: #FFF;" />
+      <ComboBox fx:id="subCode" layoutX="461.0" layoutY="444.0" prefHeight="26.0" prefWidth="214.0" promptText="Select Subject Code" style="-fx-background-color: #FFF;" />
+      <ComboBox fx:id="group_ID" layoutX="915.0" layoutY="445.0" prefHeight="26.0" prefWidth="214.0" promptText="Select Group ID" style="-fx-background-color: #FFF;" />
+      <TextField fx:id="tags" layoutX="32.0" layoutY="483.0" promptText="Enter tag" />
+      <TextField fx:id="s_cap" layoutX="32.0" layoutY="525.0" promptText="Enter  Student Capacity" />
+      <TextField fx:id="durations" layoutX="32.0" layoutY="563.0" promptText="Enter  duration" />
+      <TextField fx:id="date" layoutX="32.0" layoutY="606.0" promptText="Enter  date" />
+        <Button fx:id="btnAddSession" layoutX="298.0" layoutY="525.0" mnemonicParsing="false" onAction="#Add_Session" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #deda93;" text="Add Session" />
+      <Button fx:id="btnAddSession1" layoutX="869.0" layoutY="525.0" mnemonicParsing="false" onAction="#refresh" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #deda93;" text="Clear" />
+      <Button fx:id="btnAddSession11" layoutX="497.0" layoutY="525.0" mnemonicParsing="false" onAction="#Edit" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #deda93;" text="Update" />
+      <Button fx:id="btnAddSession111" layoutX="688.0" layoutY="525.0" mnemonicParsing="false" onAction="#Delete" prefHeight="25.0" prefWidth="131.0" style="-fx-background-color: #deda93;" text="Delete" />
+      <Button layoutX="539.0" layoutY="593.0" mnemonicParsing="false" onAction="#changeScreen" prefHeight="26.0" prefWidth="178.0" style="-fx-background-color: #deda93;" text="Back to main page" />
 </AnchorPane>
 </GridPane>
